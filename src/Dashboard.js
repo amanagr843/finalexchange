@@ -340,6 +340,16 @@ function App() {
       
     }
   })
+
+  const [check9 , setCheck9]=React.useState(true)
+  const [check8 , setCheck8]=React.useState(true)
+  const [check7 , setCheck7]=React.useState(true)
+  const [check6 , setCheck6]=React.useState(true)
+  const [check5 , setCheck5]=React.useState(true)
+  const [check4 , setCheck4]=React.useState(true)
+  const [check3 , setCheck3]=React.useState(true)
+  const [check2 , setCheck2]=React.useState(true)
+  const [check , setCheck]=React.useState(true)
   const [stopTypes,setStopTypes]=React.useState([])
   const [fullStop_market_trig,setfullStop_market_trig]=React.useState(0)
   const [fullStop_market_stop,setfullStop_market_stop]=React.useState(0)
@@ -10090,7 +10100,9 @@ else{
               <Label >Price ( {`${pair.substr(pair.indexOf('/')+1,pair.length)}`} )</Label>
               <Input  onChange={(event)=>{
       setbuy_limit_price(parseFloat(event.target.value) )
-
+      if(event.target.value.length==0){
+        setCheck(true)
+      }
     }} placeholder={`ENTER PRICE in ${pair.substr(pair.indexOf('/')+1,pair.length)}`}></Input>
 
            
@@ -10113,7 +10125,12 @@ else{
               <Label>Total ( {`${pair.substr(pair.indexOf('/')+1,pair.length)}`} )</Label>
               <Input invalid={!valid} placeholder={`TOTAL AMOUNT in ${pair.substr(pair.indexOf('/')+1,pair.length)}`} onChange={(event)=>{
       const curr = `${pair.substr(pair.indexOf('/')+1,pair.length)}_Coins`
-      
+      if(event.target.value.length==0){
+        setCheck(true)
+      }
+      else{
+        setCheck(false)
+      }
      if(parseFloat(event.target.value)>parseFloat(localStorage.getItem(curr))){
         setvalid(false)
      }
@@ -10139,7 +10156,7 @@ else{
       </InputGroup>
     </div> */}
 
-              <Button disabled={!valid} size="lg" className="bg-success" style={{margin:"2rem 0 2rem 0",display:"block",width:"100%"}} onClick={()=>{
+              <Button disabled={!valid || check} size="lg" className="bg-success" style={{margin:"2rem 0 2rem 0",display:"block",width:"100%"}} onClick={()=>{
                  alert(`Are you sure that you want to place a buy market order for ${parseFloat(buy_limit_amount).toFixed(5)} ${pair.substr(0,pair.indexOf("/"))}_Coins`)
                 axios({
                   method:"POST",
@@ -10226,6 +10243,8 @@ else{
       const curr = `${pair.substr(pair.indexOf('/')+1,pair.length)}_Coins`
     setbuy_market_price(parseFloat(pair == "BTC/USDT" ? liveprice_BTC : pair == "BTC/INRD" ? parseFloat(liveprice_BTC*conversion).toFixed(2) : pair == "ETH/USDT" ? liveprice_ETH : pair == "ETH/INRD" ? parseFloat(liveprice_ETH*conversion).toFixed(2) : pair == "BNB/USDT" ? liveprice_BNB : pair == "BNB/INRD" ? parseFloat(liveprice_BNB*conversion).toFixed(2) : pair == "KSM/USDT" ? liveprice_KSM : pair == "KSM/INRD" ? parseFloat(liveprice_KSM*conversion).toFixed(2) : pair =="ATA/USDT"? liveprice_ATA : pair=="ATA/INRD" ? parseFloat(liveprice_ATA*conversion).toFixed(2) : pair=="MANA/USDT"? liveprice_MANA : pair=="MANA/INRD" ? parseFloat(liveprice_MANA*conversion).toFixed(2) : pair=="DGB/USDT"?liveprice_DGB: pair=="DGB/INRD"? parseFloat(liveprice_DGB*conversion).toFixed(2) : pair=="FTM/USDT"?liveprice_FTM: pair=="FTM/INRD"? parseFloat(liveprice_FTM*conversion).toFixed(2) : pair=="ALICE/USDT"?liveprice_ALICE: pair=="ALICE/INRD"? parseFloat(liveprice_ALICE*conversion).toFixed(2) : pair=="GTC/USDT"?liveprice_GTC: pair=="GTC/INRD"? parseFloat(liveprice_GTC*conversion).toFixed(2) : pair=="MATIC/USDT"?liveprice_MATIC: pair=="MATIC/INRD"? parseFloat(liveprice_MATIC*conversion).toFixed(2):pair=="AXS/USDT"?liveprice_AXS: pair=="AXS/INRD"? parseFloat(liveprice_AXS*conversion).toFixed(2): pair=="FTT/USDT"?liveprice_FTT: pair=="FTT/INRD"? parseFloat(liveprice_FTT*conversion).toFixed(2) :pair=="SOL/USDT"?liveprice_SOL: pair=="SOL/INRD"? parseFloat(liveprice_SOL*conversion).toFixed(2) :pair=="RUNE/USDT"?liveprice_RUNE: pair=="RUNE/INRD"? parseFloat(liveprice_RUNE*conversion).toFixed(2) :pair=="UNI/USDT"?liveprice_UNI: pair=="UNI/INRD"? parseFloat(liveprice_UNI*conversion).toFixed(2):pair=="DOT/USDT"?liveprice_DOT: pair=="DOT/INRD"? parseFloat(liveprice_DOT*conversion).toFixed(2) :pair=="VET/USDT"?liveprice_VET: pair=="VET/INRD"? parseFloat(liveprice_VET*conversion).toFixed(2):pair=="TFUEL/USDT"?liveprice_TFUEL: pair=="TFUEL/INRD"? parseFloat(liveprice_TFUEL*conversion).toFixed(2):pair=="GRT/USDT"?liveprice_GRT: pair=="GRT/INRD"? parseFloat(liveprice_GRT*conversion).toFixed(2):pair=="ADA/USDT"?liveprice_ADA: pair=="ADA/INRD"? parseFloat(liveprice_ADA*conversion).toFixed(2):pair=="FIL/USDT"?liveprice_FIL: pair=="FIL/INRD"? parseFloat(liveprice_FIL*conversion).toFixed(2):pair=="LINK/USDT"?liveprice_LINK: pair=="LINK/INRD"? parseFloat(liveprice_LINK*conversion).toFixed(2):pair=="LUNA/USDT"?liveprice_LUNA: pair=="LUNA/INRD"? parseFloat(liveprice_LUNA*conversion).toFixed(2):pair=="XRP/USDT"?liveprice_XRP:pair=="XRP/INRD"?parseFloat(liveprice_XRP*conversion).toFixed(2):pair=="DOGE/USDT"?liveprice_DOGE:pair=="DOGE/INRD"?parseFloat(liveprice_DOGE*conversion).toFixed(2):pair=="USDC/USDT"?liveprice_USDC:pair=="USDC/INRD"?parseFloat(liveprice_USDC*conversion).toFixed(2) :pair=="AVAX/USDT"?liveprice_AVAX:pair=="AVAX/INRD"?parseFloat(liveprice_AVAX*conversion).toFixed(2):pair=="BUSD/USDT"?liveprice_BUSD:pair=="BUSD/INRD"?parseFloat(liveprice_BUSD*conversion).toFixed(2):pair=="LTC/USDT"?liveprice_LTC:pair=="LTC/INRD"?parseFloat(liveprice_LTC*conversion).toFixed(2):pair=="BCH/USDT"?liveprice_BCH:pair=="BCH/INRD"?parseFloat(liveprice_BCH*conversion).toFixed(2):pair=="ALGO/USDT"?liveprice_ALGO:pair=="ALGO/INRD"?parseFloat(liveprice_ALGO*conversion).toFixed(2):pair=="ATOM/USDT"?liveprice_ATOM:pair=="ATOM/INRD"?parseFloat(liveprice_ATOM*conversion).toFixed(2):pair=="ICP/USDT"?liveprice_ICP:pair=="ICP/INRD"?parseFloat(liveprice_ICP*conversion).toFixed(2):pair=="TRX/USDT"?liveprice_TRX:pair=="TRX/INRD"?parseFloat(liveprice_TRX*conversion).toFixed(2): pair=="XLM/USDT"?liveprice_XLM:pair=="XLM/INRD"?parseFloat(liveprice_XLM*conversion).toFixed(2):pair=="ETC/USDT"?liveprice_ETC:pair=="ETC/INRD"?parseFloat(liveprice_ETC*conversion).toFixed(2):pair=="XTZ/USDT"?liveprice_XTZ:pair=="XTZ/INRD"?parseFloat(liveprice_XTZ*conversion).toFixed(2):pair=="EOS/USDT"?liveprice_EOS:pair=="EOS/INRD"?parseFloat(liveprice_EOS*conversion).toFixed(2):pair=="CAKE/USDT"?liveprice_CAKE:pair=="CAKE/INRD"?parseFloat(liveprice_CAKE*conversion).toFixed(2):pair=="EGLD/USDT"?liveprice_EGLD:pair=="EGLD/INRD"?parseFloat(liveprice_EGLD*conversion).toFixed(2):pair=="XMR/USDT"?liveprice_XMR:pair=="XMR/INRD"?parseFloat(liveprice_XMR*conversion).toFixed(2):pair=="AAVE/USDT"?liveprice_AAVE:pair=="AAVE/INRD"?parseFloat(liveprice_AAVE*conversion).toFixed(2):pair=="QNT/USDT"?liveprice_QNT:pair=="QNT/INRD"?parseFloat(liveprice_QNT*conversion).toFixed(2):pair=="XEC/USDT"?liveprice_XEC:pair=="XEC/INRD"?parseFloat(liveprice_XEC*conversion).toFixed(2):pair=="HBAR/USDT"?liveprice_HBAR:pair=="HBAR/INRD"?parseFloat(liveprice_HBAR*conversion).toFixed(2):pair=="SHIB/USDT"?liveprice_SHIB:pair=="SHIB/INRD"?parseFloat(liveprice_SHIB*conversion).toFixed(2):pair=="NEAR/USDT"?liveprice_NEAR:pair=="NEAR/INRD"?parseFloat(liveprice_NEAR*conversion).toFixed(2):pair=="NEO/USDT"?liveprice_NEO:pair=="NEO/INRD"?parseFloat(liveprice_NEO*conversion).toFixed(2):pair=="WAVES/USDT"?liveprice_WAVES:pair=="WAVES/INRD"?parseFloat(liveprice_WAVES*conversion).toFixed(2):pair=="BTT/USDT"?liveprice_BTT:pair=="BTT/INRD"?parseFloat(liveprice_BTT*conversion).toFixed(2):pair=="MKR/USDT"?liveprice_MKR:pair=="MKR/INRD"?parseFloat(liveprice_MKR*conversion).toFixed(2):pair=="SUSHI/USDT"?liveprice_SUSHI:pair=="SUSHI/INRD"?parseFloat(liveprice_SUSHI*conversion).toFixed(2):pair=="AR/USDT"?liveprice_AR:pair=="AR/INRD"?parseFloat(liveprice_AR*conversion).toFixed(2):pair=="SNX/USDT"?liveprice_SNX:pair=="SNX/INRD"?parseFloat(liveprice_SNX*conversion).toFixed(2):pair=="COMP/USDT"?liveprice_COMP:pair=="COMP/INRD"?parseFloat(liveprice_COMP*conversion).toFixed(2):pair=="DASH/USDT"?liveprice_DASH:pair=="DASH/INRD"?parseFloat(liveprice_DASH*conversion).toFixed(2):pair=="HNT/USDT"?liveprice_HNT:pair=="HNT/INRD"?parseFloat(liveprice_HNT*conversion).toFixed(2):pair=="CHZ/USDT"?liveprice_CHZ:pair=="CHZ/INRD"?parseFloat(liveprice_CHZ*conversion).toFixed(2):pair=="ONE/USDT"?liveprice_ONE:pair=="ONE/INRD"?parseFloat(liveprice_ONE*conversion).toFixed(2):pair=="HOT/USDT"?liveprice_HOT:pair=="HOT/INRD"?parseFloat(liveprice_HOT*conversion).toFixed(2):pair=="XEM/USDT"?liveprice_XEM:pair=="XEM/INRD"?parseFloat(liveprice_XEM*conversion).toFixed(2):pair=="KLAY/USDT"?liveprice_KLAY:pair=="KLAY/INRD"?parseFloat(liveprice_KLAY*conversion).toFixed(2):pair=="DCR/USDT"?liveprice_DCR:pair=="DCR/INRD"?parseFloat(liveprice_DCR*conversion).toFixed(2):pair=="ZEC/USDT"?liveprice_ZEC:pair=="ZEC/INRD"?parseFloat(liveprice_ZEC*conversion).toFixed(2):pair=="IOST/USDT"?liveprice_IOST:pair=="IOST/INRD"?parseFloat(liveprice_IOST*conversion).toFixed(2):pair=="ENJ/USDT"?liveprice_ENJ:pair=="ENJ/INRD"?parseFloat(liveprice_ENJ*conversion).toFixed(2):pair=="STX/USDT"?liveprice_STX:pair=="STX/INRD"?parseFloat(liveprice_STX*conversion).toFixed(2):pair=="TUSD/USDT"?liveprice_TUSD:pair=="TUSD/INRD"?parseFloat(liveprice_TUSD*conversion).toFixed(2):pair=="ZIL/USDT"?liveprice_ZIL:pair=="ZIL/INRD"?parseFloat(liveprice_ZIL*conversion).toFixed(2):pair=="FLOW/USDT"?liveprice_FLOW:pair=="FLOW/INRD"?parseFloat(liveprice_FLOW*conversion).toFixed(2):pair=="QTUM/USDT"?liveprice_QTUM:pair=="QTUM/INRD"?parseFloat(liveprice_QTUM*conversion).toFixed(2):pair=="MINA/USDT"?liveprice_MINA:pair=="MINA/INRD"?parseFloat(liveprice_MINA*conversion).toFixed(2):pair=="ICX/USDT"?liveprice_ICX:pair=="ICX/INRD"?parseFloat(liveprice_ICX*conversion).toFixed(2):pair=="OMG/USDT"?liveprice_OMG:pair=="OMG/INRD"?parseFloat(liveprice_OMG*conversion).toFixed(2):pair=="BTG/USDT"?liveprice_BTG:pair=="BTG/INRD"?parseFloat(liveprice_BTG*conversion).toFixed(2):pair=="BAT/USDT"?liveprice_BAT:pair=="BAT/INRD"?parseFloat(liveprice_BAT*conversion).toFixed(2):pair=="AUDIO/USDT"?liveprice_AUDIO:pair=="AUDIO/INRD"?parseFloat(liveprice_AUDIO*conversion).toFixed(2):pair=="ZEN/USDT"?liveprice_ZEN:pair=="ZEN/INRD"?parseFloat(liveprice_ZEN*conversion).toFixed(2):pair=="RVN/USDT"?liveprice_RVN:pair=="RVN/INRD"?parseFloat(liveprice_RVN*conversion).toFixed(2):pair=="MDX/USDT"?liveprice_MDX:pair=="MDX/INRD"?parseFloat(liveprice_MDX*conversion).toFixed(2):pair=="BNT/USDT"?liveprice_BNT:pair=="BNT/INRD"?parseFloat(liveprice_BNT*conversion).toFixed(2):pair=="ZRX/USDT"?liveprice_ZRX:pair=="ZRX/INRD"?parseFloat(liveprice_ZRX*conversion).toFixed(2):pair=="ONT/USDT"?liveprice_ONT:pair=="ONT/INRD"?parseFloat(liveprice_ONT*conversion).toFixed(2):pair=="RAY/USDT"?liveprice_RAY:pair=="RAY/INRD"?parseFloat(liveprice_RAY*conversion).toFixed(2):pair=="SC/USDT"?liveprice_SC:pair=="SC/INRD"?parseFloat(liveprice_SC*conversion).toFixed(2):pair=="DYDX/USDT"?liveprice_DYDX:pair=="DYDX/INRD"?parseFloat(liveprice_DYDX*conversion).toFixed(2):pair=="PERP/USDT"?liveprice_PERP:pair=="PERP/INRD"?parseFloat(liveprice_PERP*conversion).toFixed(2):pair=="GALA/USDT"?liveprice_GALA:pair=="GALA/INRD"?parseFloat(liveprice_GALA*conversion).toFixed(2):pair=="ANKR/USDT"?liveprice_ANKR:pair=="ANKR/INRD"?parseFloat(liveprice_ANKR*conversion).toFixed(2):pair=="NANO/USDT"?liveprice_NANO:pair=="NANO/INRD"?parseFloat(liveprice_NANO*conversion).toFixed(2):pair=="CELO/USDT"?liveprice_CELO:pair=="CELO/INRD"?parseFloat(liveprice_CELO*conversion).toFixed(2):pair=="UMA/USDT"?liveprice_UMA:pair=="UMA/INRD"?parseFloat(liveprice_UMA*conversion).toFixed(2):pair=="C98/USDT"?liveprice_C98:pair=="C98/INRD"?parseFloat(liveprice_C98*conversion).toFixed(2):pair=="CELR/USDT"?liveprice_CELR:pair=="CELR/INRD"?parseFloat(liveprice_CELR*conversion).toFixed(2):pair=="SAND/USDT"?liveprice_SAND:pair=="SAND/INRD"?parseFloat(liveprice_SAND*conversion).toFixed(2):pair=="POLY/USDT"?liveprice_POLY:pair=="POLY/INRD"?parseFloat(liveprice_POLY*conversion).toFixed(2):pair=="FET/USDT"?liveprice_FET:pair=="FET/INRD"?parseFloat(liveprice_FET*conversion).toFixed(2):pair=="1INCH/USDT"?liveprice_1INCH:pair=="1INCH/INRD"?parseFloat(liveprice_1INCH*conversion).toFixed(2):pair=="LRC/USDT"?liveprice_LRC:pair=="LRC/INRD"?parseFloat(liveprice_LRC*conversion).toFixed(2):pair=="KAVA/USDT"?liveprice_KAVA:pair=="KAVA/INRD"?
               parseFloat(liveprice_KAVA*conversion).toFixed(2):pair=="WRX/USDT"?liveprice_WRX:pair=="WRX/INRD"?parseFloat(liveprice_WRX*conversion).toFixed(2):pair=="RSR/USDT"?liveprice_RSR:pair=="RSR/INRD"?parseFloat(liveprice_RSR*conversion).toFixed(2) : pair == "ANTEAG/USDT" ? parseFloat(8.08/conversion).toFixed(4) : pair =="ANTEAG/INRD" ? parseFloat(8.08) :pair=="THETA/USDT"?liveprice_THETA :parseFloat(liveprice_THETA*conversion).toFixed(2)))
+     
+   
      if(parseFloat(event.target.value)>parseFloat(localStorage.getItem(curr))){
       setvalid(false)
       
@@ -10236,10 +10255,17 @@ else{
       setbuy_market_amount(parseFloat(event.target.value)/parseFloat(buy_market_price))
       
      }
+
+     if(event.target.value.length==0){
+        setCheck2(true)
+      }
+      else{
+        setCheck2(false)
+      }
       
     }}></Input>
 
-              <Button size="lg" valid={!valid} className="bg-success" onClick={()=>{
+              <Button disabled={check2} size="lg" valid={!valid || check2} className="bg-success" onClick={()=>{
                  alert(`Are you sure that you want to place a buy market order for ${parseFloat(buy_market_amount).toFixed(5)} ${pair.substr(0,pair.indexOf("/"))}_Coins`)
                 axios({
                   method:"POST",
@@ -10287,6 +10313,10 @@ else{
       // setbuy_limit_price(parseFloat(event.target.value)  
       setStop_buy_trig(parseFloat(event.target.value) )
 
+      if(event.target.value.length==0){
+        setCheck3(true)
+      }
+
     }} placeholder={`ENTER PRICE in ${pair.substr(pair.indexOf('/')+1,pair.length)}`}></Input>
     
 <Label>Stop Price ( {`${pair.substr(pair.indexOf('/')+1,pair.length)}`} )</Label>
@@ -10294,8 +10324,11 @@ else{
       // setbuy_limit_price(parseFloat(event.target.value)  
       setStop_buy_stop(parseFloat(event.target.value) )
 
+      if(event.target.value.length==0 || stop_buy_stop>stop_buy_trig){
+        setCheck3(true)
+      } 
     }} placeholder={`ENTER PRICE in ${pair.substr(pair.indexOf('/')+1,pair.length)}`}></Input>
-{ stop_buy_stop>stop_buy_trig? <p style={{color:"red",fontSize:"0.7rem"}}>Stop price should be lower than trigger price</p>: null}
+{ stop_buy_stop>stop_buy_trig?  <p style={{color:"red",fontSize:"0.7rem"}}>Stop price should be lower than trigger price</p>: null}
 
                 <Label>Amount ({`${pair.substr(0,pair.indexOf('/'))}`})</Label>
                 <Input invalid={!valid} style={{color:"black"}} placeholder={`ENTER AMOUNT in ${pair.substr(0,pair.indexOf('/'))}`} disabled={true} value={stop_buy_amount} onChange={(event)=>{
@@ -10314,6 +10347,13 @@ else{
                 <Input  invalid={!valid} placeholder={`TOTAL AMOUNT in ${pair.substr(pair.indexOf('/')+1,pair.length)}`} onChange={(event)=>{
       const curr = `${pair.substr(pair.indexOf('/')+1,pair.length)}_Coins`
       
+      if(event.target.value.length==0){
+        setCheck3(true)
+      }
+      else{
+        setCheck3(false)
+      }
+
      if(parseFloat(event.target.value)>parseFloat(localStorage.getItem(curr))){
         setvalid(false)
      }
@@ -10325,7 +10365,7 @@ else{
       
     }}></Input>
 
-                <Button size="lg" className="bg-success" style={{margin:"2rem 0 2rem 0",display:"block",width:"100%"}} type="submit" onClick={()=>{
+                <Button disabled={check3} size="lg" className="bg-success" style={{margin:"2rem 0 2rem 0",display:"block",width:"100%"}} type="submit" onClick={()=>{
                      alert(`Are you sure that you want to place a stop-limit buy order for ${parseFloat(stop_buy_amount).toFixed(5)} ${pair.substr(0,pair.indexOf("/"))}_Coins`)
                         axios({
                   method:"POST",
@@ -10396,6 +10436,13 @@ else{
                 <Label>Price ( {`${pair.substr(pair.indexOf('/')+1,pair.length)}`} )</Label>
                 <Input placeholder={`ENTER PRICE in ${pair.substr(pair.indexOf('/')+1,pair.length)}`} onChange={(event)=>{
       setsell_limit_price(parseFloat(event.target.value))
+                  
+                  if(event.target.value.length==0){
+                    setCheck4(true)
+                  }
+                  else{
+                    setCheck4(false)
+                  }
     }}></Input>
 
               
@@ -10403,6 +10450,9 @@ else{
                 <Label>Amount ({`${pair.substr(0,pair.indexOf('/'))}`})</Label>
                 <Input invalid={!valid_s} placeholder={`ENTER AMOUNT in ${pair.substr(0,pair.indexOf('/'))}`} value={sell_limit_amount} onChange={(event)=>{
       const curr = `${pair.substr(pair.indexOf('/')+1,pair.length)}_Coins`
+      
+    
+      
       if(parseFloat(event.target.value) > parseFloat(localStorage.getItem(curr))){
         setvalid_s(false)
       }
@@ -10434,6 +10484,7 @@ else{
       const curr = `${pair.substr(0,pair.indexOf('/'))}_Coins`
       const curdebt = `${pair.substr(0,pair.indexOf('/'))}_Debt`
       
+    
 
      if(parseFloat(parseFloat(event.target.value)/parseFloat(sell_limit_price))>parseFloat(localStorage.getItem(curr))){
         // alert("do you want to transact");
@@ -10451,7 +10502,7 @@ else{
       
     }}></Input>
 
-                <Button size="lg" className="bg-dark" style={{margin:"2rem 0 2rem 0",display:"block",width:"100%"}}  onClick={()=>{
+                <Button disabled={!valid_s || check4} size="lg" className="bg-dark" style={{margin:"2rem 0 2rem 0",display:"block",width:"100%"}}  onClick={()=>{
                           alert(`Are you sure that you want to place a sell limit order for ${parseFloat(sell_limit_amount).toFixed(5)} ${pair.substr(0,pair.indexOf("/"))}_Coins`)       
                                 axios({
         method:"POST",
@@ -10593,6 +10644,15 @@ else{
            <Input invalid={!valid_s} placeholder={`ENTER PRICE in ${pair.substr(pair.indexOf('/')+1,pair.length)}`} onChange={(event)=>{
              
    setStopTake_sell_trig(parseFloat(event.target.value))
+
+             
+
+              if(event.target.value.length==0 || parseFloat(event.target.value)> parseFloat(pair == "BTC/USDT" ? liveprice_BTC : pair == "BTC/INRD" ? parseFloat(liveprice_BTC*conversion).toFixed(2) : pair == "ETH/USDT" ? liveprice_ETH : pair == "ETH/INRD" ? parseFloat(liveprice_ETH*conversion).toFixed(2) : pair == "BNB/USDT" ? liveprice_BNB : pair == "BNB/INRD" ? parseFloat(liveprice_BNB*conversion).toFixed(2) : pair == "KSM/USDT" ? liveprice_KSM : pair == "KSM/INRD" ? parseFloat(liveprice_KSM*conversion).toFixed(2) : pair =="ATA/USDT"? liveprice_ATA : pair=="ATA/INRD" ? parseFloat(liveprice_ATA*conversion).toFixed(2) : pair=="MANA/USDT"? liveprice_MANA : pair=="MANA/INRD" ? parseFloat(liveprice_MANA*conversion).toFixed(2) : pair=="DGB/USDT"?liveprice_DGB: pair=="DGB/INRD"? parseFloat(liveprice_DGB*conversion).toFixed(2) : pair=="FTM/USDT"?liveprice_FTM: pair=="FTM/INRD"? parseFloat(liveprice_FTM*conversion).toFixed(2) : pair=="ALICE/USDT"?liveprice_ALICE: pair=="ALICE/INRD"? parseFloat(liveprice_ALICE*conversion).toFixed(2) : pair=="GTC/USDT"?liveprice_GTC: pair=="GTC/INRD"? parseFloat(liveprice_GTC*conversion).toFixed(2) : pair=="MATIC/USDT"?liveprice_MATIC: pair=="MATIC/INRD"? parseFloat(liveprice_MATIC*conversion).toFixed(2):pair=="AXS/USDT"?liveprice_AXS: pair=="AXS/INRD"? parseFloat(liveprice_AXS*conversion).toFixed(2): pair=="FTT/USDT"?liveprice_FTT: pair=="FTT/INRD"? parseFloat(liveprice_FTT*conversion).toFixed(2) :pair=="SOL/USDT"?liveprice_SOL: pair=="SOL/INRD"? parseFloat(liveprice_SOL*conversion).toFixed(2) :pair=="RUNE/USDT"?liveprice_RUNE: pair=="RUNE/INRD"? parseFloat(liveprice_RUNE*conversion).toFixed(2) :pair=="UNI/USDT"?liveprice_UNI: pair=="UNI/INRD"? parseFloat(liveprice_UNI*conversion).toFixed(2):pair=="DOT/USDT"?liveprice_DOT: pair=="DOT/INRD"? parseFloat(liveprice_DOT*conversion).toFixed(2) :pair=="VET/USDT"?liveprice_VET: pair=="VET/INRD"? parseFloat(liveprice_VET*conversion).toFixed(2):pair=="TFUEL/USDT"?liveprice_TFUEL: pair=="TFUEL/INRD"? parseFloat(liveprice_TFUEL*conversion).toFixed(2):pair=="GRT/USDT"?liveprice_GRT: pair=="GRT/INRD"? parseFloat(liveprice_GRT*conversion).toFixed(2):pair=="ADA/USDT"?liveprice_ADA: pair=="ADA/INRD"? parseFloat(liveprice_ADA*conversion).toFixed(2):pair=="FIL/USDT"?liveprice_FIL: pair=="FIL/INRD"? parseFloat(liveprice_FIL*conversion).toFixed(2):pair=="LINK/USDT"?liveprice_LINK: pair=="LINK/INRD"? parseFloat(liveprice_LINK*conversion).toFixed(2):pair=="LUNA/USDT"?liveprice_LUNA: pair=="LUNA/INRD"? parseFloat(liveprice_LUNA*conversion).toFixed(2):pair=="XRP/USDT"?liveprice_XRP:pair=="XRP/INRD"?parseFloat(liveprice_XRP*conversion).toFixed(2):pair=="DOGE/USDT"?liveprice_DOGE:pair=="DOGE/INRD"?parseFloat(liveprice_DOGE*conversion).toFixed(2):pair=="USDC/USDT"?liveprice_USDC:pair=="USDC/INRD"?parseFloat(liveprice_USDC*conversion).toFixed(2) :pair=="AVAX/USDT"?liveprice_AVAX:pair=="AVAX/INRD"?parseFloat(liveprice_AVAX*conversion).toFixed(2):pair=="BUSD/USDT"?liveprice_BUSD:pair=="BUSD/INRD"?parseFloat(liveprice_BUSD*conversion).toFixed(2):pair=="LTC/USDT"?liveprice_LTC:pair=="LTC/INRD"?parseFloat(liveprice_LTC*conversion).toFixed(2):pair=="BCH/USDT"?liveprice_BCH:pair=="BCH/INRD"?parseFloat(liveprice_BCH*conversion).toFixed(2):pair=="ALGO/USDT"?liveprice_ALGO:pair=="ALGO/INRD"?parseFloat(liveprice_ALGO*conversion).toFixed(2):pair=="ATOM/USDT"?liveprice_ATOM:pair=="ATOM/INRD"?parseFloat(liveprice_ATOM*conversion).toFixed(2):pair=="ICP/USDT"?liveprice_ICP:pair=="ICP/INRD"?parseFloat(liveprice_ICP*conversion).toFixed(2):pair=="TRX/USDT"?liveprice_TRX:pair=="TRX/INRD"?parseFloat(liveprice_TRX*conversion).toFixed(2): pair=="XLM/USDT"?liveprice_XLM:pair=="XLM/INRD"?parseFloat(liveprice_XLM*conversion).toFixed(2):pair=="ETC/USDT"?liveprice_ETC:pair=="ETC/INRD"?parseFloat(liveprice_ETC*conversion).toFixed(2):pair=="XTZ/USDT"?liveprice_XTZ:pair=="XTZ/INRD"?parseFloat(liveprice_XTZ*conversion).toFixed(2):pair=="EOS/USDT"?liveprice_EOS:pair=="EOS/INRD"?parseFloat(liveprice_EOS*conversion).toFixed(2):pair=="CAKE/USDT"?liveprice_CAKE:pair=="CAKE/INRD"?parseFloat(liveprice_CAKE*conversion).toFixed(2):pair=="EGLD/USDT"?liveprice_EGLD:pair=="EGLD/INRD"?parseFloat(liveprice_EGLD*conversion).toFixed(2):pair=="XMR/USDT"?liveprice_XMR:pair=="XMR/INRD"?parseFloat(liveprice_XMR*conversion).toFixed(2):pair=="AAVE/USDT"?liveprice_AAVE:pair=="AAVE/INRD"?parseFloat(liveprice_AAVE*conversion).toFixed(2):pair=="QNT/USDT"?liveprice_QNT:pair=="QNT/INRD"?parseFloat(liveprice_QNT*conversion).toFixed(2):pair=="XEC/USDT"?liveprice_XEC:pair=="XEC/INRD"?parseFloat(liveprice_XEC*conversion).toFixed(2):pair=="HBAR/USDT"?liveprice_HBAR:pair=="HBAR/INRD"?parseFloat(liveprice_HBAR*conversion).toFixed(2):pair=="SHIB/USDT"?liveprice_SHIB:pair=="SHIB/INRD"?parseFloat(liveprice_SHIB*conversion).toFixed(2):pair=="NEAR/USDT"?liveprice_NEAR:pair=="NEAR/INRD"?parseFloat(liveprice_NEAR*conversion).toFixed(2):pair=="NEO/USDT"?liveprice_NEO:pair=="NEO/INRD"?parseFloat(liveprice_NEO*conversion).toFixed(2):pair=="WAVES/USDT"?liveprice_WAVES:pair=="WAVES/INRD"?parseFloat(liveprice_WAVES*conversion).toFixed(2):pair=="BTT/USDT"?liveprice_BTT:pair=="BTT/INRD"?parseFloat(liveprice_BTT*conversion).toFixed(2):pair=="MKR/USDT"?liveprice_MKR:pair=="MKR/INRD"?parseFloat(liveprice_MKR*conversion).toFixed(2):pair=="SUSHI/USDT"?liveprice_SUSHI:pair=="SUSHI/INRD"?parseFloat(liveprice_SUSHI*conversion).toFixed(2):pair=="AR/USDT"?liveprice_AR:pair=="AR/INRD"?parseFloat(liveprice_AR*conversion).toFixed(2):pair=="SNX/USDT"?liveprice_SNX:pair=="SNX/INRD"?parseFloat(liveprice_SNX*conversion).toFixed(2):pair=="COMP/USDT"?liveprice_COMP:pair=="COMP/INRD"?parseFloat(liveprice_COMP*conversion).toFixed(2):pair=="DASH/USDT"?liveprice_DASH:pair=="DASH/INRD"?parseFloat(liveprice_DASH*conversion).toFixed(2):pair=="HNT/USDT"?liveprice_HNT:pair=="HNT/INRD"?parseFloat(liveprice_HNT*conversion).toFixed(2):pair=="CHZ/USDT"?liveprice_CHZ:pair=="CHZ/INRD"?parseFloat(liveprice_CHZ*conversion).toFixed(2):pair=="ONE/USDT"?liveprice_ONE:pair=="ONE/INRD"?parseFloat(liveprice_ONE*conversion).toFixed(2):pair=="HOT/USDT"?liveprice_HOT:pair=="HOT/INRD"?parseFloat(liveprice_HOT*conversion).toFixed(2):pair=="XEM/USDT"?liveprice_XEM:pair=="XEM/INRD"?parseFloat(liveprice_XEM*conversion).toFixed(2):pair=="KLAY/USDT"?liveprice_KLAY:pair=="KLAY/INRD"?parseFloat(liveprice_KLAY*conversion).toFixed(2):pair=="DCR/USDT"?liveprice_DCR:pair=="DCR/INRD"?parseFloat(liveprice_DCR*conversion).toFixed(2):pair=="ZEC/USDT"?liveprice_ZEC:pair=="ZEC/INRD"?parseFloat(liveprice_ZEC*conversion).toFixed(2):pair=="IOST/USDT"?liveprice_IOST:pair=="IOST/INRD"?parseFloat(liveprice_IOST*conversion).toFixed(2):pair=="ENJ/USDT"?liveprice_ENJ:pair=="ENJ/INRD"?parseFloat(liveprice_ENJ*conversion).toFixed(2):pair=="STX/USDT"?liveprice_STX:pair=="STX/INRD"?parseFloat(liveprice_STX*conversion).toFixed(2):pair=="TUSD/USDT"?liveprice_TUSD:pair=="TUSD/INRD"?parseFloat(liveprice_TUSD*conversion).toFixed(2):pair=="ZIL/USDT"?liveprice_ZIL:pair=="ZIL/INRD"?parseFloat(liveprice_ZIL*conversion).toFixed(2):pair=="FLOW/USDT"?liveprice_FLOW:pair=="FLOW/INRD"?parseFloat(liveprice_FLOW*conversion).toFixed(2):pair=="QTUM/USDT"?liveprice_QTUM:pair=="QTUM/INRD"?parseFloat(liveprice_QTUM*conversion).toFixed(2):pair=="MINA/USDT"?liveprice_MINA:pair=="MINA/INRD"?parseFloat(liveprice_MINA*conversion).toFixed(2):pair=="ICX/USDT"?liveprice_ICX:pair=="ICX/INRD"?parseFloat(liveprice_ICX*conversion).toFixed(2):pair=="OMG/USDT"?liveprice_OMG:pair=="OMG/INRD"?parseFloat(liveprice_OMG*conversion).toFixed(2):pair=="BTG/USDT"?liveprice_BTG:pair=="BTG/INRD"?parseFloat(liveprice_BTG*conversion).toFixed(2):pair=="BAT/USDT"?liveprice_BAT:pair=="BAT/INRD"?parseFloat(liveprice_BAT*conversion).toFixed(2):pair=="AUDIO/USDT"?liveprice_AUDIO:pair=="AUDIO/INRD"?parseFloat(liveprice_AUDIO*conversion).toFixed(2):pair=="ZEN/USDT"?liveprice_ZEN:pair=="ZEN/INRD"?parseFloat(liveprice_ZEN*conversion).toFixed(2):pair=="RVN/USDT"?liveprice_RVN:pair=="RVN/INRD"?parseFloat(liveprice_RVN*conversion).toFixed(2):pair=="MDX/USDT"?liveprice_MDX:pair=="MDX/INRD"?parseFloat(liveprice_MDX*conversion).toFixed(2):pair=="BNT/USDT"?liveprice_BNT:pair=="BNT/INRD"?parseFloat(liveprice_BNT*conversion).toFixed(2):pair=="ZRX/USDT"?liveprice_ZRX:pair=="ZRX/INRD"?parseFloat(liveprice_ZRX*conversion).toFixed(2):pair=="ONT/USDT"?liveprice_ONT:pair=="ONT/INRD"?parseFloat(liveprice_ONT*conversion).toFixed(2):pair=="RAY/USDT"?liveprice_RAY:pair=="RAY/INRD"?parseFloat(liveprice_RAY*conversion).toFixed(2):pair=="SC/USDT"?liveprice_SC:pair=="SC/INRD"?parseFloat(liveprice_SC*conversion).toFixed(2):pair=="DYDX/USDT"?liveprice_DYDX:pair=="DYDX/INRD"?parseFloat(liveprice_DYDX*conversion).toFixed(2):pair=="PERP/USDT"?liveprice_PERP:pair=="PERP/INRD"?parseFloat(liveprice_PERP*conversion).toFixed(2):pair=="GALA/USDT"?liveprice_GALA:pair=="GALA/INRD"?parseFloat(liveprice_GALA*conversion).toFixed(2):pair=="ANKR/USDT"?liveprice_ANKR:pair=="ANKR/INRD"?parseFloat(liveprice_ANKR*conversion).toFixed(2):pair=="NANO/USDT"?liveprice_NANO:pair=="NANO/INRD"?parseFloat(liveprice_NANO*conversion).toFixed(2):pair=="CELO/USDT"?liveprice_CELO:pair=="CELO/INRD"?parseFloat(liveprice_CELO*conversion).toFixed(2):pair=="UMA/USDT"?liveprice_UMA:pair=="UMA/INRD"?parseFloat(liveprice_UMA*conversion).toFixed(2):pair=="C98/USDT"?liveprice_C98:pair=="C98/INRD"?parseFloat(liveprice_C98*conversion).toFixed(2):pair=="CELR/USDT"?liveprice_CELR:pair=="CELR/INRD"?parseFloat(liveprice_CELR*conversion).toFixed(2):pair=="SAND/USDT"?liveprice_SAND:pair=="SAND/INRD"?parseFloat(liveprice_SAND*conversion).toFixed(2):pair=="POLY/USDT"?liveprice_POLY:pair=="POLY/INRD"?parseFloat(liveprice_POLY*conversion).toFixed(2):pair=="FET/USDT"?liveprice_FET:pair=="FET/INRD"?parseFloat(liveprice_FET*conversion).toFixed(2):pair=="1INCH/USDT"?liveprice_1INCH:pair=="1INCH/INRD"?parseFloat(liveprice_1INCH*conversion).toFixed(2):pair=="LRC/USDT"?liveprice_LRC:pair=="LRC/INRD"?parseFloat(liveprice_LRC*conversion).toFixed(2):pair=="KAVA/USDT"?liveprice_KAVA:pair=="KAVA/INRD"?
+              parseFloat(liveprice_KAVA*conversion).toFixed(2):pair=="WRX/USDT"?liveprice_WRX:pair=="WRX/INRD"?parseFloat(liveprice_WRX*conversion).toFixed(2):pair=="RSR/USDT"?liveprice_RSR:pair=="RSR/INRD"?parseFloat(liveprice_RSR*conversion).toFixed(2) : pair == "ANTEAG/USDT" ? parseFloat(8.08/conversion).toFixed(4) : pair =="ANTEAG/INRD" ? parseFloat(8.08) :pair=="THETA/USDT"?liveprice_THETA :parseFloat(liveprice_THETA*conversion).toFixed(2)) ){
+                setCheck5(true)
+              }else{
+                setCheck5(false)
+              }
            
               if(stopTake_sell_trig> localStorage.getItem(`${pair.substr(pair.indexOf('/')+1,pair.length)}_Coins` ))
                     setvalid_s(false)
@@ -10605,6 +10665,8 @@ else{
               parseFloat(liveprice_KAVA*conversion).toFixed(2):pair=="WRX/USDT"?liveprice_WRX:pair=="WRX/INRD"?parseFloat(liveprice_WRX*conversion).toFixed(2):pair=="RSR/USDT"?liveprice_RSR:pair=="RSR/INRD"?parseFloat(liveprice_RSR*conversion).toFixed(2) : pair == "ANTEAG/USDT" ? parseFloat(8.08/conversion).toFixed(4) : pair =="ANTEAG/INRD" ? parseFloat(8.08) :pair=="THETA/USDT"?liveprice_THETA :parseFloat(liveprice_THETA*conversion).toFixed(2)} onChange={(event)=>{
    setStopTake_sell_take(parseFloat(event.target.value))
   
+             
+
    if(stopTake_sell_take> localStorage.getItem(`${pair.substr(pair.indexOf('/')+1,pair.length)}_Coins` ))
                     setvalid_s(false)
               else{
@@ -10657,7 +10719,7 @@ else{
    
  }}></Input>
 
-           <Button disabled={!valid_s} size="lg"  className="bg-dark"  style={{margin:"2rem 0 2rem 0",display:"block",width:"100%"}} onClick={()=>{
+           <Button disabled={!valid_s || check5} size="lg"  className="bg-dark"  style={{margin:"2rem 0 2rem 0",display:"block",width:"100%"}} onClick={()=>{
              if(stopTake_sell_trig==0|| stopTake_sell_take==0 ){
                swal("Error","Enter all fields","error")
              }
@@ -10728,11 +10790,21 @@ else{
           <TabPanel>
               <Form style={{marginBottom:"1rem",color:isDarkDes?"white":"black"}}>
               <Label>Price ( {`${pair.substr(pair.indexOf('/')+1,pair.length)}`} )</Label>
-              <Input onChange={(event)=>{
+              <Input invalid={!valid} onChange={(event)=>{
       setbuy_limit_price(parseFloat(event.target.value) )
       var tempPrice=pricee;
       tempPrice.push(event.target.value);
       setPrice(tempPrice);
+
+          if(event.target.value.length==0){
+            setCheck6(true)
+          }
+          const curr = `${pair.substr(pair.indexOf('/')+1,pair.length)}_Coins`
+          if(parseFloat(event.target.value)>parseFloat(localStorage.getItem(curr))){
+        setvalid(false)
+     }
+     else{
+      setvalid(true) }
 
     }} placeholder={`ENTER PRICE in ${pair.substr(pair.indexOf('/')+1,pair.length)}`}></Input>
 
@@ -10760,6 +10832,13 @@ else{
               <Input  invalid={!valid} placeholder={`TOTAL AMOUNT in ${pair.substr(pair.indexOf('/')+1,pair.length)}`} onChange={(event)=>{
       const curr = `${pair.substr(pair.indexOf('/')+1,pair.length)}_Coins`
       //alert(curr)
+
+      if(event.target.value.length==0){
+        setCheck6(true)
+      }else{
+        setCheck6(false)
+      }
+
      if(parseFloat(event.target.value)>parseFloat(localStorage.getItem(curr))){
         setvalid(false)
      }
@@ -10774,7 +10853,7 @@ else{
       
     }}></Input>
 
-              <Button type="reset" size="lg" className="bg-dark"  style={{margin:"2rem 0 2rem 0",display:"block",width:"100%"}}  onClick={()=>{
+              <Button disabled={!valid || check6} type="reset" size="lg" className="bg-dark"  style={{margin:"2rem 0 2rem 0",display:"block",width:"100%"}}  onClick={()=>{
                    setfulltradeType("LIMIT")
                   const tempQ=finalQuants;
       tempQ.push(quant[quant.length-1])
@@ -10819,6 +10898,14 @@ else{
    <Input invalid={!valid} placeholder={`TOTAL AMOUNT in ${pair.substr(pair.indexOf('/')+1,pair.length)}`} onChange={(event)=>{
       const curr = `${pair.substr(pair.indexOf('/')+1,pair.length)}_Coins`
       
+      if(event.target.value.length==0){
+        setCheck7(true)
+      }else{
+        setCheck7(false)
+      }
+
+
+
      if(parseFloat(event.target.value)>parseFloat(localStorage.getItem(curr))){
         setvalid(false)
      }
@@ -10834,7 +10921,7 @@ else{
      }
       
     }}></Input>
-     <Button type="reset" size="lg" className="bg-dark"  style={{margin:"2rem 0 2rem 0",display:"block",width:"100%"}}  onClick={()=>{
+     <Button disabled={!valid || check7} type="reset" size="lg" className="bg-dark"  style={{margin:"2rem 0 2rem 0",display:"block",width:"100%"}}  onClick={()=>{
 
           setfulltradeType("MARKET")
                      var tempPrice=pricee;
@@ -10893,12 +10980,22 @@ else{
                       <TabPanel>
                         <Form style={{marginTop:"0.5rem",color:isDarkDes?"white":"black"}}>
                         <Label>Selling Price ({pair.substr(pair.lastIndexOf("/")+1,pair.length)})</Label>
-  <Input  name="price_sell" onChange={(event)=>{
+  <Input invalid={!valid_s} placeholder={`Enter selling price in ${pair.substr(pair.indexOf("/")+1,pair.length)} `} name="price_sell" onChange={(event)=>{
      const tempPrice=pricee;
      tempPrice.push(event.target.value)
      setPrice(tempPrice)
      // setsell_price(parseFloat(event.target.value) )
-
+    if(event.target.value.length==0 ){
+      setCheck8(true)
+    }else{
+      setCheck8(false)
+    }
+    const curr = `${pair.substr(pair.indexOf('/')+1,pair.length)}_Coins`
+    if(parseFloat(event.target.value)>parseFloat(localStorage.getItem(curr))){
+        setvalid_s(false)
+     }
+     else{
+      setvalid_s(true)}
    }}></Input>
 
 <Label>Selling Amount ({pair.substr(pair.lastIndexOf("/")+1,pair.length)})</Label>
@@ -10946,7 +11043,7 @@ else{
      />
    
     
-  <Button type="reset" className="bg-dark" disabled={continueselling} style={{marginRight:"0.5rem"}} onClick={()=>{
+  <Button  type="reset" className="bg-dark" disabled={continueselling || !valid_s || check8} style={{marginRight:"0.5rem"}} onClick={()=>{
   
    const tempQ=finalQuants;
    tempQ.push(quant[quant.length-1])
@@ -11035,11 +11132,11 @@ else{
 
                     <Form  style={{marginBottom:"2rem",color:isDarkDes?"white":"black"}}>
                     <Label>Trigger Price  ( {`${pair.substr(pair.indexOf('/')+1,pair.length)}`} )</Label>
-           <Input  placeholder={`ENTER PRICE in ${pair.substr(pair.indexOf('/')+1,pair.length)}`} value={fullStop_market_trig.toFixed(5)} onChange={(event)=>{
+           <Input disabled placeholder={`ENTER PRICE in ${pair.substr(pair.indexOf('/')+1,pair.length)}`} value={fullStop_market_trig.toFixed(5)} onChange={(event)=>{
               if(event.target.value.length == 0){
                 setfullStop_market_trig(0)
               }
-                    setfullStop_market_trig(parseFloat(event.target.value).toFixed(5))
+                    setfullStop_market_trig(parseFloat(event.target.value))
 
                     
                   
@@ -11103,14 +11200,14 @@ else{
           pair: pair,
           type : "Market",
           side : "SELL",
-          triggerPrice : parseFloat(fullStop_market_trig),
+          triggerPrice : parseFloat(fullStop_market_trig).toFixed(5),
     
           hitPrice: parseFloat( (pair == "BTC/USDT" ? liveprice_BTC : pair == "BTC/INRD" ? parseFloat(liveprice_BTC*conversion).toFixed(2) : pair == "ETH/USDT" ? liveprice_ETH : pair == "ETH/INRD" ? parseFloat(liveprice_ETH*conversion).toFixed(2) : pair == "BNB/USDT" ? liveprice_BNB : pair == "BNB/INRD" ? parseFloat(liveprice_BNB*conversion).toFixed(2) : pair == "KSM/USDT" ? liveprice_KSM : pair == "KSM/INRD" ? parseFloat(liveprice_KSM*conversion).toFixed(2) : pair =="ATA/USDT"? liveprice_ATA : pair=="ATA/INRD" ? parseFloat(liveprice_ATA*conversion).toFixed(2) : pair=="MANA/USDT"? liveprice_MANA : pair=="MANA/INRD" ? parseFloat(liveprice_MANA*conversion).toFixed(2) : pair=="DGB/USDT"?liveprice_DGB: pair=="DGB/INRD"? parseFloat(liveprice_DGB*conversion).toFixed(2) : pair=="FTM/USDT"?liveprice_FTM: pair=="FTM/INRD"? parseFloat(liveprice_FTM*conversion).toFixed(2) : pair=="ALICE/USDT"?liveprice_ALICE: pair=="ALICE/INRD"? parseFloat(liveprice_ALICE*conversion).toFixed(2) : pair=="GTC/USDT"?liveprice_GTC: pair=="GTC/INRD"? parseFloat(liveprice_GTC*conversion).toFixed(2) : pair=="MATIC/USDT"?liveprice_MATIC: pair=="MATIC/INRD"? parseFloat(liveprice_MATIC*conversion).toFixed(2):pair=="AXS/USDT"?liveprice_AXS: pair=="AXS/INRD"? parseFloat(liveprice_AXS*conversion).toFixed(2): pair=="FTT/USDT"?liveprice_FTT: pair=="FTT/INRD"? parseFloat(liveprice_FTT*conversion).toFixed(2) :pair=="SOL/USDT"?liveprice_SOL: pair=="SOL/INRD"? parseFloat(liveprice_SOL*conversion).toFixed(2) :pair=="RUNE/USDT"?liveprice_RUNE: pair=="RUNE/INRD"? parseFloat(liveprice_RUNE*conversion).toFixed(2) :pair=="UNI/USDT"?liveprice_UNI: pair=="UNI/INRD"? parseFloat(liveprice_UNI*conversion).toFixed(2):pair=="DOT/USDT"?liveprice_DOT: pair=="DOT/INRD"? parseFloat(liveprice_DOT*conversion).toFixed(2) :pair=="VET/USDT"?liveprice_VET: pair=="VET/INRD"? parseFloat(liveprice_VET*conversion).toFixed(2):pair=="TFUEL/USDT"?liveprice_TFUEL: pair=="TFUEL/INRD"? parseFloat(liveprice_TFUEL*conversion).toFixed(2):pair=="GRT/USDT"?liveprice_GRT: pair=="GRT/INRD"? parseFloat(liveprice_GRT*conversion).toFixed(2):pair=="ADA/USDT"?liveprice_ADA: pair=="ADA/INRD"? parseFloat(liveprice_ADA*conversion).toFixed(2):pair=="FIL/USDT"?liveprice_FIL: pair=="FIL/INRD"? parseFloat(liveprice_FIL*conversion).toFixed(2):pair=="LINK/USDT"?liveprice_LINK: pair=="LINK/INRD"? parseFloat(liveprice_LINK*conversion).toFixed(2):pair=="LUNA/USDT"?liveprice_LUNA: pair=="LUNA/INRD"? parseFloat(liveprice_LUNA*conversion).toFixed(2):pair=="XRP/USDT"?liveprice_XRP:pair=="XRP/INRD"?parseFloat(liveprice_XRP*conversion).toFixed(2):pair=="DOGE/USDT"?liveprice_DOGE:pair=="DOGE/INRD"?parseFloat(liveprice_DOGE*conversion).toFixed(2):pair=="USDC/USDT"?liveprice_USDC:pair=="USDC/INRD"?parseFloat(liveprice_USDC*conversion).toFixed(2) :pair=="AVAX/USDT"?liveprice_AVAX:pair=="AVAX/INRD"?parseFloat(liveprice_AVAX*conversion).toFixed(2):pair=="BUSD/USDT"?liveprice_BUSD:pair=="BUSD/INRD"?parseFloat(liveprice_BUSD*conversion).toFixed(2):pair=="LTC/USDT"?liveprice_LTC:pair=="LTC/INRD"?parseFloat(liveprice_LTC*conversion).toFixed(2):pair=="BCH/USDT"?liveprice_BCH:pair=="BCH/INRD"?parseFloat(liveprice_BCH*conversion).toFixed(2):pair=="ALGO/USDT"?liveprice_ALGO:pair=="ALGO/INRD"?parseFloat(liveprice_ALGO*conversion).toFixed(2):pair=="ATOM/USDT"?liveprice_ATOM:pair=="ATOM/INRD"?parseFloat(liveprice_ATOM*conversion).toFixed(2):pair=="ICP/USDT"?liveprice_ICP:pair=="ICP/INRD"?parseFloat(liveprice_ICP*conversion).toFixed(2):pair=="TRX/USDT"?liveprice_TRX:pair=="TRX/INRD"?parseFloat(liveprice_TRX*conversion).toFixed(2): pair=="XLM/USDT"?liveprice_XLM:pair=="XLM/INRD"?parseFloat(liveprice_XLM*conversion).toFixed(2):pair=="ETC/USDT"?liveprice_ETC:pair=="ETC/INRD"?parseFloat(liveprice_ETC*conversion).toFixed(2):pair=="XTZ/USDT"?liveprice_XTZ:pair=="XTZ/INRD"?parseFloat(liveprice_XTZ*conversion).toFixed(2):pair=="EOS/USDT"?liveprice_EOS:pair=="EOS/INRD"?parseFloat(liveprice_EOS*conversion).toFixed(2):pair=="CAKE/USDT"?liveprice_CAKE:pair=="CAKE/INRD"?parseFloat(liveprice_CAKE*conversion).toFixed(2):pair=="EGLD/USDT"?liveprice_EGLD:pair=="EGLD/INRD"?parseFloat(liveprice_EGLD*conversion).toFixed(2):pair=="XMR/USDT"?liveprice_XMR:pair=="XMR/INRD"?parseFloat(liveprice_XMR*conversion).toFixed(2):pair=="AAVE/USDT"?liveprice_AAVE:pair=="AAVE/INRD"?parseFloat(liveprice_AAVE*conversion).toFixed(2):pair=="QNT/USDT"?liveprice_QNT:pair=="QNT/INRD"?parseFloat(liveprice_QNT*conversion).toFixed(2):pair=="XEC/USDT"?liveprice_XEC:pair=="XEC/INRD"?parseFloat(liveprice_XEC*conversion).toFixed(2):pair=="HBAR/USDT"?liveprice_HBAR:pair=="HBAR/INRD"?parseFloat(liveprice_HBAR*conversion).toFixed(2):pair=="SHIB/USDT"?liveprice_SHIB:pair=="SHIB/INRD"?parseFloat(liveprice_SHIB*conversion).toFixed(2):pair=="NEAR/USDT"?liveprice_NEAR:pair=="NEAR/INRD"?parseFloat(liveprice_NEAR*conversion).toFixed(2):pair=="NEO/USDT"?liveprice_NEO:pair=="NEO/INRD"?parseFloat(liveprice_NEO*conversion).toFixed(2):pair=="WAVES/USDT"?liveprice_WAVES:pair=="WAVES/INRD"?parseFloat(liveprice_WAVES*conversion).toFixed(2):pair=="BTT/USDT"?liveprice_BTT:pair=="BTT/INRD"?parseFloat(liveprice_BTT*conversion).toFixed(2):pair=="MKR/USDT"?liveprice_MKR:pair=="MKR/INRD"?parseFloat(liveprice_MKR*conversion).toFixed(2):pair=="SUSHI/USDT"?liveprice_SUSHI:pair=="SUSHI/INRD"?parseFloat(liveprice_SUSHI*conversion).toFixed(2):pair=="AR/USDT"?liveprice_AR:pair=="AR/INRD"?parseFloat(liveprice_AR*conversion).toFixed(2):pair=="SNX/USDT"?liveprice_SNX:pair=="SNX/INRD"?parseFloat(liveprice_SNX*conversion).toFixed(2):pair=="COMP/USDT"?liveprice_COMP:pair=="COMP/INRD"?parseFloat(liveprice_COMP*conversion).toFixed(2):pair=="DASH/USDT"?liveprice_DASH:pair=="DASH/INRD"?parseFloat(liveprice_DASH*conversion).toFixed(2):pair=="HNT/USDT"?liveprice_HNT:pair=="HNT/INRD"?parseFloat(liveprice_HNT*conversion).toFixed(2):pair=="CHZ/USDT"?liveprice_CHZ:pair=="CHZ/INRD"?parseFloat(liveprice_CHZ*conversion).toFixed(2):pair=="ONE/USDT"?liveprice_ONE:pair=="ONE/INRD"?parseFloat(liveprice_ONE*conversion).toFixed(2):pair=="HOT/USDT"?liveprice_HOT:pair=="HOT/INRD"?parseFloat(liveprice_HOT*conversion).toFixed(2):pair=="XEM/USDT"?liveprice_XEM:pair=="XEM/INRD"?parseFloat(liveprice_XEM*conversion).toFixed(2):pair=="KLAY/USDT"?liveprice_KLAY:pair=="KLAY/INRD"?parseFloat(liveprice_KLAY*conversion).toFixed(2):pair=="DCR/USDT"?liveprice_DCR:pair=="DCR/INRD"?parseFloat(liveprice_DCR*conversion).toFixed(2):pair=="ZEC/USDT"?liveprice_ZEC:pair=="ZEC/INRD"?parseFloat(liveprice_ZEC*conversion).toFixed(2):pair=="IOST/USDT"?liveprice_IOST:pair=="IOST/INRD"?parseFloat(liveprice_IOST*conversion).toFixed(2):pair=="ENJ/USDT"?liveprice_ENJ:pair=="ENJ/INRD"?parseFloat(liveprice_ENJ*conversion).toFixed(2):pair=="STX/USDT"?liveprice_STX:pair=="STX/INRD"?parseFloat(liveprice_STX*conversion).toFixed(2):pair=="TUSD/USDT"?liveprice_TUSD:pair=="TUSD/INRD"?parseFloat(liveprice_TUSD*conversion).toFixed(2):pair=="ZIL/USDT"?liveprice_ZIL:pair=="ZIL/INRD"?parseFloat(liveprice_ZIL*conversion).toFixed(2):pair=="FLOW/USDT"?liveprice_FLOW:pair=="FLOW/INRD"?parseFloat(liveprice_FLOW*conversion).toFixed(2):pair=="QTUM/USDT"?liveprice_QTUM:pair=="QTUM/INRD"?parseFloat(liveprice_QTUM*conversion).toFixed(2):pair=="MINA/USDT"?liveprice_MINA:pair=="MINA/INRD"?parseFloat(liveprice_MINA*conversion).toFixed(2):pair=="ICX/USDT"?liveprice_ICX:pair=="ICX/INRD"?parseFloat(liveprice_ICX*conversion).toFixed(2):pair=="OMG/USDT"?liveprice_OMG:pair=="OMG/INRD"?parseFloat(liveprice_OMG*conversion).toFixed(2):pair=="BTG/USDT"?liveprice_BTG:pair=="BTG/INRD"?parseFloat(liveprice_BTG*conversion).toFixed(2):pair=="BAT/USDT"?liveprice_BAT:pair=="BAT/INRD"?parseFloat(liveprice_BAT*conversion).toFixed(2):pair=="AUDIO/USDT"?liveprice_AUDIO:pair=="AUDIO/INRD"?parseFloat(liveprice_AUDIO*conversion).toFixed(2):pair=="ZEN/USDT"?liveprice_ZEN:pair=="ZEN/INRD"?parseFloat(liveprice_ZEN*conversion).toFixed(2):pair=="RVN/USDT"?liveprice_RVN:pair=="RVN/INRD"?parseFloat(liveprice_RVN*conversion).toFixed(2):pair=="MDX/USDT"?liveprice_MDX:pair=="MDX/INRD"?parseFloat(liveprice_MDX*conversion).toFixed(2):pair=="BNT/USDT"?liveprice_BNT:pair=="BNT/INRD"?parseFloat(liveprice_BNT*conversion).toFixed(2):pair=="ZRX/USDT"?liveprice_ZRX:pair=="ZRX/INRD"?parseFloat(liveprice_ZRX*conversion).toFixed(2):pair=="ONT/USDT"?liveprice_ONT:pair=="ONT/INRD"?parseFloat(liveprice_ONT*conversion).toFixed(2):pair=="RAY/USDT"?liveprice_RAY:pair=="RAY/INRD"?parseFloat(liveprice_RAY*conversion).toFixed(2):pair=="SC/USDT"?liveprice_SC:pair=="SC/INRD"?parseFloat(liveprice_SC*conversion).toFixed(2):pair=="DYDX/USDT"?liveprice_DYDX:pair=="DYDX/INRD"?parseFloat(liveprice_DYDX*conversion).toFixed(2):pair=="PERP/USDT"?liveprice_PERP:pair=="PERP/INRD"?parseFloat(liveprice_PERP*conversion).toFixed(2):pair=="GALA/USDT"?liveprice_GALA:pair=="GALA/INRD"?parseFloat(liveprice_GALA*conversion).toFixed(2):pair=="ANKR/USDT"?liveprice_ANKR:pair=="ANKR/INRD"?parseFloat(liveprice_ANKR*conversion).toFixed(2):pair=="NANO/USDT"?liveprice_NANO:pair=="NANO/INRD"?parseFloat(liveprice_NANO*conversion).toFixed(2):pair=="CELO/USDT"?liveprice_CELO:pair=="CELO/INRD"?parseFloat(liveprice_CELO*conversion).toFixed(2):pair=="UMA/USDT"?liveprice_UMA:pair=="UMA/INRD"?parseFloat(liveprice_UMA*conversion).toFixed(2):pair=="C98/USDT"?liveprice_C98:pair=="C98/INRD"?parseFloat(liveprice_C98*conversion).toFixed(2):pair=="CELR/USDT"?liveprice_CELR:pair=="CELR/INRD"?parseFloat(liveprice_CELR*conversion).toFixed(2):pair=="SAND/USDT"?liveprice_SAND:pair=="SAND/INRD"?parseFloat(liveprice_SAND*conversion).toFixed(2):pair=="POLY/USDT"?liveprice_POLY:pair=="POLY/INRD"?parseFloat(liveprice_POLY*conversion).toFixed(2):pair=="FET/USDT"?liveprice_FET:pair=="FET/INRD"?parseFloat(liveprice_FET*conversion).toFixed(2):pair=="1INCH/USDT"?liveprice_1INCH:pair=="1INCH/INRD"?parseFloat(liveprice_1INCH*conversion).toFixed(2):pair=="LRC/USDT"?liveprice_LRC:pair=="LRC/INRD"?parseFloat(liveprice_LRC*conversion).toFixed(2):pair=="KAVA/USDT"?liveprice_KAVA:pair=="KAVA/INRD"?
-              parseFloat(liveprice_KAVA*conversion).toFixed(2):pair=="WRX/USDT"?liveprice_WRX:pair=="WRX/INRD"?parseFloat(liveprice_WRX*conversion).toFixed(2):pair=="RSR/USDT"?liveprice_RSR:pair=="RSR/INRD"?parseFloat(liveprice_RSR*conversion).toFixed(2) : pair == "ANTEAG/USDT" ? parseFloat(8.08/conversion).toFixed(4) : pair =="ANTEAG/INRD" ? parseFloat(8.08) :pair=="THETA/USDT"?liveprice_THETA :parseFloat(liveprice_THETA*conversion).toFixed(2))),
+              parseFloat(liveprice_KAVA*conversion).toFixed(2):pair=="WRX/USDT"?liveprice_WRX:pair=="WRX/INRD"?parseFloat(liveprice_WRX*conversion).toFixed(2):pair=="RSR/USDT"?liveprice_RSR:pair=="RSR/INRD"?parseFloat(liveprice_RSR*conversion).toFixed(2) : pair == "ANTEAG/USDT" ? parseFloat(8.08/conversion).toFixed(4) : pair =="ANTEAG/INRD" ? parseFloat(8.08) :pair=="THETA/USDT"?liveprice_THETA :parseFloat(liveprice_THETA*conversion).toFixed(2))).toFixed(5),
           Amount :fullStop_market_quantity,
           filled : "0.0",
-          total: fullStop_market_quantity * (parseFloat( (pair == "BTC/USDT" ? liveprice_BTC : pair == "BTC/INRD" ? parseFloat(liveprice_BTC*conversion).toFixed(2) : pair == "ETH/USDT" ? liveprice_ETH : pair == "ETH/INRD" ? parseFloat(liveprice_ETH*conversion).toFixed(2) : pair == "BNB/USDT" ? liveprice_BNB : pair == "BNB/INRD" ? parseFloat(liveprice_BNB*conversion).toFixed(2) : pair == "KSM/USDT" ? liveprice_KSM : pair == "KSM/INRD" ? parseFloat(liveprice_KSM*conversion).toFixed(2) : pair =="ATA/USDT"? liveprice_ATA : pair=="ATA/INRD" ? parseFloat(liveprice_ATA*conversion).toFixed(2) : pair=="MANA/USDT"? liveprice_MANA : pair=="MANA/INRD" ? parseFloat(liveprice_MANA*conversion).toFixed(2) : pair=="DGB/USDT"?liveprice_DGB: pair=="DGB/INRD"? parseFloat(liveprice_DGB*conversion).toFixed(2) : pair=="FTM/USDT"?liveprice_FTM: pair=="FTM/INRD"? parseFloat(liveprice_FTM*conversion).toFixed(2) : pair=="ALICE/USDT"?liveprice_ALICE: pair=="ALICE/INRD"? parseFloat(liveprice_ALICE*conversion).toFixed(2) : pair=="GTC/USDT"?liveprice_GTC: pair=="GTC/INRD"? parseFloat(liveprice_GTC*conversion).toFixed(2) : pair=="MATIC/USDT"?liveprice_MATIC: pair=="MATIC/INRD"? parseFloat(liveprice_MATIC*conversion).toFixed(2):pair=="AXS/USDT"?liveprice_AXS: pair=="AXS/INRD"? parseFloat(liveprice_AXS*conversion).toFixed(2): pair=="FTT/USDT"?liveprice_FTT: pair=="FTT/INRD"? parseFloat(liveprice_FTT*conversion).toFixed(2) :pair=="SOL/USDT"?liveprice_SOL: pair=="SOL/INRD"? parseFloat(liveprice_SOL*conversion).toFixed(2) :pair=="RUNE/USDT"?liveprice_RUNE: pair=="RUNE/INRD"? parseFloat(liveprice_RUNE*conversion).toFixed(2) :pair=="UNI/USDT"?liveprice_UNI: pair=="UNI/INRD"? parseFloat(liveprice_UNI*conversion).toFixed(2):pair=="DOT/USDT"?liveprice_DOT: pair=="DOT/INRD"? parseFloat(liveprice_DOT*conversion).toFixed(2) :pair=="VET/USDT"?liveprice_VET: pair=="VET/INRD"? parseFloat(liveprice_VET*conversion).toFixed(2):pair=="TFUEL/USDT"?liveprice_TFUEL: pair=="TFUEL/INRD"? parseFloat(liveprice_TFUEL*conversion).toFixed(2):pair=="GRT/USDT"?liveprice_GRT: pair=="GRT/INRD"? parseFloat(liveprice_GRT*conversion).toFixed(2):pair=="ADA/USDT"?liveprice_ADA: pair=="ADA/INRD"? parseFloat(liveprice_ADA*conversion).toFixed(2):pair=="FIL/USDT"?liveprice_FIL: pair=="FIL/INRD"? parseFloat(liveprice_FIL*conversion).toFixed(2):pair=="LINK/USDT"?liveprice_LINK: pair=="LINK/INRD"? parseFloat(liveprice_LINK*conversion).toFixed(2):pair=="LUNA/USDT"?liveprice_LUNA: pair=="LUNA/INRD"? parseFloat(liveprice_LUNA*conversion).toFixed(2):pair=="XRP/USDT"?liveprice_XRP:pair=="XRP/INRD"?parseFloat(liveprice_XRP*conversion).toFixed(2):pair=="DOGE/USDT"?liveprice_DOGE:pair=="DOGE/INRD"?parseFloat(liveprice_DOGE*conversion).toFixed(2):pair=="USDC/USDT"?liveprice_USDC:pair=="USDC/INRD"?parseFloat(liveprice_USDC*conversion).toFixed(2) :pair=="AVAX/USDT"?liveprice_AVAX:pair=="AVAX/INRD"?parseFloat(liveprice_AVAX*conversion).toFixed(2):pair=="BUSD/USDT"?liveprice_BUSD:pair=="BUSD/INRD"?parseFloat(liveprice_BUSD*conversion).toFixed(2):pair=="LTC/USDT"?liveprice_LTC:pair=="LTC/INRD"?parseFloat(liveprice_LTC*conversion).toFixed(2):pair=="BCH/USDT"?liveprice_BCH:pair=="BCH/INRD"?parseFloat(liveprice_BCH*conversion).toFixed(2):pair=="ALGO/USDT"?liveprice_ALGO:pair=="ALGO/INRD"?parseFloat(liveprice_ALGO*conversion).toFixed(2):pair=="ATOM/USDT"?liveprice_ATOM:pair=="ATOM/INRD"?parseFloat(liveprice_ATOM*conversion).toFixed(2):pair=="ICP/USDT"?liveprice_ICP:pair=="ICP/INRD"?parseFloat(liveprice_ICP*conversion).toFixed(2):pair=="TRX/USDT"?liveprice_TRX:pair=="TRX/INRD"?parseFloat(liveprice_TRX*conversion).toFixed(2): pair=="XLM/USDT"?liveprice_XLM:pair=="XLM/INRD"?parseFloat(liveprice_XLM*conversion).toFixed(2):pair=="ETC/USDT"?liveprice_ETC:pair=="ETC/INRD"?parseFloat(liveprice_ETC*conversion).toFixed(2):pair=="XTZ/USDT"?liveprice_XTZ:pair=="XTZ/INRD"?parseFloat(liveprice_XTZ*conversion).toFixed(2):pair=="EOS/USDT"?liveprice_EOS:pair=="EOS/INRD"?parseFloat(liveprice_EOS*conversion).toFixed(2):pair=="CAKE/USDT"?liveprice_CAKE:pair=="CAKE/INRD"?parseFloat(liveprice_CAKE*conversion).toFixed(2):pair=="EGLD/USDT"?liveprice_EGLD:pair=="EGLD/INRD"?parseFloat(liveprice_EGLD*conversion).toFixed(2):pair=="XMR/USDT"?liveprice_XMR:pair=="XMR/INRD"?parseFloat(liveprice_XMR*conversion).toFixed(2):pair=="AAVE/USDT"?liveprice_AAVE:pair=="AAVE/INRD"?parseFloat(liveprice_AAVE*conversion).toFixed(2):pair=="QNT/USDT"?liveprice_QNT:pair=="QNT/INRD"?parseFloat(liveprice_QNT*conversion).toFixed(2):pair=="XEC/USDT"?liveprice_XEC:pair=="XEC/INRD"?parseFloat(liveprice_XEC*conversion).toFixed(2):pair=="HBAR/USDT"?liveprice_HBAR:pair=="HBAR/INRD"?parseFloat(liveprice_HBAR*conversion).toFixed(2):pair=="SHIB/USDT"?liveprice_SHIB:pair=="SHIB/INRD"?parseFloat(liveprice_SHIB*conversion).toFixed(2):pair=="NEAR/USDT"?liveprice_NEAR:pair=="NEAR/INRD"?parseFloat(liveprice_NEAR*conversion).toFixed(2):pair=="NEO/USDT"?liveprice_NEO:pair=="NEO/INRD"?parseFloat(liveprice_NEO*conversion).toFixed(2):pair=="WAVES/USDT"?liveprice_WAVES:pair=="WAVES/INRD"?parseFloat(liveprice_WAVES*conversion).toFixed(2):pair=="BTT/USDT"?liveprice_BTT:pair=="BTT/INRD"?parseFloat(liveprice_BTT*conversion).toFixed(2):pair=="MKR/USDT"?liveprice_MKR:pair=="MKR/INRD"?parseFloat(liveprice_MKR*conversion).toFixed(2):pair=="SUSHI/USDT"?liveprice_SUSHI:pair=="SUSHI/INRD"?parseFloat(liveprice_SUSHI*conversion).toFixed(2):pair=="AR/USDT"?liveprice_AR:pair=="AR/INRD"?parseFloat(liveprice_AR*conversion).toFixed(2):pair=="SNX/USDT"?liveprice_SNX:pair=="SNX/INRD"?parseFloat(liveprice_SNX*conversion).toFixed(2):pair=="COMP/USDT"?liveprice_COMP:pair=="COMP/INRD"?parseFloat(liveprice_COMP*conversion).toFixed(2):pair=="DASH/USDT"?liveprice_DASH:pair=="DASH/INRD"?parseFloat(liveprice_DASH*conversion).toFixed(2):pair=="HNT/USDT"?liveprice_HNT:pair=="HNT/INRD"?parseFloat(liveprice_HNT*conversion).toFixed(2):pair=="CHZ/USDT"?liveprice_CHZ:pair=="CHZ/INRD"?parseFloat(liveprice_CHZ*conversion).toFixed(2):pair=="ONE/USDT"?liveprice_ONE:pair=="ONE/INRD"?parseFloat(liveprice_ONE*conversion).toFixed(2):pair=="HOT/USDT"?liveprice_HOT:pair=="HOT/INRD"?parseFloat(liveprice_HOT*conversion).toFixed(2):pair=="XEM/USDT"?liveprice_XEM:pair=="XEM/INRD"?parseFloat(liveprice_XEM*conversion).toFixed(2):pair=="KLAY/USDT"?liveprice_KLAY:pair=="KLAY/INRD"?parseFloat(liveprice_KLAY*conversion).toFixed(2):pair=="DCR/USDT"?liveprice_DCR:pair=="DCR/INRD"?parseFloat(liveprice_DCR*conversion).toFixed(2):pair=="ZEC/USDT"?liveprice_ZEC:pair=="ZEC/INRD"?parseFloat(liveprice_ZEC*conversion).toFixed(2):pair=="IOST/USDT"?liveprice_IOST:pair=="IOST/INRD"?parseFloat(liveprice_IOST*conversion).toFixed(2):pair=="ENJ/USDT"?liveprice_ENJ:pair=="ENJ/INRD"?parseFloat(liveprice_ENJ*conversion).toFixed(2):pair=="STX/USDT"?liveprice_STX:pair=="STX/INRD"?parseFloat(liveprice_STX*conversion).toFixed(2):pair=="TUSD/USDT"?liveprice_TUSD:pair=="TUSD/INRD"?parseFloat(liveprice_TUSD*conversion).toFixed(2):pair=="ZIL/USDT"?liveprice_ZIL:pair=="ZIL/INRD"?parseFloat(liveprice_ZIL*conversion).toFixed(2):pair=="FLOW/USDT"?liveprice_FLOW:pair=="FLOW/INRD"?parseFloat(liveprice_FLOW*conversion).toFixed(2):pair=="QTUM/USDT"?liveprice_QTUM:pair=="QTUM/INRD"?parseFloat(liveprice_QTUM*conversion).toFixed(2):pair=="MINA/USDT"?liveprice_MINA:pair=="MINA/INRD"?parseFloat(liveprice_MINA*conversion).toFixed(2):pair=="ICX/USDT"?liveprice_ICX:pair=="ICX/INRD"?parseFloat(liveprice_ICX*conversion).toFixed(2):pair=="OMG/USDT"?liveprice_OMG:pair=="OMG/INRD"?parseFloat(liveprice_OMG*conversion).toFixed(2):pair=="BTG/USDT"?liveprice_BTG:pair=="BTG/INRD"?parseFloat(liveprice_BTG*conversion).toFixed(2):pair=="BAT/USDT"?liveprice_BAT:pair=="BAT/INRD"?parseFloat(liveprice_BAT*conversion).toFixed(2):pair=="AUDIO/USDT"?liveprice_AUDIO:pair=="AUDIO/INRD"?parseFloat(liveprice_AUDIO*conversion).toFixed(2):pair=="ZEN/USDT"?liveprice_ZEN:pair=="ZEN/INRD"?parseFloat(liveprice_ZEN*conversion).toFixed(2):pair=="RVN/USDT"?liveprice_RVN:pair=="RVN/INRD"?parseFloat(liveprice_RVN*conversion).toFixed(2):pair=="MDX/USDT"?liveprice_MDX:pair=="MDX/INRD"?parseFloat(liveprice_MDX*conversion).toFixed(2):pair=="BNT/USDT"?liveprice_BNT:pair=="BNT/INRD"?parseFloat(liveprice_BNT*conversion).toFixed(2):pair=="ZRX/USDT"?liveprice_ZRX:pair=="ZRX/INRD"?parseFloat(liveprice_ZRX*conversion).toFixed(2):pair=="ONT/USDT"?liveprice_ONT:pair=="ONT/INRD"?parseFloat(liveprice_ONT*conversion).toFixed(2):pair=="RAY/USDT"?liveprice_RAY:pair=="RAY/INRD"?parseFloat(liveprice_RAY*conversion).toFixed(2):pair=="SC/USDT"?liveprice_SC:pair=="SC/INRD"?parseFloat(liveprice_SC*conversion).toFixed(2):pair=="DYDX/USDT"?liveprice_DYDX:pair=="DYDX/INRD"?parseFloat(liveprice_DYDX*conversion).toFixed(2):pair=="PERP/USDT"?liveprice_PERP:pair=="PERP/INRD"?parseFloat(liveprice_PERP*conversion).toFixed(2):pair=="GALA/USDT"?liveprice_GALA:pair=="GALA/INRD"?parseFloat(liveprice_GALA*conversion).toFixed(2):pair=="ANKR/USDT"?liveprice_ANKR:pair=="ANKR/INRD"?parseFloat(liveprice_ANKR*conversion).toFixed(2):pair=="NANO/USDT"?liveprice_NANO:pair=="NANO/INRD"?parseFloat(liveprice_NANO*conversion).toFixed(2):pair=="CELO/USDT"?liveprice_CELO:pair=="CELO/INRD"?parseFloat(liveprice_CELO*conversion).toFixed(2):pair=="UMA/USDT"?liveprice_UMA:pair=="UMA/INRD"?parseFloat(liveprice_UMA*conversion).toFixed(2):pair=="C98/USDT"?liveprice_C98:pair=="C98/INRD"?parseFloat(liveprice_C98*conversion).toFixed(2):pair=="CELR/USDT"?liveprice_CELR:pair=="CELR/INRD"?parseFloat(liveprice_CELR*conversion).toFixed(2):pair=="SAND/USDT"?liveprice_SAND:pair=="SAND/INRD"?parseFloat(liveprice_SAND*conversion).toFixed(2):pair=="POLY/USDT"?liveprice_POLY:pair=="POLY/INRD"?parseFloat(liveprice_POLY*conversion).toFixed(2):pair=="FET/USDT"?liveprice_FET:pair=="FET/INRD"?parseFloat(liveprice_FET*conversion).toFixed(2):pair=="1INCH/USDT"?liveprice_1INCH:pair=="1INCH/INRD"?parseFloat(liveprice_1INCH*conversion).toFixed(2):pair=="LRC/USDT"?liveprice_LRC:pair=="LRC/INRD"?parseFloat(liveprice_LRC*conversion).toFixed(2):pair=="KAVA/USDT"?liveprice_KAVA:pair=="KAVA/INRD"?
-              parseFloat(liveprice_KAVA*conversion).toFixed(2):pair=="WRX/USDT"?liveprice_WRX:pair=="WRX/INRD"?parseFloat(liveprice_WRX*conversion).toFixed(2):pair=="RSR/USDT"?liveprice_RSR:pair=="RSR/INRD"?parseFloat(liveprice_RSR*conversion).toFixed(2) : pair == "ANTEAG/USDT" ? parseFloat(8.08/conversion).toFixed(4) : pair =="ANTEAG/INRD" ? parseFloat(8.08) :pair=="THETA/USDT"?liveprice_THETA :parseFloat(liveprice_THETA*conversion).toFixed(2))))
+          total: (fullStop_market_quantity * (parseFloat( (pair == "BTC/USDT" ? liveprice_BTC : pair == "BTC/INRD" ? parseFloat(liveprice_BTC*conversion).toFixed(2) : pair == "ETH/USDT" ? liveprice_ETH : pair == "ETH/INRD" ? parseFloat(liveprice_ETH*conversion).toFixed(2) : pair == "BNB/USDT" ? liveprice_BNB : pair == "BNB/INRD" ? parseFloat(liveprice_BNB*conversion).toFixed(2) : pair == "KSM/USDT" ? liveprice_KSM : pair == "KSM/INRD" ? parseFloat(liveprice_KSM*conversion).toFixed(2) : pair =="ATA/USDT"? liveprice_ATA : pair=="ATA/INRD" ? parseFloat(liveprice_ATA*conversion).toFixed(2) : pair=="MANA/USDT"? liveprice_MANA : pair=="MANA/INRD" ? parseFloat(liveprice_MANA*conversion).toFixed(2) : pair=="DGB/USDT"?liveprice_DGB: pair=="DGB/INRD"? parseFloat(liveprice_DGB*conversion).toFixed(2) : pair=="FTM/USDT"?liveprice_FTM: pair=="FTM/INRD"? parseFloat(liveprice_FTM*conversion).toFixed(2) : pair=="ALICE/USDT"?liveprice_ALICE: pair=="ALICE/INRD"? parseFloat(liveprice_ALICE*conversion).toFixed(2) : pair=="GTC/USDT"?liveprice_GTC: pair=="GTC/INRD"? parseFloat(liveprice_GTC*conversion).toFixed(2) : pair=="MATIC/USDT"?liveprice_MATIC: pair=="MATIC/INRD"? parseFloat(liveprice_MATIC*conversion).toFixed(2):pair=="AXS/USDT"?liveprice_AXS: pair=="AXS/INRD"? parseFloat(liveprice_AXS*conversion).toFixed(2): pair=="FTT/USDT"?liveprice_FTT: pair=="FTT/INRD"? parseFloat(liveprice_FTT*conversion).toFixed(2) :pair=="SOL/USDT"?liveprice_SOL: pair=="SOL/INRD"? parseFloat(liveprice_SOL*conversion).toFixed(2) :pair=="RUNE/USDT"?liveprice_RUNE: pair=="RUNE/INRD"? parseFloat(liveprice_RUNE*conversion).toFixed(2) :pair=="UNI/USDT"?liveprice_UNI: pair=="UNI/INRD"? parseFloat(liveprice_UNI*conversion).toFixed(2):pair=="DOT/USDT"?liveprice_DOT: pair=="DOT/INRD"? parseFloat(liveprice_DOT*conversion).toFixed(2) :pair=="VET/USDT"?liveprice_VET: pair=="VET/INRD"? parseFloat(liveprice_VET*conversion).toFixed(2):pair=="TFUEL/USDT"?liveprice_TFUEL: pair=="TFUEL/INRD"? parseFloat(liveprice_TFUEL*conversion).toFixed(2):pair=="GRT/USDT"?liveprice_GRT: pair=="GRT/INRD"? parseFloat(liveprice_GRT*conversion).toFixed(2):pair=="ADA/USDT"?liveprice_ADA: pair=="ADA/INRD"? parseFloat(liveprice_ADA*conversion).toFixed(2):pair=="FIL/USDT"?liveprice_FIL: pair=="FIL/INRD"? parseFloat(liveprice_FIL*conversion).toFixed(2):pair=="LINK/USDT"?liveprice_LINK: pair=="LINK/INRD"? parseFloat(liveprice_LINK*conversion).toFixed(2):pair=="LUNA/USDT"?liveprice_LUNA: pair=="LUNA/INRD"? parseFloat(liveprice_LUNA*conversion).toFixed(2):pair=="XRP/USDT"?liveprice_XRP:pair=="XRP/INRD"?parseFloat(liveprice_XRP*conversion).toFixed(2):pair=="DOGE/USDT"?liveprice_DOGE:pair=="DOGE/INRD"?parseFloat(liveprice_DOGE*conversion).toFixed(2):pair=="USDC/USDT"?liveprice_USDC:pair=="USDC/INRD"?parseFloat(liveprice_USDC*conversion).toFixed(2) :pair=="AVAX/USDT"?liveprice_AVAX:pair=="AVAX/INRD"?parseFloat(liveprice_AVAX*conversion).toFixed(2):pair=="BUSD/USDT"?liveprice_BUSD:pair=="BUSD/INRD"?parseFloat(liveprice_BUSD*conversion).toFixed(2):pair=="LTC/USDT"?liveprice_LTC:pair=="LTC/INRD"?parseFloat(liveprice_LTC*conversion).toFixed(2):pair=="BCH/USDT"?liveprice_BCH:pair=="BCH/INRD"?parseFloat(liveprice_BCH*conversion).toFixed(2):pair=="ALGO/USDT"?liveprice_ALGO:pair=="ALGO/INRD"?parseFloat(liveprice_ALGO*conversion).toFixed(2):pair=="ATOM/USDT"?liveprice_ATOM:pair=="ATOM/INRD"?parseFloat(liveprice_ATOM*conversion).toFixed(2):pair=="ICP/USDT"?liveprice_ICP:pair=="ICP/INRD"?parseFloat(liveprice_ICP*conversion).toFixed(2):pair=="TRX/USDT"?liveprice_TRX:pair=="TRX/INRD"?parseFloat(liveprice_TRX*conversion).toFixed(2): pair=="XLM/USDT"?liveprice_XLM:pair=="XLM/INRD"?parseFloat(liveprice_XLM*conversion).toFixed(2):pair=="ETC/USDT"?liveprice_ETC:pair=="ETC/INRD"?parseFloat(liveprice_ETC*conversion).toFixed(2):pair=="XTZ/USDT"?liveprice_XTZ:pair=="XTZ/INRD"?parseFloat(liveprice_XTZ*conversion).toFixed(2):pair=="EOS/USDT"?liveprice_EOS:pair=="EOS/INRD"?parseFloat(liveprice_EOS*conversion).toFixed(2):pair=="CAKE/USDT"?liveprice_CAKE:pair=="CAKE/INRD"?parseFloat(liveprice_CAKE*conversion).toFixed(2):pair=="EGLD/USDT"?liveprice_EGLD:pair=="EGLD/INRD"?parseFloat(liveprice_EGLD*conversion).toFixed(2):pair=="XMR/USDT"?liveprice_XMR:pair=="XMR/INRD"?parseFloat(liveprice_XMR*conversion).toFixed(2):pair=="AAVE/USDT"?liveprice_AAVE:pair=="AAVE/INRD"?parseFloat(liveprice_AAVE*conversion).toFixed(2):pair=="QNT/USDT"?liveprice_QNT:pair=="QNT/INRD"?parseFloat(liveprice_QNT*conversion).toFixed(2):pair=="XEC/USDT"?liveprice_XEC:pair=="XEC/INRD"?parseFloat(liveprice_XEC*conversion).toFixed(2):pair=="HBAR/USDT"?liveprice_HBAR:pair=="HBAR/INRD"?parseFloat(liveprice_HBAR*conversion).toFixed(2):pair=="SHIB/USDT"?liveprice_SHIB:pair=="SHIB/INRD"?parseFloat(liveprice_SHIB*conversion).toFixed(2):pair=="NEAR/USDT"?liveprice_NEAR:pair=="NEAR/INRD"?parseFloat(liveprice_NEAR*conversion).toFixed(2):pair=="NEO/USDT"?liveprice_NEO:pair=="NEO/INRD"?parseFloat(liveprice_NEO*conversion).toFixed(2):pair=="WAVES/USDT"?liveprice_WAVES:pair=="WAVES/INRD"?parseFloat(liveprice_WAVES*conversion).toFixed(2):pair=="BTT/USDT"?liveprice_BTT:pair=="BTT/INRD"?parseFloat(liveprice_BTT*conversion).toFixed(2):pair=="MKR/USDT"?liveprice_MKR:pair=="MKR/INRD"?parseFloat(liveprice_MKR*conversion).toFixed(2):pair=="SUSHI/USDT"?liveprice_SUSHI:pair=="SUSHI/INRD"?parseFloat(liveprice_SUSHI*conversion).toFixed(2):pair=="AR/USDT"?liveprice_AR:pair=="AR/INRD"?parseFloat(liveprice_AR*conversion).toFixed(2):pair=="SNX/USDT"?liveprice_SNX:pair=="SNX/INRD"?parseFloat(liveprice_SNX*conversion).toFixed(2):pair=="COMP/USDT"?liveprice_COMP:pair=="COMP/INRD"?parseFloat(liveprice_COMP*conversion).toFixed(2):pair=="DASH/USDT"?liveprice_DASH:pair=="DASH/INRD"?parseFloat(liveprice_DASH*conversion).toFixed(2):pair=="HNT/USDT"?liveprice_HNT:pair=="HNT/INRD"?parseFloat(liveprice_HNT*conversion).toFixed(2):pair=="CHZ/USDT"?liveprice_CHZ:pair=="CHZ/INRD"?parseFloat(liveprice_CHZ*conversion).toFixed(2):pair=="ONE/USDT"?liveprice_ONE:pair=="ONE/INRD"?parseFloat(liveprice_ONE*conversion).toFixed(2):pair=="HOT/USDT"?liveprice_HOT:pair=="HOT/INRD"?parseFloat(liveprice_HOT*conversion).toFixed(2):pair=="XEM/USDT"?liveprice_XEM:pair=="XEM/INRD"?parseFloat(liveprice_XEM*conversion).toFixed(2):pair=="KLAY/USDT"?liveprice_KLAY:pair=="KLAY/INRD"?parseFloat(liveprice_KLAY*conversion).toFixed(2):pair=="DCR/USDT"?liveprice_DCR:pair=="DCR/INRD"?parseFloat(liveprice_DCR*conversion).toFixed(2):pair=="ZEC/USDT"?liveprice_ZEC:pair=="ZEC/INRD"?parseFloat(liveprice_ZEC*conversion).toFixed(2):pair=="IOST/USDT"?liveprice_IOST:pair=="IOST/INRD"?parseFloat(liveprice_IOST*conversion).toFixed(2):pair=="ENJ/USDT"?liveprice_ENJ:pair=="ENJ/INRD"?parseFloat(liveprice_ENJ*conversion).toFixed(2):pair=="STX/USDT"?liveprice_STX:pair=="STX/INRD"?parseFloat(liveprice_STX*conversion).toFixed(2):pair=="TUSD/USDT"?liveprice_TUSD:pair=="TUSD/INRD"?parseFloat(liveprice_TUSD*conversion).toFixed(2):pair=="ZIL/USDT"?liveprice_ZIL:pair=="ZIL/INRD"?parseFloat(liveprice_ZIL*conversion).toFixed(2):pair=="FLOW/USDT"?liveprice_FLOW:pair=="FLOW/INRD"?parseFloat(liveprice_FLOW*conversion).toFixed(2):pair=="QTUM/USDT"?liveprice_QTUM:pair=="QTUM/INRD"?parseFloat(liveprice_QTUM*conversion).toFixed(2):pair=="MINA/USDT"?liveprice_MINA:pair=="MINA/INRD"?parseFloat(liveprice_MINA*conversion).toFixed(2):pair=="ICX/USDT"?liveprice_ICX:pair=="ICX/INRD"?parseFloat(liveprice_ICX*conversion).toFixed(2):pair=="OMG/USDT"?liveprice_OMG:pair=="OMG/INRD"?parseFloat(liveprice_OMG*conversion).toFixed(2):pair=="BTG/USDT"?liveprice_BTG:pair=="BTG/INRD"?parseFloat(liveprice_BTG*conversion).toFixed(2):pair=="BAT/USDT"?liveprice_BAT:pair=="BAT/INRD"?parseFloat(liveprice_BAT*conversion).toFixed(2):pair=="AUDIO/USDT"?liveprice_AUDIO:pair=="AUDIO/INRD"?parseFloat(liveprice_AUDIO*conversion).toFixed(2):pair=="ZEN/USDT"?liveprice_ZEN:pair=="ZEN/INRD"?parseFloat(liveprice_ZEN*conversion).toFixed(2):pair=="RVN/USDT"?liveprice_RVN:pair=="RVN/INRD"?parseFloat(liveprice_RVN*conversion).toFixed(2):pair=="MDX/USDT"?liveprice_MDX:pair=="MDX/INRD"?parseFloat(liveprice_MDX*conversion).toFixed(2):pair=="BNT/USDT"?liveprice_BNT:pair=="BNT/INRD"?parseFloat(liveprice_BNT*conversion).toFixed(2):pair=="ZRX/USDT"?liveprice_ZRX:pair=="ZRX/INRD"?parseFloat(liveprice_ZRX*conversion).toFixed(2):pair=="ONT/USDT"?liveprice_ONT:pair=="ONT/INRD"?parseFloat(liveprice_ONT*conversion).toFixed(2):pair=="RAY/USDT"?liveprice_RAY:pair=="RAY/INRD"?parseFloat(liveprice_RAY*conversion).toFixed(2):pair=="SC/USDT"?liveprice_SC:pair=="SC/INRD"?parseFloat(liveprice_SC*conversion).toFixed(2):pair=="DYDX/USDT"?liveprice_DYDX:pair=="DYDX/INRD"?parseFloat(liveprice_DYDX*conversion).toFixed(2):pair=="PERP/USDT"?liveprice_PERP:pair=="PERP/INRD"?parseFloat(liveprice_PERP*conversion).toFixed(2):pair=="GALA/USDT"?liveprice_GALA:pair=="GALA/INRD"?parseFloat(liveprice_GALA*conversion).toFixed(2):pair=="ANKR/USDT"?liveprice_ANKR:pair=="ANKR/INRD"?parseFloat(liveprice_ANKR*conversion).toFixed(2):pair=="NANO/USDT"?liveprice_NANO:pair=="NANO/INRD"?parseFloat(liveprice_NANO*conversion).toFixed(2):pair=="CELO/USDT"?liveprice_CELO:pair=="CELO/INRD"?parseFloat(liveprice_CELO*conversion).toFixed(2):pair=="UMA/USDT"?liveprice_UMA:pair=="UMA/INRD"?parseFloat(liveprice_UMA*conversion).toFixed(2):pair=="C98/USDT"?liveprice_C98:pair=="C98/INRD"?parseFloat(liveprice_C98*conversion).toFixed(2):pair=="CELR/USDT"?liveprice_CELR:pair=="CELR/INRD"?parseFloat(liveprice_CELR*conversion).toFixed(2):pair=="SAND/USDT"?liveprice_SAND:pair=="SAND/INRD"?parseFloat(liveprice_SAND*conversion).toFixed(2):pair=="POLY/USDT"?liveprice_POLY:pair=="POLY/INRD"?parseFloat(liveprice_POLY*conversion).toFixed(2):pair=="FET/USDT"?liveprice_FET:pair=="FET/INRD"?parseFloat(liveprice_FET*conversion).toFixed(2):pair=="1INCH/USDT"?liveprice_1INCH:pair=="1INCH/INRD"?parseFloat(liveprice_1INCH*conversion).toFixed(2):pair=="LRC/USDT"?liveprice_LRC:pair=="LRC/INRD"?parseFloat(liveprice_LRC*conversion).toFixed(2):pair=="KAVA/USDT"?liveprice_KAVA:pair=="KAVA/INRD"?
+              parseFloat(liveprice_KAVA*conversion).toFixed(2):pair=="WRX/USDT"?liveprice_WRX:pair=="WRX/INRD"?parseFloat(liveprice_WRX*conversion).toFixed(2):pair=="RSR/USDT"?liveprice_RSR:pair=="RSR/INRD"?parseFloat(liveprice_RSR*conversion).toFixed(2) : pair == "ANTEAG/USDT" ? parseFloat(8.08/conversion).toFixed(4) : pair =="ANTEAG/INRD" ? parseFloat(8.08) :pair=="THETA/USDT"?liveprice_THETA :parseFloat(liveprice_THETA*conversion).toFixed(2))))).toFixed(5)
         }),
       }).then(res=>{console.log(res.data)})
       const curr = `${pair.substr(0,pair.indexOf('/'))}`
@@ -11137,18 +11234,26 @@ else{
                     <TabPanel>
                     <Form  style={{marginBottom:"2rem",color:isDarkDes?"white":"black"}}>
                     <Label>Trigger Price  ( {`${pair.substr(pair.indexOf('/')+1,pair.length)}`} )</Label>
-           <Input  placeholder={`ENTER PRICE in ${pair.substr(pair.indexOf('/')+1,pair.length)}`} value={fullStop_limit_trig.toFixed(5)} onChange={(event)=>{
+           <Input disabled placeholder={`ENTER PRICE in ${pair.substr(pair.indexOf('/')+1,pair.length)}`} value={fullStop_limit_trig.toFixed(5)} onChange={(event)=>{
                     
                     if(event.target.value.length == 0){
                      setfullStop_limit_trig(0)
               }
-                    setfullStop_limit_trig(parseFloat(event.target.value).toFixed(5))
+                    setfullStop_limit_trig(parseFloat(event.target.value))
                   
                 }}></Input>
                      <Label>Stop Price  ( {`${pair.substr(pair.indexOf('/')+1,pair.length)}`} )</Label>
-           <Input  placeholder={`ENTER PRICE in ${pair.substr(pair.indexOf('/')+1,pair.length)}`} value={fullStop_limit_stop} onChange={(event)=>{
-                    setfullStop_limit_stop(event.target.value)
-                  
+           <Input  placeholder={`ENTER PRICE in ${pair.substr(pair.indexOf('/')+1,pair.length)}`}  onChange={(event)=>{
+                    setfullStop_limit_stop(parseFloat(event.target.value))
+
+
+                    if(event.target.value.length==0 || parseFloat(event.target.value) > parseFloat(fullStop_limit_trig) ){
+                      setCheck9(true)
+                    }
+                    else{
+                      setCheck9(false)
+                    }
+
                 }}></Input>
                 {fullStop_limit_stop > fullStop_limit_trig?<p style={{color:"red",fontSize:"0.7rem"}}>Stop Price must be lesser than trigger price </p>:null}
 
@@ -11188,7 +11293,7 @@ else{
         min={0}
         max={100}
       />
-          <Button type="reset" size="lg" className="bg-dark" style={{display:"block",width:"100%"}} onClick={()=>{
+          <Button disabled={check9} type="reset" size="lg" className="bg-dark" style={{display:"block",width:"100%"}} onClick={()=>{
             const temp=stopTypes;
               temp.push(["stop-limit","Sell",fullStop_limit_trig,fullStop_limit_quantity,fullStop_limit_profit1+"%"])
               setStopTypes(temp)
@@ -11208,12 +11313,12 @@ else{
           pair: pair,
           type : "Limit",
           side : "SELL",
-          triggerPrice : parseFloat(fullStop_limit_trig),
+          triggerPrice : parseFloat(fullStop_limit_trig).toFixed(5),
          
-          hitPrice: parseFloat(fullStop_limit_stop),
+          hitPrice: parseFloat(fullStop_limit_stop).toFixed(5),
           Amount :fullStop_limit_quantity,
           filled : "0.0",
-          total: fullStop_limit_quantity * parseFloat(fullStop_limit_stop)
+          total: (fullStop_limit_quantity * parseFloat(fullStop_limit_stop)).toFixed(5)
         }),
       }).then(res=>{console.log(res.data)})
 
@@ -11290,9 +11395,9 @@ else{
                         <tr>
                         <td style={{textAlign:"left"}}> {ans1[0]}</td>
                         <td style={{textAlign:"left"}}> {ans1[1]}</td>
-                        <td style={{textAlign:"left"}}>{ans1[2]}</td>
-                        <td style={{textAlign:"left"}}>{ans1[3]}</td>
-                        <td style={{textAlign:"left"}}>{ans1[4]}</td>
+                        <td style={{textAlign:"left"}}>{parseFloat(ans1[2]).toFixed(5)}</td>
+                        <td style={{textAlign:"left"}}>{parseFloat(ans1[3]).toFixed(5)}</td>
+                        <td style={{textAlign:"left",color:"red"}}>{ans1[4]}</td>
                         </tr>
                         </>
                   )

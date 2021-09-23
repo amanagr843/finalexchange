@@ -11808,20 +11808,21 @@ else{
                         'Content-type' : "application/json"
                       },
                       data : JSON.stringify({
-                        date : ans[0],
-                        pair : ans[1],
-                        type : ans[2],
-                        side : ans[3],
-                        price : ans[4],
-                        Amount : ans[5],
-                        filled : ans[6],
-                        total : ans[7],
-                        status : ans[8],
+                        date : ans[1],
+                        pair : ans[2],
+                        type : ans[3],
+                        side : ans[4],
+                        price : ans[5],
+                        Amount : ans[6],
+                        filled : ans[7],
+                        total : ans[8],
+                        status : ans[9],
 
                       })
-                    }).then(res=>{
+                    }).then(async res=>{
                       //console.log(res.data)
-                      swal("Canceled","Your order Canceled Successfully","success")
+                      await swal("Canceled","Your order Canceled Successfully","success")
+                      window.location.href = "/"
                     })
                   }}>Cancel</Button></td>
                        </tr>

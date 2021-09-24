@@ -183,20 +183,20 @@ all.onmessage = evt => {
          <div class="col-lg-4 col-md-4 col-sm-6 col-6 " style={{paddingBottom:"1.2rem"}}>
              <h4 style={{fontSize:"1.2rem",color:"whitesmoke"}}>BTC/INR </h4>
              <h4><span style={{color:btc_per > 0 ? "green" : "red",fontSize:"1.2rem"}}>{btc_per} %</span></h4>
-             <h4 style={{color:'gold',fontSize:"1.2rem"}} class="prices">₹ {parseFloat(liveprice_BTC*conversion).toFixed(2)}</h4>
+             <h4 style={{color:'gold',fontSize:"1.2rem"}} class="prices">₹ {parseFloat(liveprice_BTC*conversion).toFixed(2) == parseFloat(liveprice_BTC).toFixed(2)?0:parseFloat(liveprice_BTC*conversion).toFixed(2)}</h4>
             <h4 style={{fontSize:"1.2rem",color:"whitesmoke"}} >$ {parseFloat(liveprice_BTC).toFixed(2)}</h4>
               
           </div>
           <div className="col-lg-4 col-md-4 col-sm-6  col-6" style={{paddingBottom:"1.2rem"}}>
             <h4 style={{fontSize:"1.2rem",color:"whitesmoke"}}>BNB/INR </h4>
              <h4><span style={{color:btc_per > 0 ? "green" : "red",fontSize:"1.2rem"}}>{bnb_per} %</span></h4>
-             <h4 style={{color:'gold',fontSize:"1.2rem"}}>₹ {parseFloat(liveprice_BNB*conversion).toFixed(2)}</h4>
+             <h4 style={{color:'gold',fontSize:"1.2rem"}}>₹ {parseFloat(liveprice_BNB*conversion).toFixed(2) == parseFloat(liveprice_BNB).toFixed(2)?0:parseFloat(liveprice_BNB*conversion).toFixed(2)}</h4>
             <h4 style={{fontSize:"1.2rem",color:"whitesmoke"}} >$ {parseFloat(liveprice_BNB).toFixed(2)}</h4>
           </div>
           <div className="col-lg-4 col-md-4 col-sm-6  col-6" style={{paddingBottom:"1.2rem"}}>
             <h4 style={{fontSize:"1.2rem",color:"whitesmoke"}}>ETH/INR </h4>
              <h4><span style={{color:btc_per > 0 ? "green" : "red",fontSize:"1.2rem"}}>{eth_per} %</span></h4>
-             <h4 style={{color:'gold',fontSize:"1.2rem"}}>₹ {parseFloat(liveprice_ETH*conversion).toFixed(2)}</h4>
+             <h4 style={{color:'gold',fontSize:"1.2rem"}}>₹ {parseFloat(liveprice_ETH*conversion).toFixed(2) == parseFloat(liveprice_ETH).toFixed(2)?0:parseFloat(liveprice_ETH*conversion).toFixed(2)}</h4>
             <h4 style={{fontSize:"1.2rem",color:"whitesmoke"}} >$ {parseFloat(liveprice_ETH).toFixed(2)}</h4>
           </div>
           <div className="col-lg-4 col-md-4 col-sm-6  col-6" style={{paddingBottom:"1.2rem"}}>

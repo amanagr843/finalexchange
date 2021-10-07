@@ -8,6 +8,7 @@ import sun from "./sun.png";
 import moon from "./moon.png"
 import Chart from 'chart.js';
 import logout from "./logout.png"
+import Chat from './chat.js'
 import 'react-vertical-timeline-component/style.min.css';
 import LoadDashMobile from "./loadDash_mobile";
 import { TVChartContainer } from "./components/TVChartContainer";
@@ -11913,9 +11914,14 @@ else{
                </Tabs>
               </CardBody>
             </Card>
-          </Col>         
+          </Col>  
+          <div style={{marginRight:"35rem",marginLeft:"-18rem",width:"112.5%"}}>
+          <Chat />     
+          </div>  
 </div>
+
   </div>
+ 
  
 </div> </body> : portfolio ?
 <>
@@ -11995,6 +12001,9 @@ else{
 <div class="tabs swap" style={{width:"40%",margin:"0 28rem 6rem",paddingTop:"4rem",borderRadius:"3rem",backgroundColor:isDarkDes?"#161c2d":"white",color: isDarkDes?"white":"black"}}>    
                           
         <Row>
+        <div style={{width:"90%"}}>
+        
+        </div>
           <Col>
            
               <h3>SWAP YOUR COINS</h3>
@@ -12194,6 +12203,7 @@ else{
                                         </Row>
                                       </DialogContent>
                               </Dialog>
+                              
                            </>
                            : null
                         }

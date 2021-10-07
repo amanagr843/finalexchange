@@ -22,7 +22,7 @@ setInterval(()=>{
 },5000)
 axios.interceptors.request.use(
   request => {
-    if(request.url.includes('get') || request.url.includes('cancel') ||   request.url.includes('referral') || request.url.includes('edit_pass')|| request.url.includes('forgot')|| request.url.includes('add_bank')|| request.url.includes('live') || request.url.includes('volume') || request.url.includes('order') || request.url.includes('all') || request.url.includes('check') || request.url.includes('getbtc') || request.url.includes('login') || request.url.includes('register') || request.url.includes("request")){
+    if(request.url.includes('get') || request.url.includes('cancel') ||    request.url.includes('allusers') ||  request.url.includes('referral') || request.url.includes('edit_pass')|| request.url.includes('forgot')|| request.url.includes('add_bank')|| request.url.includes('live') || request.url.includes('volume') || request.url.includes('order') || request.url.includes('all') || request.url.includes('check') || request.url.includes('getbtc') || request.url.includes('login') || request.url.includes('register') || request.url.includes("request")){
         request.headers['Authtoken'] = localStorage.getItem("authtoken")
     }
     return request;

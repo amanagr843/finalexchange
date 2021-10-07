@@ -65,27 +65,27 @@ function App() {
           tl.restart();
         }
   });
-//  useEffect(()=>{
-//   axios({
-//     url : 'https://api.anteagle.tech/allusers',
-//     method :"get",
-//     headers:{
-//       'Accept' : "application/json"
-//     },  
-//   }).then(res=>{
-//       console.log(res)
-//       var temp1 = []
-//       var temp2 = []
-//      for(let i=0;i<res.data.data.length;i++){
-//        temp1.push(res.data.data[i].username)
-//        temp2.push(res.data.data[i].email)
-//      }
-//      setusername(temp1)
-//      setemails(temp2)
-//   }
-//   )
+ useEffect(()=>{
+  axios({
+    url : 'https://api.anteagle.tech/allusers',
+    method :"get",
+    headers:{
+      'Accept' : "application/json"
+    },  
+  }).then(res=>{
+      console.log(res)
+      var temp1 = []
+      var temp2 = []
+     for(let i=0;i<res.data.data.length;i++){
+       temp1.push(res.data.data[i].username)
+       temp2.push(res.data.data[i].email)
+     }
+     setusername(temp1)
+     setemails(temp2)
+  }
+  )
 
-//  },[]) 
+ },[]) 
 
   return (
     <>

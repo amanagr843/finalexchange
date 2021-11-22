@@ -22,8 +22,8 @@ function App() {
   const [signup_password,set_signup_password] = React.useState('')
   const [signup_password_conf,set_signup_password_conf] = React.useState('')
   const [signup_email,set_signup_email] = React.useState('')
-  const [emails,setemails] = React.useState('')
-  const [username,setusername] = React.useState('')
+  const [emails,setemails] = React.useState([])
+  const [username,setusername] = React.useState([])
   const [visible, setVisible]=React.useState(true)
   const [visible1,setvisible1]=React.useState(false)
   const [visible2,setVisible2]=React.useState(false)
@@ -80,8 +80,8 @@ function App() {
        temp1.push(res.data.data[i].username)
        temp2.push(res.data.data[i].email)
      }
-     setusername(temp1)
-     setemails(temp2)
+     setusername(...username,temp1)
+     setemails(...emails,temp2)
   }
   )
 

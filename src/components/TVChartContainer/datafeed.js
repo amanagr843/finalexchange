@@ -159,8 +159,43 @@ export default {
                 toTs: to,
                 limit: 2000,
             };
-    
-            const query = Object.keys(urlParameters)
+            if(symbolInfo.name.substr(symbolInfo.name.lastIndexOf("/"),symbolInfo.name.length) == 'USD')
+            {
+                const query = Object.keys(urlParameters)
+                .map(name => `${name}=${encodeURIComponent(urlParameters[name])}`)
+                    .join('&');
+            try {
+                const data = await makeApiRequest(`data/histoday?${query}`);
+                if (data.Response && data.Response === 'Error' || data.Data.length === 0) {
+                    // "noData" should be set if there is no data in the requested period.
+                    onHistoryCallback([], { noData: true });
+                    return;
+                }
+                let bars = [];
+                // console.log(data.Data)
+                data.Data.forEach(bar => {
+                    if (bar.time >= from && bar.time < to) {
+                        bars = [...bars, {
+                            time: bar.time * 1000,
+                            low: bar.low*75,
+                            high: bar.high*75,
+                            open: bar.open*75,
+                            close: bar.close*75,
+                        }];
+                    }
+                });
+                if (firstDataRequest) {
+                    lastBarsCache.set(symbolInfo.full_name, { ...bars[bars.length - 1] });
+                }
+                //console.log(`[getBars]: returned ${bars.length} bar(s)`);
+                onHistoryCallback(bars, { noData: false });
+            } catch (error) {
+                //console.log('[getBars]: Get error', error);
+                onErrorCallback(error);
+            }
+            }
+            else{
+                const query = Object.keys(urlParameters)
                 .map(name => `${name}=${encodeURIComponent(urlParameters[name])}`)
                     .join('&');
             try {
@@ -192,6 +227,8 @@ export default {
                 //console.log('[getBars]: Get error', error);
                 onErrorCallback(error);
             }
+            }
+            
         }
         
     },

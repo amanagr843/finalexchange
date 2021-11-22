@@ -11760,7 +11760,7 @@ else{
        
       </Navbar>                
   </div>
-  <TVChartContainer theme={isDarkDes? "Dark":"Light"} pair={pair == "ANTEAG/USDT" || pair == 'ANTEAG/INRD' ? `AntEagle:${pair}` : `Binance:${pair}`}/>
+  <TVChartContainer theme={isDarkDes? "Dark":"Light"} pair={pair == "ANTEAG/USDT" || pair == 'ANTEAG/INRD' ? `AntEagle:${pair}` : pair.substr(par.lastIndexOf("/")+1,par.length)  == 'INRD' ? `Binance:${pair.substr(0,pair.lastIndexOf("/"))}/USD` :`Binance:${pair}`}/>
 
 <div style={{height:"100rem"}}>
 <Col xs="11" style={{margin:"6.5rem 0 0 0.9rem"}} >

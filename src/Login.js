@@ -176,7 +176,7 @@ function App() {
         }}/>
         <button className="btn btn-primary btn-block btn-large" type="submit" style={{marginBottom:"2rem"}} onClick={()=>{
           axios({
-            url : `https://api.anteagle.tech/login?username=${login_username}&password=${login_password}`,
+            url : `https://api.anteagle.tech/api/login?username=${login_username}&password=${login_password}`,
             headers:{
               'Accept' : "aaplication/json"
             },

@@ -176,7 +176,7 @@ function App() {
         }}/>
         <button className="btn btn-primary btn-block btn-large" type="submit" style={{marginBottom:"2rem"}} onClick={()=>{
           axios({
-            url : `https://api.anteagle.tech/api/login?username=${login_username}&password=${login_password}`,
+            url : `https://api.anteagle.tech/login?username=${login_username}&password=${login_password}`,
             headers:{
               'Accept' : "aaplication/json"
             },
@@ -250,7 +250,7 @@ function App() {
         
         axios({
                     method : "post",
-                    url : `https://api.anteagle.tech/api/forgot?email=${email}`,
+                    url : `https://api.anteagle.tech/forgot?email=${email}`,
                     headers : {
                         'Accept' : "Application/Json",
                         'Content-type' :"application/json"
@@ -302,7 +302,7 @@ function App() {
               else{
                 axios({
                     method : "post",
-                    url : `https://api.anteagle.tech/api/edit_pass?password=${password}&userid=${localStorage.getItem("userid")}`,
+                    url : `https://api.anteagle.tech/edit_pass?password=${password}&userid=${localStorage.getItem("userid")}`,
                     headers : {
                         "Accept" : "Application/json",
                         "Content-type" : "application/json"

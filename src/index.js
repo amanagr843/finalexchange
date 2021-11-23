@@ -16,7 +16,7 @@ setInterval(()=>{
   var text = 'aa1945373742043f852dfe83b1dc61954353a27914877ec7fd0d6cfcbe8391f7' + Date.now()
   var algorithm = 'aes256'; // or any other algorithm supported by OpenSSL
   var key = 'mujhenhipta';
-  var cipher = crypto.createCipher(algorithm, key);  
+  var cipher = crypto.createCipheriv(algorithm, key);  
   var encrypted = cipher.update(text, 'utf8', 'hex') + cipher.final('hex'); 
   localStorage.setItem("authtoken",encrypted)
 },5000)

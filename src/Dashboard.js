@@ -1741,7 +1741,7 @@ const [allorder,setallorders] = React.useState([])
         'Accept' : "application/json"
       }
     }).then(res1=>{
-      // console.log(res1.data.data)
+      console.log(res1.data.data)
       // console.log(Object.keys(res1.data.data).length)
       var x=Object.entries(res1.data.data).forEach(([key,value])=>{
               if(key.includes("_Coins") && value>0){

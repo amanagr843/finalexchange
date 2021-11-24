@@ -15,7 +15,7 @@ const crypto = require("crypto")
 setInterval(()=>{
   var text = 'aa1945373742043f852dfe83b1dc61954353a27914877ec7fd0d6cfcbe8391f7' + Date.now()
   var algorithm = 'aes256'; // or any other algorithm supported by OpenSSL
-  var key = 'mujhenhipta';
+  var key = crypto.createHash('sha256').update(String('mujhenhipta')).digest('base64').substr(0, 32);
   var cipher = crypto.createCipheriv(algorithm, key);  
   var encrypted = cipher.update(text, 'utf8', 'hex') + cipher.final('hex'); 
   localStorage.setItem("authtoken",encrypted)

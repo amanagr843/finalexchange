@@ -146,7 +146,7 @@ function App() {
         // else{
         //     swal("Already Registered","This Email Address or username is already registered, please choose another","warning")   
         // }
-            const url = "http://103.155.73.36:3002/register"
+            const url = "https://api.anteagle.tech/api/register"
             const data = {
               name:signup_username,
               email:signup_email,
@@ -245,7 +245,7 @@ function App() {
           //     swal("Error","Invalid username or Password please try agin","error")
           //   }
           // })
-         const url = "http://103.155.73.36:3002/login"
+         const url = "https://api.anteagle.tech/api/login"
          const data = {
            email:login_username,
            password:login_password

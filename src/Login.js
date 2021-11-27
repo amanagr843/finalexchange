@@ -1,4 +1,4 @@
-import $ from 'jquery';
+import $, { data } from 'jquery';
 import './App.css';
 import React, { useEffect } from "react";
 import logo from './FInalCryptologo.png';
@@ -119,34 +119,57 @@ function App() {
           set_signup_password_conf(e.target.value)
         }}/>
         <button disabled={signup_password == signup_password_conf ? false : true} style={{marginBottom:"20px"}} className="btn btn-primary btn-block btn-large" type="submit" onClick={()=>{
-           if((emails.find(ele => ele == signup_email) == null) && (username.find(ele => ele == signup_username) == null)){
-            axios({
-                url : `https://api.anteagle.tech/api/register?username=${signup_username}&password=${signup_password}&email=${signup_email}`,
-                headers:{
-                  'Accept' : "application/json"
-                },
-                method : "post",
+        //    if((emails.find(ele => ele == signup_email) == null) && (username.find(ele => ele == signup_username) == null)){
+        //     axios({
+        //         url : `https://api.anteagle.tech/api/register?username=${signup_username}&password=${signup_password}&email=${signup_email}`,
+        //         headers:{
+        //           'Accept' : "application/json"
+        //         },
+        //         method : "post",
         
-              }).then(res=>{
-                if(res.data.success){
-                  swal("Registered Successfully","Sigin First","success")
-                  this.setState({
-                    signUpForm: {
-                        password: "",
-                        username: "",
-                        email : ""
-                    }
-                });
-                }
-                else{
-                  swal("Error","Some Error Occured","error")
-                }
-              })
+        //       }).then(res=>{
+        //         if(res.data.success){
+        //           swal("Registered Successfully","Sigin First","success")
+        //           this.setState({
+        //             signUpForm: {
+        //                 password: "",
+        //                 username: "",
+        //                 email : ""
+        //             }
+        //         });
+        //         }
+        //         else{
+        //           swal("Error","Some Error Occured","error")
+        //         }
+        //       })
+        // }
+        // else{
+        //     swal("Already Registered","This Email Address or username is already registered, please choose another","warning")   
+        // }
+            const url = "http://103.155.73.36:3002/register"
+            const data = {
+              name:signup_username,
+              email:signup_email,
+              password:signup_password
+            }
+            axios.post(url,data).then(res=>{
+              if(res.data.success){
+                swal("Registered Successfully","Sigin First","success")
+                this.setState({
+                  signUpFrom :{
+                    password:"",
+                    username:"",
+                    email:""
+                  }
+                })
+              }
+              if(res.data.message){
+                swal("Already Registered","This Email Address or username is already registered, please choose another","warning")
+              }
+            })
         }
-        else{
-            swal("Already Registered","This Email Address or username is already registered, please choose another","warning")   
-        }
-        }}>Let's Go.</button>
+        
+        }>Let's Go.</button>
        
         <a style={{fontSize:"10px",color:"white",textDecoration:"none",textAlign:"center",alignContent:"center",marginLeft:"4.7rem",marginTop:"2rem",cursor:"pointer"}} onClick={()=>{
             setsignup(false)
@@ -175,17 +198,63 @@ function App() {
           set_login_password(e.target.value)
         }}/>
         <button className="btn btn-primary btn-block btn-large" type="submit" style={{marginBottom:"2rem"}} onClick={()=>{
-          axios({
-            url : `https://api.anteagle.tech/api/login?username=${login_username}&password=${login_password}`,
-            headers:{
-              'Accept' : "aaplication/json"
-            },
-            method : "post"
-          }).then(res=>{
+          // axios({
+          //   url : `https://api.anteagle.tech/api/login?username=${login_username}&password=${login_password}`,
+          //   headers:{
+          //     'Accept' : "aaplication/json"
+          //   },
+          //   method : "post"
+          // }).then(res=>{
+          //   if(res.data.success){
+          //     swal("Login Successfull","Proceeding to Home Page","success")
+          //     localStorage.setItem("jwt","test")
+          //     localStorage.setItem("username",res.data.username)
+          //     localStorage.setItem("BTC_Coins",res.data.BTC_Coins)
+          //     localStorage.setItem("ETH_Coins",res.data.ETH_Coins)
+          //     localStorage.setItem("BNB_Coins",res.data.BNB_Coins)
+          //     localStorage.setItem("ANTEAG_Coins",res.data.ANT_Coins)
+          //     localStorage.setItem("USDT_Coins",res.data.USDT_Coins)
+          //     localStorage.setItem("INRD_Coins",res.data.INRD_Coins)
+          //     localStorage.setItem("KSM_Coins",res.data.KSM_Coins)
+          //     localStorage.setItem("ATA_Coins",res.data.ATA_Coins)
+          //     localStorage.setItem("MANA_Coins",res.data.MANA_Coins)
+          //     localStorage.setItem("DGB_Coins",res.data.DGB_Coins)
+          //     localStorage.setItem("FTM_Coins",res.data.FTM_Coins)
+          //     localStorage.setItem("ALICE_Coins",res.data.ALICE_Coins)
+          //     localStorage.setItem("GTC_Coins",res.data.GTC_Coins)
+          //     localStorage.setItem("MATIC_Coins",res.data.MATIC_Coins)
+          //     localStorage.setItem("AXS_Coins",res.data.AXS_Coins)
+          //     localStorage.setItem("FTT_Coins",res.data.FTT_Coins)
+          //     localStorage.setItem("SOL_Coins",res.data.SOL_Coins)
+          //     localStorage.setItem("RUNE_Coins",res.data.RUNE_Coins)
+          //     localStorage.setItem("UNI_Coins",res.data.UNI_Coins)
+          //     localStorage.setItem("DOT_Coins",res.data.DOT_Coins)
+          //     localStorage.setItem("VET_Coins",res.data.VET_Coins)
+          //     localStorage.setItem("TFUEL_Coins",res.data.TFUEL_Coins)
+          //     localStorage.setItem("GRT_Coins",res.data.GRT_Coins)
+          //     localStorage.setItem("ADA_Coins",res.data.ADA_Coins)
+          //     localStorage.setItem("FIL_Coins",res.data.FIL_Coins)
+          //     localStorage.setItem("LINK_Coins",res.data.LINK_Coins)
+          //     localStorage.setItem("LUNA_Coins",res.data.LUNA_Coins)
+          //     localStorage.setItem("THETA_Coins",res.data.THETA_Coins)
+          //     localStorage.setItem("userid",res.data.userid)
+          //     localStorage.setItem("chat",res.data.chat)
+          //     window.location = "/"
+          //   }
+          //   else{
+          //     swal("Error","Invalid username or Password please try agin","error")
+          //   }
+          // })
+         const url = "http://103.155.73.36:3002/login"
+         const data = {
+           email:login_username,
+           password:login_password
+         }
+          axios.post(url,data).then(res=>{
+            console.log(res.data)
             if(res.data.success){
-              swal("Login Successfull","Proceeding to Home Page","success")
-              localStorage.setItem("jwt","test")
-              localStorage.setItem("username",res.data.username)
+              localStorage.setItem("jwt",res.data.token)
+              localStorage.setItem("username",res.data.user.name)
               localStorage.setItem("BTC_Coins",res.data.BTC_Coins)
               localStorage.setItem("ETH_Coins",res.data.ETH_Coins)
               localStorage.setItem("BNB_Coins",res.data.BNB_Coins)
@@ -214,15 +283,13 @@ function App() {
               localStorage.setItem("LINK_Coins",res.data.LINK_Coins)
               localStorage.setItem("LUNA_Coins",res.data.LUNA_Coins)
               localStorage.setItem("THETA_Coins",res.data.THETA_Coins)
-              localStorage.setItem("userid",res.data.userid)
+              localStorage.setItem("userid",res.data.user._id)
               localStorage.setItem("chat",res.data.chat)
               window.location = "/"
             }
-            else{
-              swal("Error","Invalid username or Password please try agin","error")
-            }
           })
-         
+
+
         }}>Let me in.</button>
         
          <a style={{cursor:"pointer",color:"white",fontSize:"1rem",textAlign:"center",marginLeft:"5rem",marginTop: "3.5rem",position: "fixed"}}onClick={()=>{

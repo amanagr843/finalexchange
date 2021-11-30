@@ -1954,7 +1954,7 @@ useEffect(()=>{
     // Themes end
     
     var chart = am4core.create("chartdiv", am4charts.PieChart3D);
-    chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
+    chart.hiddenState.properties.opacity = 1; // this creates initial fade-in
     
     chart.legend = new am4charts.Legend();
     

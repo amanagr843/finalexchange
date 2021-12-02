@@ -11947,7 +11947,7 @@ else{
 
 <div className="col chart1" style={{backgroundColor:isDarkDes?"#161c2d":"white",color: isDarkDes?"white":"black"}}>
 <h3 >PortFolio Distribution</h3>
-<div style={{height:"30rem"}} id="chartdiv"></div>
+<div style={{ width: "100%", height: "30rem" }} id="chartdiv"></div>
 
 </div>
 </div>

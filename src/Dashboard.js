@@ -8,7 +8,7 @@ import sun from "./sun.png";
 import moon from "./moon.png"
 import Chart from 'chart.js';
 import logout from "./logout.png"
-import Chat from './chat.js'
+// import Chat from './chat.js'
 import 'react-vertical-timeline-component/style.min.css';
 import LoadDashMobile from "./loadDash_mobile";
 import { TVChartContainer } from "./components/TVChartContainer";
@@ -5029,11 +5029,11 @@ const btcData = async () => {
   </Dialog>
   <CardText style={{fontSize:"1.5rem",fontWeight:"500",color:isDark? "white":"black",fontFamily:"Strasua"}}><img src={logo} style={{width:"60px",marginTop:"10px",marginLeft:"5px",background : isDark ? "white" : "none",borderRadius:isDark ? "100px" : "0px" }}></img> AntEagle <br/><p style={{fontSize:"1rem",marginLeft:"4.3rem",marginTop:"-1.5rem",fontFamily:"orbitron"}}> Exchange <span style={{color:"green"}}>Lite</span></p></CardText>
 
-  <div class="container" style={{marginLeft:"18rem",marginBottom:"-1.2rem"}}>
+  <div className="container" style={{marginLeft:"18rem",marginBottom:"-1.2rem"}}>
     <input type="checkbox" id="theme-toggle" onChange={(e)=>{
       setDark(!isDark)
     }}/>
-    <label for="theme-toggle">
+    <label htmlFor="theme-toggle">
      {isDark ?  <img height="30px" src={moon} style={{filter:"invert(1)"}}/> : <img height="40px" src={sun}/>}
     </label>
   </div>
@@ -5826,7 +5826,7 @@ const btcData = async () => {
   
   </DialogContent>
   </Dialog>
-  <div class="tabs" style={{width:"95%",marginLeft:"5px",paddingBottom:"0.6rem",marginBottom:"0.7rem",background:" rgb(0,95,255)",
+  <div className="tabs" style={{width:"95%",marginLeft:"5px",paddingBottom:"0.6rem",marginBottom:"0.7rem",background:" rgb(0,95,255)",
   background: !isDark ? " linear-gradient(90deg,rgba(0,95,255,1) 0%, rgba(255,255,255,1) 4%, rgba(255,255,255,1) 96%,rgba(0,95,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255,1) 0%, rgba(61,61,61,1) 4%, rgb(61, 61, 61,1) 96%, rgba(255,0,255,1) 100%)",borderRadius:"12px"}}>
   
   
@@ -5869,25 +5869,25 @@ const btcData = async () => {
   </div>
   <div  style={{marginLeft:"15px",width:"90%",paddingTop:'20px',marginTop:"0.8rem",paddingBottom:"0.8rem",borderRadius:"none"}}> 
   <CardText style={{fontSize:"1.1rem",marginTop:".4rem",textAlign:"center",fontWeight:"500",color:isDark? "white":"black"}} >TRADING CURRENCY </CardText>
-  <div class="switch" style={{marginTop:"-0.7rem",textAlign:"center"}} >
+  <div className="switch" style={{marginTop:"-0.7rem",textAlign:"center"}} >
     <input type="checkbox" onChange={()=>{
       setmobileswitch1(!mobileswitch1)
     }}/> <label style={{color:isDark? "white":"black"}} > <i > INRD/USDT</i></label>
   </div> 
-  <article class="leaderboard" style={{textAlign:"left"}}>
+  <article className="leaderboard" style={{textAlign:"left"}}>
   
-  <main class="leaderboard__profiles" style={{margin:"1rem 1rem 1rem 1.3rem" }}>
+  <main className="leaderboard__profiles" style={{margin:"1rem 1rem 1rem 1.3rem" }}>
    
     
-     <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+     <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
         
         
         <span onClick={()=>{
       setopen_btc(true)
         seti(1)
-    }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={logobtc}  alt="Mark Zuckerberg"   /> Bitcoin(BTC) </h4></span>
+    }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={logobtc}  alt="Mark Zuckerberg"   /> Bitcoin(BTC) </h4></span>
         
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(BTC_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_BTC : (parseFloat(liveprice_BTC*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(BTC_per) >0 ? 'green' : 'red'}}> {BTC_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(BTC_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_BTC : (parseFloat(liveprice_BTC*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(BTC_per) >0 ? 'green' : 'red'}}> {BTC_per}%</span></span></h5>
         <Dialog  open={open_btc} style={{width:"25rem"}} onClose={()=>{setopen_btc(false)}}>
      
       <DialogContent style={{paddingBottom:"1.2rem"}}>
@@ -5916,14 +5916,14 @@ const btcData = async () => {
       </Dialog>
       </div> 
   
-      <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-      <span class="leaderboard__name"  onClick={()=>{
+      <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+      <span className="leaderboard__name"  onClick={()=>{
      
      setopen_eth(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={eth}  alt="Mark Zuckerberg"  /> Ethereum (ETH) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={eth}  alt="Mark Zuckerberg"  /> Ethereum (ETH) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(ETH_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_ETH : (parseFloat(liveprice_ETH*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(ETH_per) >0 ? 'green' : 'red'}}> {ETH_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(ETH_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_ETH : (parseFloat(liveprice_ETH*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(ETH_per) >0 ? 'green' : 'red'}}> {ETH_per}%</span></span></h5>
        
         <Dialog  open={open_eth} style={{width:"25rem"}} onClose={()=>{setopen_eth(false)}}>
      
@@ -5954,14 +5954,14 @@ const btcData = async () => {
   
       </div> 
       
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_BNB(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={bnb}  alt="Mark Zuckerberg"   /> Binance (BNB) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={bnb}  alt="Mark Zuckerberg"   /> Binance (BNB) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(BNB_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_BNB : (parseFloat(liveprice_BNB*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(BNB_per) >0 ? 'green' : 'red'}}> {BNB_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(BNB_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_BNB : (parseFloat(liveprice_BNB*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(BNB_per) >0 ? 'green' : 'red'}}> {BNB_per}%</span></span></h5>
   
         <Dialog  open={open_BNB} style={{width:"25rem"}} onClose={()=>{setopen_BNB(false)}}>
      
@@ -5991,14 +5991,14 @@ const btcData = async () => {
      </Dialog>
       </div> 
   
-      <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+      <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_LINK(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={link}  alt="Mark Zuckerberg"   /> Chainlink (LINK) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={link}  alt="Mark Zuckerberg"   /> Chainlink (LINK) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(LINK_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_LINK : (parseFloat(liveprice_LINK*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(LINK_per) >0 ? 'green' : 'red'}}> {LINK_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(LINK_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_LINK : (parseFloat(liveprice_LINK*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(LINK_per) >0 ? 'green' : 'red'}}> {LINK_per}%</span></span></h5>
   
         <Dialog  open={open_LINK} style={{width:"25rem"}} onClose={()=>{setopen_LINK(false)}}>
      
@@ -6031,14 +6031,14 @@ const btcData = async () => {
        </div>
   
   
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_LUNA(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={luna}  alt="Mark Zuckerberg"   /> Terra (LUNA) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={luna}  alt="Mark Zuckerberg"   /> Terra (LUNA) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(LUNA_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_LUNA : (parseFloat(liveprice_LUNA*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(LUNA_per) >0 ? 'green' : 'red'}}> {LUNA_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(LUNA_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_LUNA : (parseFloat(liveprice_LUNA*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(LUNA_per) >0 ? 'green' : 'red'}}> {LUNA_per}%</span></span></h5>
   
         <Dialog  open={open_LUNA} style={{width:"25rem"}} onClose={()=>{setopen_LUNA(false)}}>
      
@@ -6071,14 +6071,14 @@ const btcData = async () => {
        </div>
   
   
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_THETA(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={theta}  alt="Mark Zuckerberg"   /> THETA (THETA) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={theta}  alt="Mark Zuckerberg"   /> THETA (THETA) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(THETA_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_THETA : (parseFloat(liveprice_THETA*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(THETA_per) >0 ? 'green' : 'red'}}> {THETA_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(THETA_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_THETA : (parseFloat(liveprice_THETA*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(THETA_per) >0 ? 'green' : 'red'}}> {THETA_per}%</span></span></h5>
   
         <Dialog  open={open_THETA} style={{width:"25rem"}} onClose={()=>{setopen_THETA(false)}}>
      
@@ -6110,14 +6110,14 @@ const btcData = async () => {
   
        </div>
   
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_GRT(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={grt}  alt="Mark Zuckerberg"   /> GRAPH (GRT) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={grt}  alt="Mark Zuckerberg"   /> GRAPH (GRT) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(GRT_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_GRT : (parseFloat(liveprice_GRT*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(GRT_per) >0 ? 'green' : 'red'}}> {GRT_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(GRT_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_GRT : (parseFloat(liveprice_GRT*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(GRT_per) >0 ? 'green' : 'red'}}> {GRT_per}%</span></span></h5>
   
         <Dialog  open={open_GRT} style={{width:"25rem"}} onClose={()=>{setopen_GRT(false)}}>
      
@@ -6149,14 +6149,14 @@ const btcData = async () => {
   
        </div> 
   
-        <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+        <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_TFUEL(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={tfuel}  alt="Mark Zuckerberg"   /> THETA FUEL (TFUEL) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={tfuel}  alt="Mark Zuckerberg"   /> THETA FUEL (TFUEL) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(TFUEL_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_TFUEL : (parseFloat(liveprice_TFUEL*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(TFUEL_per) >0 ? 'green' : 'red'}}> {TFUEL_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(TFUEL_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_TFUEL : (parseFloat(liveprice_TFUEL*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(TFUEL_per) >0 ? 'green' : 'red'}}> {TFUEL_per}%</span></span></h5>
   
         <Dialog  open={open_TFUEL} style={{width:"25rem"}} onClose={()=>{setopen_TFUEL(false)}}>
      
@@ -6188,14 +6188,14 @@ const btcData = async () => {
   
        </div>
        
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_KSM(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={ksm}  alt="Mark Zuckerberg"   /> KUSAMA (KSM) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={ksm}  alt="Mark Zuckerberg"   /> KUSAMA (KSM) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(KSM_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_KSM : (parseFloat(liveprice_KSM*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(KSM_per) >0 ? 'green' : 'red'}}> {KSM_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(KSM_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_KSM : (parseFloat(liveprice_KSM*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(KSM_per) >0 ? 'green' : 'red'}}> {KSM_per}%</span></span></h5>
   
         <Dialog  open={open_KSM} style={{width:"25rem"}} onClose={()=>{setopen_KSM(false)}}>
      
@@ -6227,14 +6227,14 @@ const btcData = async () => {
   
        </div>
   
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_ADA(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={ada}  alt="Mark Zuckerberg"   /> Cardano (ADA) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={ada}  alt="Mark Zuckerberg"   /> Cardano (ADA) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(ADA_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_ADA : (parseFloat(liveprice_ADA*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(ADA_per) >0 ? 'green' : 'red'}}> {ADA_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(ADA_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_ADA : (parseFloat(liveprice_ADA*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(ADA_per) >0 ? 'green' : 'red'}}> {ADA_per}%</span></span></h5>
   
         <Dialog  open={open_ADA} style={{width:"25rem"}} onClose={()=>{setopen_ADA(false)}}>
      
@@ -6266,14 +6266,14 @@ const btcData = async () => {
   
        </div>
   
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_VET(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={vet}  alt="Mark Zuckerberg"   /> VeChain (VET) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={vet}  alt="Mark Zuckerberg"   /> VeChain (VET) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(VET_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_VET : (parseFloat(liveprice_VET*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(VET_per) >0 ? 'green' : 'red'}}> {VET_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(VET_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_VET : (parseFloat(liveprice_VET*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(VET_per) >0 ? 'green' : 'red'}}> {VET_per}%</span></span></h5>
   
         <Dialog  open={open_VET} style={{width:"25rem"}} onClose={()=>{setopen_VET(false)}}>
      
@@ -6307,14 +6307,14 @@ const btcData = async () => {
   
   
   
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_DOT(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={dot}  alt="Mark Zuckerberg"   /> Polkadot (DOT) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={dot}  alt="Mark Zuckerberg"   /> Polkadot (DOT) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(DOT_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_DOT : (parseFloat(liveprice_DOT*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(DOT_per) >0 ? 'green' : 'red'}}> {DOT_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(DOT_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_DOT : (parseFloat(liveprice_DOT*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(DOT_per) >0 ? 'green' : 'red'}}> {DOT_per}%</span></span></h5>
   
         <Dialog  open={open_DOT} style={{width:"25rem"}} onClose={()=>{setopen_DOT(false)}}>
      
@@ -6346,14 +6346,14 @@ const btcData = async () => {
   
        </div>
   
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_UNI(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={uni}  alt="Mark Zuckerberg"   /> Uniswap (UNI) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={uni}  alt="Mark Zuckerberg"   /> Uniswap (UNI) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(UNI_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_UNI : (parseFloat(liveprice_UNI*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(UNI_per) >0 ? 'green' : 'red'}}> {UNI_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(UNI_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_UNI : (parseFloat(liveprice_UNI*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(UNI_per) >0 ? 'green' : 'red'}}> {UNI_per}%</span></span></h5>
   
         <Dialog  open={open_UNI} style={{width:"25rem"}} onClose={()=>{setopen_UNI(false)}}>
      
@@ -6385,14 +6385,14 @@ const btcData = async () => {
   
        </div>
   
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_RUNE(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={rune}  alt="Mark Zuckerberg"   /> THORChain (RUNE) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={rune}  alt="Mark Zuckerberg"   /> THORChain (RUNE) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(RUNE_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_RUNE : (parseFloat(liveprice_RUNE*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(RUNE_per) >0 ? 'green' : 'red'}}> {RUNE_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(RUNE_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_RUNE : (parseFloat(liveprice_RUNE*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(RUNE_per) >0 ? 'green' : 'red'}}> {RUNE_per}%</span></span></h5>
   
         <Dialog  open={open_RUNE} style={{width:"25rem"}} onClose={()=>{setopen_RUNE(false)}}>
      
@@ -6425,14 +6425,14 @@ const btcData = async () => {
        </div>
   
   
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_SOL(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={sol}  alt="Mark Zuckerberg"   /> SOLANA (SOL) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={sol}  alt="Mark Zuckerberg"   /> SOLANA (SOL) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(SOL_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_SOL : (parseFloat(liveprice_SOL*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(SOL_per) >0 ? 'green' : 'red'}}> {SOL_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(SOL_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_SOL : (parseFloat(liveprice_SOL*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(SOL_per) >0 ? 'green' : 'red'}}> {SOL_per}%</span></span></h5>
   
         <Dialog  open={open_SOL} style={{width:"25rem"}} onClose={()=>{setopen_SOL(false)}}>
      
@@ -6465,14 +6465,14 @@ const btcData = async () => {
        </div>
   
   
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_FTT(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={ftt}  alt="Mark Zuckerberg"   /> FTX (FTT) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={ftt}  alt="Mark Zuckerberg"   /> FTX (FTT) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(FTT_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_FTT : (parseFloat(liveprice_FTT*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(FTT_per) >0 ? 'green' : 'red'}}> {FTT_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(FTT_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_FTT : (parseFloat(liveprice_FTT*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(FTT_per) >0 ? 'green' : 'red'}}> {FTT_per}%</span></span></h5>
   
         <Dialog  open={open_FTT} style={{width:"25rem"}} onClose={()=>{setopen_FTT(false)}}>
      
@@ -6504,14 +6504,14 @@ const btcData = async () => {
   
        </div>
   
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_AXS(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={axs}  alt="Mark Zuckerberg"   /> Axie Infinity (AXS) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={axs}  alt="Mark Zuckerberg"   /> Axie Infinity (AXS) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(AXS_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_AXS : (parseFloat(liveprice_AXS*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(AXS_per) >0 ? 'green' : 'red'}}> {AXS_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(AXS_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_AXS : (parseFloat(liveprice_AXS*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(AXS_per) >0 ? 'green' : 'red'}}> {AXS_per}%</span></span></h5>
   
         <Dialog  open={open_AXS} style={{width:"25rem"}} onClose={()=>{setopen_AXS(false)}}>
      
@@ -6544,14 +6544,14 @@ const btcData = async () => {
        </div>
   
   
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_MATIC(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={matic}  alt="Mark Zuckerberg"   /> Polygon (MATIC) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={matic}  alt="Mark Zuckerberg"   /> Polygon (MATIC) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(MATIC_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_MATIC : (parseFloat(liveprice_MATIC*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(MATIC_per) >0 ? 'green' : 'red'}}> {MATIC_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(MATIC_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_MATIC : (parseFloat(liveprice_MATIC*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(MATIC_per) >0 ? 'green' : 'red'}}> {MATIC_per}%</span></span></h5>
   
         <Dialog  open={open_MATIC} style={{width:"25rem"}} onClose={()=>{setopen_MATIC(false)}}>
      
@@ -6584,14 +6584,14 @@ const btcData = async () => {
        </div>
   
   
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_GTC(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={gtc}  alt="Mark Zuckerberg"   /> GITCOIN (GTC) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={gtc}  alt="Mark Zuckerberg"   /> GITCOIN (GTC) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(GTC_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_GTC : (parseFloat(liveprice_GTC*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(GTC_per) >0 ? 'green' : 'red'}}> {GTC_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(GTC_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_GTC : (parseFloat(liveprice_GTC*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(GTC_per) >0 ? 'green' : 'red'}}> {GTC_per}%</span></span></h5>
   
         <Dialog  open={open_GTC} style={{width:"25rem"}} onClose={()=>{setopen_GTC(false)}}>
      
@@ -6623,14 +6623,14 @@ const btcData = async () => {
   
        </div>
   
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_FIL(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={fil}  alt="Mark Zuckerberg"   /> FileCoin (FIL) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={fil}  alt="Mark Zuckerberg"   /> FileCoin (FIL) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(FIL_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_FIL : (parseFloat(liveprice_FIL*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(FIL_per) >0 ? 'green' : 'red'}}> {FIL_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(FIL_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_FIL : (parseFloat(liveprice_FIL*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(FIL_per) >0 ? 'green' : 'red'}}> {FIL_per}%</span></span></h5>
   
         <Dialog  open={open_FIL} style={{width:"25rem"}} onClose={()=>{setopen_FIL(false)}}>
      
@@ -6663,14 +6663,14 @@ const btcData = async () => {
        </div>
   
   
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_ALICE(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={alice}  alt="Mark Zuckerberg"   /> Alice (ALICE) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={alice}  alt="Mark Zuckerberg"   /> Alice (ALICE) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(ALICE_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_ALICE : (parseFloat(liveprice_ALICE*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(ALICE_per) >0 ? 'green' : 'red'}}> {ALICE_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(ALICE_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_ALICE : (parseFloat(liveprice_ALICE*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(ALICE_per) >0 ? 'green' : 'red'}}> {ALICE_per}%</span></span></h5>
   
         <Dialog  open={open_ALICE} style={{width:"25rem"}} onClose={()=>{setopen_ALICE(false)}}>
      
@@ -6702,14 +6702,14 @@ const btcData = async () => {
   
        </div>
   
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_FTM(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={ftm}  alt="Mark Zuckerberg"   /> Fantom (FTM) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={ftm}  alt="Mark Zuckerberg"   /> Fantom (FTM) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(FTM_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_FTM : (parseFloat(liveprice_FTM*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(FTM_per) >0 ? 'green' : 'red'}}> {FTM_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(FTM_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_FTM : (parseFloat(liveprice_FTM*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(FTM_per) >0 ? 'green' : 'red'}}> {FTM_per}%</span></span></h5>
   
         <Dialog  open={open_FTM} style={{width:"25rem"}} onClose={()=>{setopen_FTM(false)}}>
      
@@ -6741,14 +6741,14 @@ const btcData = async () => {
   
        </div>
   
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_DGB(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={dgb}  alt="Mark Zuckerberg"   /> DigiByte (DGB) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={dgb}  alt="Mark Zuckerberg"   /> DigiByte (DGB) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(DGB_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_DGB : (parseFloat(liveprice_DGB*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(DGB_per) >0 ? 'green' : 'red'}}> {DGB_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(DGB_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_DGB : (parseFloat(liveprice_DGB*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(DGB_per) >0 ? 'green' : 'red'}}> {DGB_per}%</span></span></h5>
   
         <Dialog  open={open_DGB} style={{width:"25rem"}} onClose={()=>{setopen_DGB(false)}}>
      
@@ -6780,14 +6780,14 @@ const btcData = async () => {
   
        </div>
   
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_MANA(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={mana}  alt="Mark Zuckerberg"   /> Decentraland (MANA) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={mana}  alt="Mark Zuckerberg"   /> Decentraland (MANA) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(MANA_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_MANA : (parseFloat(liveprice_MANA*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(MANA_per) >0 ? 'green' : 'red'}}> {MANA_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(MANA_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_MANA : (parseFloat(liveprice_MANA*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(MANA_per) >0 ? 'green' : 'red'}}> {MANA_per}%</span></span></h5>
   
         <Dialog  open={open_MANA} style={{width:"25rem"}} onClose={()=>{setopen_MANA(false)}}>
      
@@ -6819,14 +6819,14 @@ const btcData = async () => {
   
        </div> 
   
-        <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+        <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_ATA(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={ata}  alt="Mark Zuckerberg"   /> Automata (ATA) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={ata}  alt="Mark Zuckerberg"   /> Automata (ATA) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(ATA_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_ATA : (parseFloat(liveprice_ATA*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(ATA_per) >0 ? 'green' : 'red'}}> {ATA_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(ATA_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_ATA : (parseFloat(liveprice_ATA*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(ATA_per) >0 ? 'green' : 'red'}}> {ATA_per}%</span></span></h5>
   
         <Dialog  open={open_ATA} style={{width:"25rem"}} onClose={()=>{setopen_ATA(false)}}>
      
@@ -6858,14 +6858,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_XRP(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={xrp}  alt="Mark Zuckerberg"   /> XRP (XRP) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={xrp}  alt="Mark Zuckerberg"   /> XRP (XRP) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(XRP_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_XRP : (parseFloat(liveprice_XRP*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(XRP_per) >0 ? 'green' : 'red'}}> {XRP_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(XRP_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_XRP : (parseFloat(liveprice_XRP*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(XRP_per) >0 ? 'green' : 'red'}}> {XRP_per}%</span></span></h5>
   
         <Dialog  open={open_XRP} style={{width:"25rem"}} onClose={()=>{setopen_XRP(false)}}>
      
@@ -6897,14 +6897,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_DOGE(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={doge}  alt="Mark Zuckerberg"   /> Dogecoin (DOGE) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={doge}  alt="Mark Zuckerberg"   /> Dogecoin (DOGE) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(DOGE_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_DOGE : (parseFloat(liveprice_DOGE*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(DOGE_per) >0 ? 'green' : 'red'}}> {DOGE_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(DOGE_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_DOGE : (parseFloat(liveprice_DOGE*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(DOGE_per) >0 ? 'green' : 'red'}}> {DOGE_per}%</span></span></h5>
   
         <Dialog  open={open_DOGE} style={{width:"25rem"}} onClose={()=>{setopen_DOGE(false)}}>
      
@@ -6936,14 +6936,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_USDC(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={usdc}  alt="Mark Zuckerberg"   /> USD Coin (USDC) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={usdc}  alt="Mark Zuckerberg"   /> USD Coin (USDC) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(USDC_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_USDC : (parseFloat(liveprice_USDC*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(USDC_per) >0 ? 'green' : 'red'}}> {USDC_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(USDC_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_USDC : (parseFloat(liveprice_USDC*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(USDC_per) >0 ? 'green' : 'red'}}> {USDC_per}%</span></span></h5>
   
         <Dialog  open={open_USDC} style={{width:"25rem"}} onClose={()=>{setopen_USDC(false)}}>
      
@@ -6975,14 +6975,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_AVAX(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={avax}  alt="Mark Zuckerberg"   /> Avalanche (AVAX) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={avax}  alt="Mark Zuckerberg"   /> Avalanche (AVAX) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(AVAX_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_AVAX : (parseFloat(liveprice_AVAX*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(AVAX_per) >0 ? 'green' : 'red'}}> {AVAX_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(AVAX_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_AVAX : (parseFloat(liveprice_AVAX*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(AVAX_per) >0 ? 'green' : 'red'}}> {AVAX_per}%</span></span></h5>
   
         <Dialog  open={open_AVAX} style={{width:"25rem"}} onClose={()=>{setopen_AVAX(false)}}>
      
@@ -7014,14 +7014,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_BUSD(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={busd}  alt="Mark Zuckerberg"   /> Binance USD (BUSD) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={busd}  alt="Mark Zuckerberg"   /> Binance USD (BUSD) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(BUSD_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_BUSD : (parseFloat(liveprice_BUSD*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(BUSD_per) >0 ? 'green' : 'red'}}> {BUSD_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(BUSD_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_BUSD : (parseFloat(liveprice_BUSD*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(BUSD_per) >0 ? 'green' : 'red'}}> {BUSD_per}%</span></span></h5>
   
         <Dialog  open={open_BUSD} style={{width:"25rem"}} onClose={()=>{setopen_BUSD(false)}}>
      
@@ -7053,14 +7053,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_LTC(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={ltc}  alt="Mark Zuckerberg"   /> Litecoin (LTC) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={ltc}  alt="Mark Zuckerberg"   /> Litecoin (LTC) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(LTC_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_LTC : (parseFloat(liveprice_LTC*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(LTC_per) >0 ? 'green' : 'red'}}> {LTC_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(LTC_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_LTC : (parseFloat(liveprice_LTC*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(LTC_per) >0 ? 'green' : 'red'}}> {LTC_per}%</span></span></h5>
   
         <Dialog  open={open_LTC} style={{width:"25rem"}} onClose={()=>{setopen_LTC(false)}}>
      
@@ -7092,14 +7092,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_BCH(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={bch}  alt="Mark Zuckerberg"   /> Bitcoin Cash (BCH) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={bch}  alt="Mark Zuckerberg"   /> Bitcoin Cash (BCH) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(BCH_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_BCH : (parseFloat(liveprice_BCH*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(BCH_per) >0 ? 'green' : 'red'}}> {BCH_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(BCH_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_BCH : (parseFloat(liveprice_BCH*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(BCH_per) >0 ? 'green' : 'red'}}> {BCH_per}%</span></span></h5>
   
         <Dialog  open={open_BCH} style={{width:"25rem"}} onClose={()=>{setopen_BCH(false)}}>
      
@@ -7131,14 +7131,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_ALGO(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={algo}  alt="Mark Zuckerberg"   /> Algorand (ALGO) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={algo}  alt="Mark Zuckerberg"   /> Algorand (ALGO) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(ALGO_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_ALGO : (parseFloat(liveprice_ALGO*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(ALGO_per) >0 ? 'green' : 'red'}}> {ALGO_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(ALGO_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_ALGO : (parseFloat(liveprice_ALGO*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(ALGO_per) >0 ? 'green' : 'red'}}> {ALGO_per}%</span></span></h5>
   
         <Dialog  open={open_ALGO} style={{width:"25rem"}} onClose={()=>{setopen_ALGO(false)}}>
      
@@ -7170,14 +7170,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_ATOM(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={atom}  alt="Mark Zuckerberg"   /> Cosmos Network (ATOM) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={atom}  alt="Mark Zuckerberg"   /> Cosmos Network (ATOM) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(ATOM_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_ATOM : (parseFloat(liveprice_ATOM*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(ATOM_per) >0 ? 'green' : 'red'}}> {ATOM_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(ATOM_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_ATOM : (parseFloat(liveprice_ATOM*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(ATOM_per) >0 ? 'green' : 'red'}}> {ATOM_per}%</span></span></h5>
   
         <Dialog  open={open_ATOM} style={{width:"25rem"}} onClose={()=>{setopen_ATOM(false)}}>
      
@@ -7209,14 +7209,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_ICP(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={icp}  alt="Mark Zuckerberg"   /> Internet Computer (ICP) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={icp}  alt="Mark Zuckerberg"   /> Internet Computer (ICP) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(ICP_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_ICP : (parseFloat(liveprice_ICP*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(ICP_per) >0 ? 'green' : 'red'}}> {ICP_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(ICP_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_ICP : (parseFloat(liveprice_ICP*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(ICP_per) >0 ? 'green' : 'red'}}> {ICP_per}%</span></span></h5>
   
         <Dialog  open={open_ICP} style={{width:"25rem"}} onClose={()=>{setopen_ICP(false)}}>
      
@@ -7248,14 +7248,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_XLM(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={xlm}  alt="Mark Zuckerberg"   /> Stellar Lumens (XLM) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={xlm}  alt="Mark Zuckerberg"   /> Stellar Lumens (XLM) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(XLM_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_XLM : (parseFloat(liveprice_XLM*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(XLM_per) >0 ? 'green' : 'red'}}> {XLM_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(XLM_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_XLM : (parseFloat(liveprice_XLM*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(XLM_per) >0 ? 'green' : 'red'}}> {XLM_per}%</span></span></h5>
   
         <Dialog  open={open_XLM} style={{width:"25rem"}} onClose={()=>{setopen_XLM(false)}}>
      
@@ -7287,14 +7287,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_ETC(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={etc}  alt="Mark Zuckerberg"   /> Ethereum Classic (ETC) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={etc}  alt="Mark Zuckerberg"   /> Ethereum Classic (ETC) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(ETC_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_ETC : (parseFloat(liveprice_ETC*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(ETC_per) >0 ? 'green' : 'red'}}> {ETC_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(ETC_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_ETC : (parseFloat(liveprice_ETC*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(ETC_per) >0 ? 'green' : 'red'}}> {ETC_per}%</span></span></h5>
   
         <Dialog  open={open_ETC} style={{width:"25rem"}} onClose={()=>{setopen_ETC(false)}}>
      
@@ -7326,14 +7326,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_XTZ(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={xtz}  alt="Mark Zuckerberg"   /> Tezos (XTZ) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={xtz}  alt="Mark Zuckerberg"   /> Tezos (XTZ) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(XTZ_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_XTZ : (parseFloat(liveprice_XTZ*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(XTZ_per) >0 ? 'green' : 'red'}}> {XTZ_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(XTZ_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_XTZ : (parseFloat(liveprice_XTZ*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(XTZ_per) >0 ? 'green' : 'red'}}> {XTZ_per}%</span></span></h5>
   
         <Dialog  open={open_XTZ} style={{width:"25rem"}} onClose={()=>{setopen_XTZ(false)}}>
      
@@ -7365,14 +7365,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_EOS(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={eos}  alt="Mark Zuckerberg"   /> EOS (EOS) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={eos}  alt="Mark Zuckerberg"   /> EOS (EOS) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(EOS_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_EOS : (parseFloat(liveprice_EOS*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(EOS_per) >0 ? 'green' : 'red'}}> {EOS_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(EOS_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_EOS : (parseFloat(liveprice_EOS*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(EOS_per) >0 ? 'green' : 'red'}}> {EOS_per}%</span></span></h5>
   
         <Dialog  open={open_EOS} style={{width:"25rem"}} onClose={()=>{setopen_EOS(false)}}>
      
@@ -7404,14 +7404,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_CAKE(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={cake}  alt="Mark Zuckerberg"   /> PancakeSwap (CAKE) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={cake}  alt="Mark Zuckerberg"   /> PancakeSwap (CAKE) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(CAKE_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_CAKE : (parseFloat(liveprice_CAKE*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(CAKE_per) >0 ? 'green' : 'red'}}> {CAKE_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(CAKE_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_CAKE : (parseFloat(liveprice_CAKE*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(CAKE_per) >0 ? 'green' : 'red'}}> {CAKE_per}%</span></span></h5>
   
         <Dialog  open={open_CAKE} style={{width:"25rem"}} onClose={()=>{setopen_CAKE(false)}}>
      
@@ -7443,14 +7443,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_EGLD(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={egld}  alt="Mark Zuckerberg"   /> Elrond (EGLD) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={egld}  alt="Mark Zuckerberg"   /> Elrond (EGLD) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(EGLD_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_EGLD : (parseFloat(liveprice_EGLD*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(EGLD_per) >0 ? 'green' : 'red'}}> {EGLD_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(EGLD_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_EGLD : (parseFloat(liveprice_EGLD*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(EGLD_per) >0 ? 'green' : 'red'}}> {EGLD_per}%</span></span></h5>
   
         <Dialog  open={open_EGLD} style={{width:"25rem"}} onClose={()=>{setopen_EGLD(false)}}>
      
@@ -7482,14 +7482,14 @@ const btcData = async () => {
   
        </div> 
 
-        <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+        <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_XMR(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={xmr}  alt="Mark Zuckerberg"   /> Monero (XMR) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={xmr}  alt="Mark Zuckerberg"   /> Monero (XMR) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(XMR_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_XMR : (parseFloat(liveprice_XMR*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(XMR_per) >0 ? 'green' : 'red'}}> {XMR_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(XMR_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_XMR : (parseFloat(liveprice_XMR*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(XMR_per) >0 ? 'green' : 'red'}}> {XMR_per}%</span></span></h5>
   
         <Dialog  open={open_XMR} style={{width:"25rem"}} onClose={()=>{setopen_XMR(false)}}>
      
@@ -7521,14 +7521,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_AAVE(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={aave}  alt="Mark Zuckerberg"   /> Aave Protocol (AAVE) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={aave}  alt="Mark Zuckerberg"   /> Aave Protocol (AAVE) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(AAVE_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_AAVE : (parseFloat(liveprice_AAVE*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(AAVE_per) >0 ? 'green' : 'red'}}> {AAVE_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(AAVE_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_AAVE : (parseFloat(liveprice_AAVE*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(AAVE_per) >0 ? 'green' : 'red'}}> {AAVE_per}%</span></span></h5>
   
         <Dialog  open={open_AAVE} style={{width:"25rem"}} onClose={()=>{setopen_AAVE(false)}}>
      
@@ -7560,14 +7560,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_QNT(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={qnt}  alt="Mark Zuckerberg"   /> Quant (QNT) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={qnt}  alt="Mark Zuckerberg"   /> Quant (QNT) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(QNT_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_QNT : (parseFloat(liveprice_QNT*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(QNT_per) >0 ? 'green' : 'red'}}> {QNT_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(QNT_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_QNT : (parseFloat(liveprice_QNT*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(QNT_per) >0 ? 'green' : 'red'}}> {QNT_per}%</span></span></h5>
   
         <Dialog  open={open_QNT} style={{width:"25rem"}} onClose={()=>{setopen_QNT(false)}}>
      
@@ -7599,14 +7599,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_XEC(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={xec}  alt="Mark Zuckerberg"   /> eCash (XEC) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={xec}  alt="Mark Zuckerberg"   /> eCash (XEC) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(XEC_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_XEC : (parseFloat(liveprice_XEC*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(XEC_per) >0 ? 'green' : 'red'}}> {XEC_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(XEC_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_XEC : (parseFloat(liveprice_XEC*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(XEC_per) >0 ? 'green' : 'red'}}> {XEC_per}%</span></span></h5>
   
         <Dialog  open={open_XEC} style={{width:"25rem"}} onClose={()=>{setopen_XEC(false)}}>
      
@@ -7638,14 +7638,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_HBAR(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={hbar}  alt="Mark Zuckerberg"   /> Hedera Hashgraph (HBAR) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={hbar}  alt="Mark Zuckerberg"   /> Hedera Hashgraph (HBAR) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(HBAR_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_HBAR : (parseFloat(liveprice_HBAR*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(HBAR_per) >0 ? 'green' : 'red'}}> {HBAR_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(HBAR_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_HBAR : (parseFloat(liveprice_HBAR*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(HBAR_per) >0 ? 'green' : 'red'}}> {HBAR_per}%</span></span></h5>
   
         <Dialog  open={open_HBAR} style={{width:"25rem"}} onClose={()=>{setopen_HBAR(false)}}>
      
@@ -7677,14 +7677,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_SHIB(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={shib}  alt="Mark Zuckerberg"   /> SHIBA INU (SHIB) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={shib}  alt="Mark Zuckerberg"   /> SHIBA INU (SHIB) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(SHIB_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_SHIB : (parseFloat(liveprice_SHIB*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(SHIB_per) >0 ? 'green' : 'red'}}> {SHIB_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(SHIB_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_SHIB : (parseFloat(liveprice_SHIB*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(SHIB_per) >0 ? 'green' : 'red'}}> {SHIB_per}%</span></span></h5>
   
         <Dialog  open={open_SHIB} style={{width:"25rem"}} onClose={()=>{setopen_SHIB(false)}}>
      
@@ -7716,14 +7716,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_NEAR(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={near}  alt="Mark Zuckerberg"   /> NEAR Protocol (NEAR) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={near}  alt="Mark Zuckerberg"   /> NEAR Protocol (NEAR) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(NEAR_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_NEAR : (parseFloat(liveprice_NEAR*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(NEAR_per) >0 ? 'green' : 'red'}}> {NEAR_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(NEAR_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_NEAR : (parseFloat(liveprice_NEAR*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(NEAR_per) >0 ? 'green' : 'red'}}> {NEAR_per}%</span></span></h5>
   
         <Dialog  open={open_NEAR} style={{width:"25rem"}} onClose={()=>{setopen_NEAR(false)}}>
      
@@ -7755,14 +7755,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_NEO(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={neo}  alt="Mark Zuckerberg"   /> NEO (NEO) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={neo}  alt="Mark Zuckerberg"   /> NEO (NEO) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(NEO_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_NEO : (parseFloat(liveprice_NEO*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(NEO_per) >0 ? 'green' : 'red'}}> {NEO_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(NEO_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_NEO : (parseFloat(liveprice_NEO*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(NEO_per) >0 ? 'green' : 'red'}}> {NEO_per}%</span></span></h5>
   
         <Dialog  open={open_NEO} style={{width:"25rem"}} onClose={()=>{setopen_NEO(false)}}>
      
@@ -7794,14 +7794,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_KLAY(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={klay}  alt="Mark Zuckerberg"   /> Klaytn (KLAY) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={klay}  alt="Mark Zuckerberg"   /> Klaytn (KLAY) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(KLAY_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_KLAY : (parseFloat(liveprice_KLAY*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(KLAY_per) >0 ? 'green' : 'red'}}> {KLAY_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(KLAY_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_KLAY : (parseFloat(liveprice_KLAY*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(KLAY_per) >0 ? 'green' : 'red'}}> {KLAY_per}%</span></span></h5>
   
         <Dialog  open={open_KLAY} style={{width:"25rem"}} onClose={()=>{setopen_KLAY(false)}}>
      
@@ -7833,14 +7833,14 @@ const btcData = async () => {
   
        </div>
 
-        <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+        <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_WAVES(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={waves}  alt="Mark Zuckerberg"   /> WAVES (WAVES) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={waves}  alt="Mark Zuckerberg"   /> WAVES (WAVES) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(WAVES_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_WAVES : (parseFloat(liveprice_WAVES*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(WAVES_per) >0 ? 'green' : 'red'}}> {WAVES_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(WAVES_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_WAVES : (parseFloat(liveprice_WAVES*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(WAVES_per) >0 ? 'green' : 'red'}}> {WAVES_per}%</span></span></h5>
   
         <Dialog  open={open_WAVES} style={{width:"25rem"}} onClose={()=>{setopen_WAVES(false)}}>
      
@@ -7872,14 +7872,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_BTT(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={btt}  alt="Mark Zuckerberg"   /> BitTorrent (BTT) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={btt}  alt="Mark Zuckerberg"   /> BitTorrent (BTT) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(BTT_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_BTT : (parseFloat(liveprice_BTT*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(BTT_per) >0 ? 'green' : 'red'}}> {BTT_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(BTT_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_BTT : (parseFloat(liveprice_BTT*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(BTT_per) >0 ? 'green' : 'red'}}> {BTT_per}%</span></span></h5>
   
         <Dialog  open={open_BTT} style={{width:"25rem"}} onClose={()=>{setopen_BTT(false)}}>
      
@@ -7911,14 +7911,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_MKR(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={mkr}  alt="Mark Zuckerberg"   /> MakerDAO (MKR) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={mkr}  alt="Mark Zuckerberg"   /> MakerDAO (MKR) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(MKR_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_MKR : (parseFloat(liveprice_MKR*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(MKR_per) >0 ? 'green' : 'red'}}> {MKR_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(MKR_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_MKR : (parseFloat(liveprice_MKR*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(MKR_per) >0 ? 'green' : 'red'}}> {MKR_per}%</span></span></h5>
   
         <Dialog  open={open_MKR} style={{width:"25rem"}} onClose={()=>{setopen_MKR(false)}}>
      
@@ -7950,14 +7950,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_SUSHI(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={sushi}  alt="Mark Zuckerberg"   /> SushiSwap (SUSHI) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={sushi}  alt="Mark Zuckerberg"   /> SushiSwap (SUSHI) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(SUSHI_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_SUSHI : (parseFloat(liveprice_SUSHI*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(SUSHI_per) >0 ? 'green' : 'red'}}> {SUSHI_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(SUSHI_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_SUSHI : (parseFloat(liveprice_SUSHI*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(SUSHI_per) >0 ? 'green' : 'red'}}> {SUSHI_per}%</span></span></h5>
   
         <Dialog  open={open_SUSHI} style={{width:"25rem"}} onClose={()=>{setopen_SUSHI(false)}}>
      
@@ -7989,14 +7989,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_AR(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={ar}  alt="Mark Zuckerberg"   /> Arweave (AR) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={ar}  alt="Mark Zuckerberg"   /> Arweave (AR) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(AR_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_AR : (parseFloat(liveprice_AR*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(AR_per) >0 ? 'green' : 'red'}}> {AR_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(AR_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_AR : (parseFloat(liveprice_AR*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(AR_per) >0 ? 'green' : 'red'}}> {AR_per}%</span></span></h5>
   
         <Dialog  open={open_AR} style={{width:"25rem"}} onClose={()=>{setopen_AR(false)}}>
      
@@ -8028,14 +8028,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_SNX(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={snx}  alt="Mark Zuckerberg"   /> Synthetix (SNX) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={snx}  alt="Mark Zuckerberg"   /> Synthetix (SNX) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(SNX_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_SNX : (parseFloat(liveprice_SNX*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(SNX_per) >0 ? 'green' : 'red'}}> {SNX_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(SNX_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_SNX : (parseFloat(liveprice_SNX*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(SNX_per) >0 ? 'green' : 'red'}}> {SNX_per}%</span></span></h5>
   
         <Dialog  open={open_SNX} style={{width:"25rem"}} onClose={()=>{setopen_SNX(false)}}>
      
@@ -8067,14 +8067,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_COMP(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={comp}  alt="Mark Zuckerberg"   /> Compound (COMP) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={comp}  alt="Mark Zuckerberg"   /> Compound (COMP) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(COMP_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_COMP : (parseFloat(liveprice_COMP*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(COMP_per) >0 ? 'green' : 'red'}}> {COMP_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(COMP_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_COMP : (parseFloat(liveprice_COMP*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(COMP_per) >0 ? 'green' : 'red'}}> {COMP_per}%</span></span></h5>
   
         <Dialog  open={open_COMP} style={{width:"25rem"}} onClose={()=>{setopen_COMP(false)}}>
      
@@ -8106,14 +8106,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_DASH(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={dash}  alt="Mark Zuckerberg"   /> Dash (DASH) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={dash}  alt="Mark Zuckerberg"   /> Dash (DASH) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(DASH_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_DASH : (parseFloat(liveprice_DASH*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(DASH_per) >0 ? 'green' : 'red'}}> {DASH_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(DASH_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_DASH : (parseFloat(liveprice_DASH*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(DASH_per) >0 ? 'green' : 'red'}}> {DASH_per}%</span></span></h5>
   
         <Dialog  open={open_DASH} style={{width:"25rem"}} onClose={()=>{setopen_DASH(false)}}>
      
@@ -8145,14 +8145,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_DCR(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={dcr}  alt="Mark Zuckerberg"   /> Decred (DCR) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={dcr}  alt="Mark Zuckerberg"   /> Decred (DCR) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(DCR_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_DCR : (parseFloat(liveprice_DCR*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(DCR_per) >0 ? 'green' : 'red'}}> {DCR_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(DCR_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_DCR : (parseFloat(liveprice_DCR*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(DCR_per) >0 ? 'green' : 'red'}}> {DCR_per}%</span></span></h5>
   
         <Dialog  open={open_DCR} style={{width:"25rem"}} onClose={()=>{setopen_DCR(false)}}>
      
@@ -8184,14 +8184,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_HNT(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={hnt}  alt="Mark Zuckerberg"   /> Helium (HNT) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={hnt}  alt="Mark Zuckerberg"   /> Helium (HNT) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(HNT_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_HNT : (parseFloat(liveprice_HNT*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(HNT_per) >0 ? 'green' : 'red'}}> {HNT_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(HNT_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_HNT : (parseFloat(liveprice_HNT*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(HNT_per) >0 ? 'green' : 'red'}}> {HNT_per}%</span></span></h5>
   
         <Dialog  open={open_HNT} style={{width:"25rem"}} onClose={()=>{setopen_HNT(false)}}>
      
@@ -8223,14 +8223,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_CHZ(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={chz}  alt="Mark Zuckerberg"   /> Chiliz (CHZ) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={chz}  alt="Mark Zuckerberg"   /> Chiliz (CHZ) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(CHZ_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_CHZ : (parseFloat(liveprice_CHZ*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(CHZ_per) >0 ? 'green' : 'red'}}> {CHZ_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(CHZ_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_CHZ : (parseFloat(liveprice_CHZ*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(CHZ_per) >0 ? 'green' : 'red'}}> {CHZ_per}%</span></span></h5>
   
         <Dialog  open={open_CHZ} style={{width:"25rem"}} onClose={()=>{setopen_CHZ(false)}}>
      
@@ -8262,14 +8262,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_ONE(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={one}  alt="Mark Zuckerberg"   /> Harmony (ONE) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={one}  alt="Mark Zuckerberg"   /> Harmony (ONE) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(ONE_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_ONE : (parseFloat(liveprice_ONE*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(ONE_per) >0 ? 'green' : 'red'}}> {ONE_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(ONE_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_ONE : (parseFloat(liveprice_ONE*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(ONE_per) >0 ? 'green' : 'red'}}> {ONE_per}%</span></span></h5>
   
         <Dialog  open={open_ONE} style={{width:"25rem"}} onClose={()=>{setopen_ONE(false)}}>
      
@@ -8301,14 +8301,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_HOT(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={hot}  alt="Mark Zuckerberg"   /> Holochain (HOT) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={hot}  alt="Mark Zuckerberg"   /> Holochain (HOT) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(HOT_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_HOT : (parseFloat(liveprice_HOT*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(HOT_per) >0 ? 'green' : 'red'}}> {HOT_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(HOT_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_HOT : (parseFloat(liveprice_HOT*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(HOT_per) >0 ? 'green' : 'red'}}> {HOT_per}%</span></span></h5>
   
         <Dialog  open={open_HOT} style={{width:"25rem"}} onClose={()=>{setopen_HOT(false)}}>
      
@@ -8340,14 +8340,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_XEM(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={xem}  alt="Mark Zuckerberg"   /> NEM (XEM) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={xem}  alt="Mark Zuckerberg"   /> NEM (XEM) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(XEM_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_XEM : (parseFloat(liveprice_XEM*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(XEM_per) >0 ? 'green' : 'red'}}> {XEM_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(XEM_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_XEM : (parseFloat(liveprice_XEM*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(XEM_per) >0 ? 'green' : 'red'}}> {XEM_per}%</span></span></h5>
   
         <Dialog  open={open_XEM} style={{width:"25rem"}} onClose={()=>{setopen_XEM(false)}}>
      
@@ -8379,14 +8379,14 @@ const btcData = async () => {
   
        </div> 
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_ZEC(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={zec}  alt="Mark Zuckerberg"   /> ZCash (ZEC) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={zec}  alt="Mark Zuckerberg"   /> ZCash (ZEC) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(ZEC_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_ZEC : (parseFloat(liveprice_ZEC*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(ZEC_per) >0 ? 'green' : 'red'}}> {ZEC_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(ZEC_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_ZEC : (parseFloat(liveprice_ZEC*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(ZEC_per) >0 ? 'green' : 'red'}}> {ZEC_per}%</span></span></h5>
   
         <Dialog  open={open_ZEC} style={{width:"25rem"}} onClose={()=>{setopen_ZEC(false)}}>
      
@@ -8418,14 +8418,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_IOST(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={iost}  alt="Mark Zuckerberg"   /> IOST (IOST) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={iost}  alt="Mark Zuckerberg"   /> IOST (IOST) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(IOST_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_IOST : (parseFloat(liveprice_IOST*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(IOST_per) >0 ? 'green' : 'red'}}> {IOST_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(IOST_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_IOST : (parseFloat(liveprice_IOST*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(IOST_per) >0 ? 'green' : 'red'}}> {IOST_per}%</span></span></h5>
   
         <Dialog  open={open_IOST} style={{width:"25rem"}} onClose={()=>{setopen_IOST(false)}}>
      
@@ -8457,14 +8457,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_ENJ(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={enj}  alt="Mark Zuckerberg"   /> Enjin Coin (ENJ) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={enj}  alt="Mark Zuckerberg"   /> Enjin Coin (ENJ) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(ENJ_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_ENJ : (parseFloat(liveprice_ENJ*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(ENJ_per) >0 ? 'green' : 'red'}}> {ENJ_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(ENJ_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_ENJ : (parseFloat(liveprice_ENJ*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(ENJ_per) >0 ? 'green' : 'red'}}> {ENJ_per}%</span></span></h5>
   
         <Dialog  open={open_ENJ} style={{width:"25rem"}} onClose={()=>{setopen_ENJ(false)}}>
      
@@ -8496,14 +8496,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_STX(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={stx}  alt="Mark Zuckerberg"   /> Stacks (STX) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={stx}  alt="Mark Zuckerberg"   /> Stacks (STX) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(STX_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_STX : (parseFloat(liveprice_STX*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(STX_per) >0 ? 'green' : 'red'}}> {STX_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(STX_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_STX : (parseFloat(liveprice_STX*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(STX_per) >0 ? 'green' : 'red'}}> {STX_per}%</span></span></h5>
   
         <Dialog  open={open_STX} style={{width:"25rem"}} onClose={()=>{setopen_STX(false)}}>
      
@@ -8535,14 +8535,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_TUSD(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={tusd}  alt="Mark Zuckerberg"   /> TrueUSD (TUSD) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={tusd}  alt="Mark Zuckerberg"   /> TrueUSD (TUSD) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(TUSD_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_TUSD : (parseFloat(liveprice_TUSD*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(TUSD_per) >0 ? 'green' : 'red'}}> {TUSD_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(TUSD_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_TUSD : (parseFloat(liveprice_TUSD*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(TUSD_per) >0 ? 'green' : 'red'}}> {TUSD_per}%</span></span></h5>
   
         <Dialog  open={open_TUSD} style={{width:"25rem"}} onClose={()=>{setopen_TUSD(false)}}>
      
@@ -8574,14 +8574,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_ZIL(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={zil}  alt="Mark Zuckerberg"   /> Zilliqa (ZIL) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={zil}  alt="Mark Zuckerberg"   /> Zilliqa (ZIL) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(ZIL_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_ZIL : (parseFloat(liveprice_ZIL*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(ZIL_per) >0 ? 'green' : 'red'}}> {ZIL_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(ZIL_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_ZIL : (parseFloat(liveprice_ZIL*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(ZIL_per) >0 ? 'green' : 'red'}}> {ZIL_per}%</span></span></h5>
   
         <Dialog  open={open_ZIL} style={{width:"25rem"}} onClose={()=>{setopen_ZIL(false)}}>
      
@@ -8613,14 +8613,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_FLOW(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={flow}  alt="Mark Zuckerberg"   /> Flow (FLOW) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={flow}  alt="Mark Zuckerberg"   /> Flow (FLOW) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(FLOW_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_FLOW : (parseFloat(liveprice_FLOW*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(FLOW_per) >0 ? 'green' : 'red'}}> {FLOW_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(FLOW_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_FLOW : (parseFloat(liveprice_FLOW*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(FLOW_per) >0 ? 'green' : 'red'}}> {FLOW_per}%</span></span></h5>
   
         <Dialog  open={open_FLOW} style={{width:"25rem"}} onClose={()=>{setopen_FLOW(false)}}>
      
@@ -8652,14 +8652,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_QTUM(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={qtum}  alt="Mark Zuckerberg"   /> Qtum (QTUM) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={qtum}  alt="Mark Zuckerberg"   /> Qtum (QTUM) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(QTUM_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_QTUM : (parseFloat(liveprice_QTUM*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(QTUM_per) >0 ? 'green' : 'red'}}> {QTUM_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(QTUM_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_QTUM : (parseFloat(liveprice_QTUM*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(QTUM_per) >0 ? 'green' : 'red'}}> {QTUM_per}%</span></span></h5>
   
         <Dialog  open={open_QTUM} style={{width:"25rem"}} onClose={()=>{setopen_QTUM(false)}}>
      
@@ -8691,14 +8691,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_MINA(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={mina}  alt="Mark Zuckerberg"   /> Mina (MINA) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={mina}  alt="Mark Zuckerberg"   /> Mina (MINA) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(MINA_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_MINA : (parseFloat(liveprice_MINA*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(MINA_per) >0 ? 'green' : 'red'}}> {MINA_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(MINA_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_MINA : (parseFloat(liveprice_MINA*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(MINA_per) >0 ? 'green' : 'red'}}> {MINA_per}%</span></span></h5>
   
         <Dialog  open={open_MINA} style={{width:"25rem"}} onClose={()=>{setopen_MINA(false)}}>
      
@@ -8730,14 +8730,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_ICX(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={icx}  alt="Mark Zuckerberg"   /> ICON (ICX) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={icx}  alt="Mark Zuckerberg"   /> ICON (ICX) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(ICX_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_ICX : (parseFloat(liveprice_ICX*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(ICX_per) >0 ? 'green' : 'red'}}> {ICX_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(ICX_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_ICX : (parseFloat(liveprice_ICX*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(ICX_per) >0 ? 'green' : 'red'}}> {ICX_per}%</span></span></h5>
   
         <Dialog  open={open_ICX} style={{width:"25rem"}} onClose={()=>{setopen_ICX(false)}}>
      
@@ -8769,14 +8769,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_OMG(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={omg}  alt="Mark Zuckerberg"   /> OmiseGO (OMG) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={omg}  alt="Mark Zuckerberg"   /> OmiseGO (OMG) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(OMG_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_OMG : (parseFloat(liveprice_OMG*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(OMG_per) >0 ? 'green' : 'red'}}> {OMG_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(OMG_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_OMG : (parseFloat(liveprice_OMG*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(OMG_per) >0 ? 'green' : 'red'}}> {OMG_per}%</span></span></h5>
   
         <Dialog  open={open_OMG} style={{width:"25rem"}} onClose={()=>{setopen_OMG(false)}}>
      
@@ -8808,14 +8808,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_BTG(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={btg}  alt="Mark Zuckerberg"   /> Bitcoin Gold (BTG) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={btg}  alt="Mark Zuckerberg"   /> Bitcoin Gold (BTG) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(BTG_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_BTG : (parseFloat(liveprice_BTG*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(BTG_per) >0 ? 'green' : 'red'}}> {BTG_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(BTG_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_BTG : (parseFloat(liveprice_BTG*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(BTG_per) >0 ? 'green' : 'red'}}> {BTG_per}%</span></span></h5>
   
         <Dialog  open={open_BTG} style={{width:"25rem"}} onClose={()=>{setopen_BTG(false)}}>
      
@@ -8847,14 +8847,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_BAT(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={bat}  alt="Mark Zuckerberg"   /> Basic Attention Token(BAT)</h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={bat}  alt="Mark Zuckerberg"   /> Basic Attention Token(BAT)</h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(BAT_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_BAT : (parseFloat(liveprice_BAT*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(BAT_per) >0 ? 'green' : 'red'}}> {BAT_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(BAT_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_BAT : (parseFloat(liveprice_BAT*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(BAT_per) >0 ? 'green' : 'red'}}> {BAT_per}%</span></span></h5>
   
         <Dialog  open={open_BAT} style={{width:"25rem"}} onClose={()=>{setopen_BAT(false)}}>
      
@@ -8886,14 +8886,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_AUDIO(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={audio}  alt="Mark Zuckerberg"   /> Audius (AUDIO) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={audio}  alt="Mark Zuckerberg"   /> Audius (AUDIO) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(AUDIO_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_AUDIO : (parseFloat(liveprice_AUDIO*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(AUDIO_per) >0 ? 'green' : 'red'}}> {AUDIO_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(AUDIO_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_AUDIO : (parseFloat(liveprice_AUDIO*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(AUDIO_per) >0 ? 'green' : 'red'}}> {AUDIO_per}%</span></span></h5>
   
         <Dialog  open={open_AUDIO} style={{width:"25rem"}} onClose={()=>{setopen_AUDIO(false)}}>
      
@@ -8925,14 +8925,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_ZEN(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={zen}  alt="Mark Zuckerberg"   /> Horizen (ZEN) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={zen}  alt="Mark Zuckerberg"   /> Horizen (ZEN) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(ZEN_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_ZEN : (parseFloat(liveprice_ZEN*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(ZEN_per) >0 ? 'green' : 'red'}}> {ZEN_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(ZEN_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_ZEN : (parseFloat(liveprice_ZEN*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(ZEN_per) >0 ? 'green' : 'red'}}> {ZEN_per}%</span></span></h5>
   
         <Dialog  open={open_ZEN} style={{width:"25rem"}} onClose={()=>{setopen_ZEN(false)}}>
      
@@ -8964,14 +8964,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_RVN(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={rvn}  alt="Mark Zuckerberg"   /> Ravencoin (RVN) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={rvn}  alt="Mark Zuckerberg"   /> Ravencoin (RVN) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(RVN_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_RVN : (parseFloat(liveprice_RVN*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(RVN_per) >0 ? 'green' : 'red'}}> {RVN_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(RVN_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_RVN : (parseFloat(liveprice_RVN*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(RVN_per) >0 ? 'green' : 'red'}}> {RVN_per}%</span></span></h5>
   
         <Dialog  open={open_RVN} style={{width:"25rem"}} onClose={()=>{setopen_RVN(false)}}>
      
@@ -9003,14 +9003,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_MDX(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={mdx}  alt="Mark Zuckerberg"   /> Mdex (MDX) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={mdx}  alt="Mark Zuckerberg"   /> Mdex (MDX) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(MDX_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_MDX : (parseFloat(liveprice_MDX*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(MDX_per) >0 ? 'green' : 'red'}}> {MDX_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(MDX_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_MDX : (parseFloat(liveprice_MDX*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(MDX_per) >0 ? 'green' : 'red'}}> {MDX_per}%</span></span></h5>
   
         <Dialog  open={open_MDX} style={{width:"25rem"}} onClose={()=>{setopen_MDX(false)}}>
      
@@ -9042,14 +9042,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_BNT(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={bnt}  alt="Mark Zuckerberg"   /> Bancor (BNT) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={bnt}  alt="Mark Zuckerberg"   /> Bancor (BNT) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(BNT_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_BNT : (parseFloat(liveprice_BNT*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(BNT_per) >0 ? 'green' : 'red'}}> {BNT_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(BNT_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_BNT : (parseFloat(liveprice_BNT*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(BNT_per) >0 ? 'green' : 'red'}}> {BNT_per}%</span></span></h5>
   
         <Dialog  open={open_BNT} style={{width:"25rem"}} onClose={()=>{setopen_BNT(false)}}>
      
@@ -9081,14 +9081,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_ZRX(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={zrx}  alt="Mark Zuckerberg"   /> 0X Protocol (ZRX) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={zrx}  alt="Mark Zuckerberg"   /> 0X Protocol (ZRX) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(ZRX_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_ZRX : (parseFloat(liveprice_ZRX*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(ZRX_per) >0 ? 'green' : 'red'}}> {ZRX_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(ZRX_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_ZRX : (parseFloat(liveprice_ZRX*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(ZRX_per) >0 ? 'green' : 'red'}}> {ZRX_per}%</span></span></h5>
   
         <Dialog  open={open_ZRX} style={{width:"25rem"}} onClose={()=>{setopen_ZRX(false)}}>
      
@@ -9120,14 +9120,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_SC(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={sc}  alt="Mark Zuckerberg"   /> Siacoin (SC) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={sc}  alt="Mark Zuckerberg"   /> Siacoin (SC) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(SC_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_SC : (parseFloat(liveprice_SC*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(SC_per) >0 ? 'green' : 'red'}}> {SC_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(SC_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_SC : (parseFloat(liveprice_SC*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(SC_per) >0 ? 'green' : 'red'}}> {SC_per}%</span></span></h5>
   
         <Dialog  open={open_SC} style={{width:"25rem"}} onClose={()=>{setopen_SC(false)}}>
      
@@ -9159,14 +9159,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_ONT(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={ont}  alt="Mark Zuckerberg"   /> Ontology (ONT) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={ont}  alt="Mark Zuckerberg"   /> Ontology (ONT) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(ONT_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_ONT : (parseFloat(liveprice_ONT*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(ONT_per) >0 ? 'green' : 'red'}}> {ONT_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(ONT_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_ONT : (parseFloat(liveprice_ONT*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(ONT_per) >0 ? 'green' : 'red'}}> {ONT_per}%</span></span></h5>
   
         <Dialog  open={open_ONT} style={{width:"25rem"}} onClose={()=>{setopen_ONT(false)}}>
      
@@ -9198,14 +9198,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_RAY(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={ray}  alt="Mark Zuckerberg"   /> Raydium (RAY) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={ray}  alt="Mark Zuckerberg"   /> Raydium (RAY) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(RAY_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_RAY : (parseFloat(liveprice_RAY*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(RAY_per) >0 ? 'green' : 'red'}}> {RAY_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(RAY_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_RAY : (parseFloat(liveprice_RAY*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(RAY_per) >0 ? 'green' : 'red'}}> {RAY_per}%</span></span></h5>
   
         <Dialog  open={open_RAY} style={{width:"25rem"}} onClose={()=>{setopen_RAY(false)}}>
      
@@ -9237,14 +9237,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_DYDX(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={dydx}  alt="Mark Zuckerberg"   /> dYdX (DYDX) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={dydx}  alt="Mark Zuckerberg"   /> dYdX (DYDX) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(DYDX_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_DYDX : (parseFloat(liveprice_DYDX*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(DYDX_per) >0 ? 'green' : 'red'}}> {DYDX_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(DYDX_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_DYDX : (parseFloat(liveprice_DYDX*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(DYDX_per) >0 ? 'green' : 'red'}}> {DYDX_per}%</span></span></h5>
   
         <Dialog  open={open_DYDX} style={{width:"25rem"}} onClose={()=>{setopen_DYDX(false)}}>
      
@@ -9276,14 +9276,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_PERP(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={perp}  alt="Mark Zuckerberg"   /> Perpetual Protocol (PERP) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={perp}  alt="Mark Zuckerberg"   /> Perpetual Protocol (PERP) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(PERP_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_PERP : (parseFloat(liveprice_PERP*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(PERP_per) >0 ? 'green' : 'red'}}> {PERP_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(PERP_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_PERP : (parseFloat(liveprice_PERP*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(PERP_per) >0 ? 'green' : 'red'}}> {PERP_per}%</span></span></h5>
   
         <Dialog  open={open_PERP} style={{width:"25rem"}} onClose={()=>{setopen_PERP(false)}}>
      
@@ -9315,14 +9315,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_GALA(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={gala}  alt="Mark Zuckerberg"   /> Gala (GALA) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={gala}  alt="Mark Zuckerberg"   /> Gala (GALA) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(GALA_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_GALA : (parseFloat(liveprice_GALA*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(GALA_per) >0 ? 'green' : 'red'}}> {GALA_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(GALA_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_GALA : (parseFloat(liveprice_GALA*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(GALA_per) >0 ? 'green' : 'red'}}> {GALA_per}%</span></span></h5>
   
         <Dialog  open={open_GALA} style={{width:"25rem"}} onClose={()=>{setopen_GALA(false)}}>
      
@@ -9354,14 +9354,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_ANKR(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={ankr}  alt="Mark Zuckerberg"   /> Ankr Network (ANKR) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={ankr}  alt="Mark Zuckerberg"   /> Ankr Network (ANKR) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(ANKR_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_ANKR : (parseFloat(liveprice_ANKR*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(ANKR_per) >0 ? 'green' : 'red'}}> {ANKR_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(ANKR_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_ANKR : (parseFloat(liveprice_ANKR*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(ANKR_per) >0 ? 'green' : 'red'}}> {ANKR_per}%</span></span></h5>
   
         <Dialog  open={open_ANKR} style={{width:"25rem"}} onClose={()=>{setopen_ANKR(false)}}>
      
@@ -9393,14 +9393,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_NANO(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={nano}  alt="Mark Zuckerberg"   /> Nano (NANO) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={nano}  alt="Mark Zuckerberg"   /> Nano (NANO) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(NANO_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_NANO : (parseFloat(liveprice_NANO*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(NANO_per) >0 ? 'green' : 'red'}}> {NANO_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(NANO_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_NANO : (parseFloat(liveprice_NANO*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(NANO_per) >0 ? 'green' : 'red'}}> {NANO_per}%</span></span></h5>
   
         <Dialog  open={open_NANO} style={{width:"25rem"}} onClose={()=>{setopen_NANO(false)}}>
      
@@ -9432,14 +9432,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_CELO(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={celo}  alt="Mark Zuckerberg"   /> Celo (CELO) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={celo}  alt="Mark Zuckerberg"   /> Celo (CELO) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(CELO_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_CELO : (parseFloat(liveprice_CELO*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(CELO_per) >0 ? 'green' : 'red'}}> {CELO_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(CELO_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_CELO : (parseFloat(liveprice_CELO*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(CELO_per) >0 ? 'green' : 'red'}}> {CELO_per}%</span></span></h5>
   
         <Dialog  open={open_CELO} style={{width:"25rem"}} onClose={()=>{setopen_CELO(false)}}>
      
@@ -9471,14 +9471,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_UMA(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={uma}  alt="Mark Zuckerberg"   /> UMA (UMA) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={uma}  alt="Mark Zuckerberg"   /> UMA (UMA) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(UMA_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_UMA : (parseFloat(liveprice_UMA*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(UMA_per) >0 ? 'green' : 'red'}}> {UMA_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(UMA_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_UMA : (parseFloat(liveprice_UMA*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(UMA_per) >0 ? 'green' : 'red'}}> {UMA_per}%</span></span></h5>
   
         <Dialog  open={open_UMA} style={{width:"25rem"}} onClose={()=>{setopen_UMA(false)}}>
      
@@ -9510,14 +9510,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_C98(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={c98}  alt="Mark Zuckerberg"   /> Coin98 (C98) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={c98}  alt="Mark Zuckerberg"   /> Coin98 (C98) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(C98_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_C98 : (parseFloat(liveprice_C98*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(C98_per) >0 ? 'green' : 'red'}}> {C98_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(C98_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_C98 : (parseFloat(liveprice_C98*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(C98_per) >0 ? 'green' : 'red'}}> {C98_per}%</span></span></h5>
   
         <Dialog  open={open_C98} style={{width:"25rem"}} onClose={()=>{setopen_C98(false)}}>
      
@@ -9549,14 +9549,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_CELR(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={celr}  alt="Mark Zuckerberg"   /> Celer Network (CELR) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={celr}  alt="Mark Zuckerberg"   /> Celer Network (CELR) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(CELR_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_CELR : (parseFloat(liveprice_CELR*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(CELR_per) >0 ? 'green' : 'red'}}> {CELR_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(CELR_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_CELR : (parseFloat(liveprice_CELR*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(CELR_per) >0 ? 'green' : 'red'}}> {CELR_per}%</span></span></h5>
   
         <Dialog  open={open_CELR} style={{width:"25rem"}} onClose={()=>{setopen_CELR(false)}}>
      
@@ -9588,14 +9588,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_SAND(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={sand}  alt="Mark Zuckerberg"   /> The Sandbox (SAND) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={sand}  alt="Mark Zuckerberg"   /> The Sandbox (SAND) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(SAND_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_SAND : (parseFloat(liveprice_SAND*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(SAND_per) >0 ? 'green' : 'red'}}> {SAND_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(SAND_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_SAND : (parseFloat(liveprice_SAND*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(SAND_per) >0 ? 'green' : 'red'}}> {SAND_per}%</span></span></h5>
   
         <Dialog  open={open_SAND} style={{width:"25rem"}} onClose={()=>{setopen_SAND(false)}}>
      
@@ -9627,14 +9627,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_POLY(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={poly}  alt="Mark Zuckerberg"   /> Polymath (POLY) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={poly}  alt="Mark Zuckerberg"   /> Polymath (POLY) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(POLY_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_POLY : (parseFloat(liveprice_POLY*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(POLY_per) >0 ? 'green' : 'red'}}> {POLY_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(POLY_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_POLY : (parseFloat(liveprice_POLY*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(POLY_per) >0 ? 'green' : 'red'}}> {POLY_per}%</span></span></h5>
   
         <Dialog  open={open_POLY} style={{width:"25rem"}} onClose={()=>{setopen_POLY(false)}}>
      
@@ -9666,14 +9666,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_FET(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={fet}  alt="Mark Zuckerberg"   /> Fetch.AI (FET) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={fet}  alt="Mark Zuckerberg"   /> Fetch.AI (FET) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(FET_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_FET : (parseFloat(liveprice_FET*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(FET_per) >0 ? 'green' : 'red'}}> {FET_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(FET_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_FET : (parseFloat(liveprice_FET*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(FET_per) >0 ? 'green' : 'red'}}> {FET_per}%</span></span></h5>
   
         <Dialog  open={open_FET} style={{width:"25rem"}} onClose={()=>{setopen_FET(false)}}>
      
@@ -9705,14 +9705,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_1INCH(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={_1inch}  alt="Mark Zuckerberg"   /> 1inch (1INCH) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={_1inch}  alt="Mark Zuckerberg"   /> 1inch (1INCH) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(_1INCH_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_1INCH : (parseFloat(liveprice_1INCH*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(_1INCH_per) >0 ? 'green' : 'red'}}> {_1INCH_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(_1INCH_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_1INCH : (parseFloat(liveprice_1INCH*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(_1INCH_per) >0 ? 'green' : 'red'}}> {_1INCH_per}%</span></span></h5>
   
         <Dialog  open={open_1INCH} style={{width:"25rem"}} onClose={()=>{setopen_1INCH(false)}}>
      
@@ -9744,14 +9744,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_LRC(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={lrc}  alt="Mark Zuckerberg"   /> Loopring (LRC) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={lrc}  alt="Mark Zuckerberg"   /> Loopring (LRC) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(LRC_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_LRC : (parseFloat(liveprice_LRC*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(LRC_per) >0 ? 'green' : 'red'}}> {LRC_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(LRC_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_LRC : (parseFloat(liveprice_LRC*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(LRC_per) >0 ? 'green' : 'red'}}> {LRC_per}%</span></span></h5>
   
         <Dialog  open={open_LRC} style={{width:"25rem"}} onClose={()=>{setopen_LRC(false)}}>
      
@@ -9783,14 +9783,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_KAVA(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={kava}  alt="Mark Zuckerberg"   /> Kava (KAVA) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={kava}  alt="Mark Zuckerberg"   /> Kava (KAVA) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(KAVA_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_KAVA : (parseFloat(liveprice_KAVA*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(KAVA_per) >0 ? 'green' : 'red'}}> {KAVA_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(KAVA_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_KAVA : (parseFloat(liveprice_KAVA*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(KAVA_per) >0 ? 'green' : 'red'}}> {KAVA_per}%</span></span></h5>
   
         <Dialog  open={open_KAVA} style={{width:"25rem"}} onClose={()=>{setopen_KAVA(false)}}>
      
@@ -9822,14 +9822,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_WRX(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={wrx}  alt="Mark Zuckerberg"   /> WazirX (WRX) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={wrx}  alt="Mark Zuckerberg"   /> WazirX (WRX) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(WRX_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_WRX : (parseFloat(liveprice_WRX*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(WRX_per) >0 ? 'green' : 'red'}}> {WRX_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(WRX_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_WRX : (parseFloat(liveprice_WRX*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(WRX_per) >0 ? 'green' : 'red'}}> {WRX_per}%</span></span></h5>
   
         <Dialog  open={open_WRX} style={{width:"25rem"}} onClose={()=>{setopen_WRX(false)}}>
      
@@ -9861,14 +9861,14 @@ const btcData = async () => {
   
        </div>
 
-       <div class="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
-       <span class="leaderboard__name"  onClick={()=>{
+       <div className="card card-5" style={{borderRadius:"15px",background: !isDark ? "linear-gradient(90deg, rgba(0,95,255,1) 0%, rgba(0,95,255,1) 5%, rgba(255,255,255,1) 5%, rgba(255,255,255,1) 100%)" : "linear-gradient(90deg, rgb(255, 0, 255) 0%, rgba(255,0,255,1) 5%, rgb(61, 61, 61) 5%, rgba(61,61,61,1) 100%)"}}>
+       <span className="leaderboard__name"  onClick={()=>{
      
      setopen_RSR(true)
      seti(1)
-   }}> <h4 class="card__title"  style={{color:isDark ? "white" : "black"}}><img src={rsr}  alt="Mark Zuckerberg"   /> Reserved Rights (RSR) </h4></span>
+   }}> <h4 className="card__title"  style={{color:isDark ? "white" : "black"}}><img src={rsr}  alt="Mark Zuckerberg"   /> Reserved Rights (RSR) </h4></span>
       
-        <h5 className="price"><span  class="leaderboard__value" style={{color : parseFloat(RSR_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_RSR : (parseFloat(liveprice_RSR*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span class="leaderboard__value1" style={{color : parseFloat(RSR_per) >0 ? 'green' : 'red'}}> {RSR_per}%</span></span></h5>
+        <h5 className="price"><span  className="leaderboard__value" style={{color : parseFloat(RSR_per) >0 ? 'green' : 'red' }}>{mobileswitch1 ? liveprice_RSR : (parseFloat(liveprice_RSR*conversion).toFixed(2))}<span> {mobileswitch1 ? 'USDT' : 'INRD'}</span> <span className="leaderboard__value1" style={{color : parseFloat(RSR_per) >0 ? 'green' : 'red'}}> {RSR_per}%</span></span></h5>
   
         <Dialog  open={open_RSR} style={{width:"25rem"}} onClose={()=>{setopen_RSR(false)}}>
      
@@ -9986,7 +9986,7 @@ else{
       
       
     }}/>
-    <label for="theme-toggle">
+    <label htmlFor="theme-toggle">
      {isDarkDes ?  <img height="24px" src={moon} style={{filter:"invert(1)"}}/> : <img height="24px" src={sun}/>}
     </label>
         <span style={{paddingRight:"50px"}}>
@@ -10037,7 +10037,7 @@ else{
 
 { home ? <body style={{backgroundColor:isDarkDes?"#212529":"white"}}><div className="row" style={{ overflow:"auto" ,paddingRight:"20px",margin:"0 0 0 10px"}}>
 
-<div class="tabs" style={{width:"20%",backgroundColor:isDarkDes?"#161c2d":"white",height:"806px"}}>
+<div className="tabs" style={{width:"20%",backgroundColor:isDarkDes?"#161c2d":"white",height:"806px"}}>
       <Row >
       <Tabs > 
         <TabList >
@@ -11413,7 +11413,7 @@ else{
 </div>
 
   <div className="col" style={{height:"100vh"}}>
-  <div class="tabs" style={{width:"100%",marginBottom:"0.3rem",backgroundColor:isDarkDes?"#161c2d":"white",color:isDarkDes?"white":"black"}}>
+  <div className="tabs" style={{width:"100%",marginBottom:"0.3rem",backgroundColor:isDarkDes?"#161c2d":"white",color:isDarkDes?"white":"black"}}>
       
       <Navbar className="mr-auto" navbar>
         <NavItem style={{marginLeft:"1rem",marginTop:"-1.6rem"}}>
@@ -11760,7 +11760,7 @@ else{
        
       </Navbar>                
   </div>
-  <TVChartContainer theme={isDarkDes? "Dark":"Light"} pair={pair == "ANTEAG/USDT" || pair == 'ANTEAG/INRD' ? `AntEagle:${pair}` : pair.substr(par.lastIndexOf("/")+1,par.length)  == 'INRD' ? `Binance:${pair.substr(0,pair.lastIndexOf("/"))}/USD` :`Binance:${pair}`}/>
+  <TVChartContainer theme={isDarkDes? "Dark":"Light"} pair={pair == "ANTEAG/USDT" || pair == 'ANTEAG/INRD' ? `AntEagle:${pair}` : pair.substr(pair.lastIndexOf("/")+1,pair.length)  == 'INRD' ? `Binance:${pair.substr(0,pair.lastIndexOf("/"))}/USD` :`Binance:${pair}`}/>
 
 <div style={{height:"100rem"}}>
 <Col xs="11" style={{margin:"6.5rem 0 0 0.9rem"}} >
@@ -11916,7 +11916,7 @@ else{
             </Card>
           </Col>  
           <div style={{marginRight:"35rem",marginLeft:"-18rem",width:"112.5%"}}>
-          <Chat />     
+          {/* <Chat />      */}
           </div>  
 </div>
 
@@ -11998,7 +11998,7 @@ else{
                       {/* <div className="row" style={{paddingRight:"40px",marginLeft:"40px"}}> */}
 <body  style={{backgroundColor:isDarkDes?"#212529":"white"}} >
 <br/>
-<div class="tabs swap" style={{width:"40%",margin:"0 28rem 6rem",paddingTop:"4rem",borderRadius:"3rem",backgroundColor:isDarkDes?"#161c2d":"white",color: isDarkDes?"white":"black"}}>    
+<div className="tabs swap" style={{width:"40%",margin:"0 28rem 6rem",paddingTop:"4rem",borderRadius:"3rem",backgroundColor:isDarkDes?"#161c2d":"white",color: isDarkDes?"white":"black"}}>    
                           
         <Row>
         <div style={{width:"90%"}}>

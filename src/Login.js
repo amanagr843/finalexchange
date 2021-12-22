@@ -245,7 +245,7 @@ function App() {
           //     swal("Error","Invalid username or Password please try agin","error")
           //   }
           // })
-         const url = "https://api.anteagle.tech/api/login"
+         const url = "https://api.anteagle.tech/login"
          const data = {
            email:login_username,
            password:login_password

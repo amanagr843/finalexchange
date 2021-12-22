@@ -146,7 +146,7 @@ function App() {
         // else{
         //     swal("Already Registered","This Email Address or username is already registered, please choose another","warning")   
         // }
-            const url = "https://api.anteagle.tech/register"
+            const url = "https://api.anteagle.tech/api/register"
             const data = {
               name:signup_username,
               email:signup_email,
@@ -245,7 +245,7 @@ function App() {
           //     swal("Error","Invalid username or Password please try agin","error")
           //   }
           // })
-         const url = "https://api.anteagle.tech/login"
+         const url = "https://api.anteagle.tech/api/login"
          const data = {
            email:login_username,
            password:login_password

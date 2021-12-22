@@ -146,7 +146,7 @@ function App() {
         // else{
         //     swal("Already Registered","This Email Address or username is already registered, please choose another","warning")   
         // }
-            const url = "https://api.anteagle.tech/api/register"
+            const url = "https://api.anteagle.tech/register"
             const data = {
               name:signup_username,
               email:signup_email,

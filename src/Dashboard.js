@@ -187,6 +187,7 @@ import NotificationAlert from "react-notification-alert";
 import QRCode from "react-qr-code";
 import { setRef } from '@material-ui/core';
 import Withdraw from './Withdraw'
+require('dotenv').config()
 
 
 function getStepContent(step) {
@@ -1714,7 +1715,7 @@ const [allorder,setallorders] = React.useState([])
 
     axios({
       method: 'get',
-      url: `https://api.anteagle.tech/liveprice?pair=ANTEAG/USDT`
+      url: `${process.env.REACT_APP_URL}/api/liveprice?pair=ANTEAG/USDT`
     }).then(res => {
       if (res.data[0]) {
         setANTEAG(res.data[0].price)
@@ -1724,7 +1725,7 @@ const [allorder,setallorders] = React.useState([])
 
     axios({
       method : "get",
-      url : `https://api.anteagle.tech/bankdetails?userid=${localStorage.getItem("userid")}`,
+      url : `${process.env.REACT_APP_URL}/api/bankdetails?userid=${localStorage.getItem("userid")}`,
       headers : {
           'Accept' : "Application/json",
           'Content-type' : "Application/JSON"
@@ -1736,7 +1737,7 @@ const [allorder,setallorders] = React.useState([])
 
     axios({
       method : "get",
-      url : `https://api.anteagle.tech/allwallet?userid=${localStorage.getItem("userid")}`,
+      url : `${process.env.REACT_APP_URL}/api/allwallet?userid=${localStorage.getItem("userid")}`,
       headers : {
         'Accept' : "application/json"
       }
@@ -1868,7 +1869,7 @@ const [allorder,setallorders] = React.useState([])
 
     axios({
       method:"post",
-      url : `https://api.anteagle.tech/getorder?userid=${localStorage.getItem("userid")}`,
+      url : `${process.env.REACT_APP_URL}/api/getorder?userid=${localStorage.getItem("userid")}`,
       headers:{
         'Accept' : 'application/json',
         Authtoken : "jkdhfjkdf"
@@ -1934,7 +1935,7 @@ const [allorder,setallorders] = React.useState([])
 
   axios({
     method : "get",
-    url : `https://api.anteagle.tech/bankdetails?userid=${localStorage.getItem("userid")}`,
+    url : `${process.env.REACT_APP_URL}/api/bankdetails?userid=${localStorage.getItem("userid")}`,
     headers : {
         'Accept' : "Application/json",
         'Content-type' : "Application/JSON"
@@ -4898,7 +4899,7 @@ const btcData = async () => {
       <Button disabled={!valid} style={{marginTop:"1rem"}} className="btn btn-success" onClick={()=>{
         axios({
           method:"POST",
-          url:"https://api.anteagle.tech/neworder",    
+          url:`${process.env.REACT_APP_URL}/api/neworder`,    
           headers:{
             "Accept": "application/json, text/plain, */*", // It can be used to overcome cors errors
             "Content-Type": "application/json",
@@ -4923,7 +4924,7 @@ const btcData = async () => {
            
                 axios({
                   method:"post",
-                  url : `https://api.anteagle.tech/get${curr.toLowerCase()}?coins=${tem}&userid=${localStorage.getItem("userid")}`,
+                  url : `${process.env.REACT_APP_URL}/api/get${curr.toLowerCase()}?coins=${tem}&userid=${localStorage.getItem("userid")}`,
                   headers:{
                     "Accept": "application/json",
                   }
@@ -4991,7 +4992,7 @@ const btcData = async () => {
       <Button disabled={!valid_s} style={{marginTop:"1rem"}} className="btn btn-dark" onClick={()=>{
         axios({
           method:"POST",
-          url:"https://api.anteagle.tech/neworder",
+          url:`${process.env.REACT_APP_URL}/api/neworder`,
           headers:{
             "Accept": "application/json, text/plain, */*", // It can be used to overcome cors errors
             "Content-Type": "application/json",
@@ -5014,7 +5015,7 @@ const btcData = async () => {
         var tem= parseFloat(localStorage.getItem(`${pair.substr(0,pair.indexOf('/'))}_Coins`))-parseFloat(sell_market_amount)
       axios({
         method:"post",
-        url : `https://api.anteagle.tech/get${pair.substr(0,pair.indexOf('/')).toLowerCase()}?coins=${tem}&userid=${localStorage.getItem("userid")}`,
+        url : `${process.env.REACT_APP_URL}/api/get${pair.substr(0,pair.indexOf('/')).toLowerCase()}?coins=${tem}&userid=${localStorage.getItem("userid")}`,
         headers:{
           "Accept": "application/json"
         }
@@ -10161,7 +10162,7 @@ else{
                  alert(`Are you sure that you want to place a buy market order for ${parseFloat(buy_limit_amount).toFixed(5)} ${pair.substr(0,pair.indexOf("/"))}_Coins`)
                 axios({
                   method:"POST",
-                  url:"https://api.anteagle.tech/neworder",    
+                  url:`${process.env.REACT_APP_URL}/api/neworder`,    
                   headers:{
                     "Accept": "application/json, text/plain, */*", // It can be used to overcome cors errors
                     "Content-Type": "application/json",
@@ -10202,7 +10203,7 @@ else{
             
                   axios({
                     method:"post",
-                    url : `https://api.anteagle.tech/get${curr.toLowerCase()}?coins=${end}&userid=${localStorage.getItem("userid")}`,
+                    url : `${process.env.REACT_APP_URL}/api/get${curr.toLowerCase()}?coins=${end}&userid=${localStorage.getItem("userid")}`,
                     headers:{
                       "Accept": "application/json",
                     }
@@ -10270,7 +10271,7 @@ else{
                  alert(`Are you sure that you want to place a buy market order for ${parseFloat(buy_market_amount).toFixed(5)} ${pair.substr(0,pair.indexOf("/"))}_Coins`)
                 axios({
                   method:"POST",
-                  url:"https://api.anteagle.tech/neworder",
+                  url:`${process.env.REACT_APP_URL}/api/neworder`,
                   headers:{
                     "Accept": "application/json, text/plain, */*", // It can be used to overcome cors errors
                     "Content-Type": "application/json",
@@ -10294,7 +10295,7 @@ else{
                
                 axios({
                   method:"post",
-                  url : `https://api.anteagle.tech/get${curr.toLowerCase()}?coins=${tem}&userid=${localStorage.getItem("userid")}`,
+                  url : `${process.env.REACT_APP_URL}/api/get${curr.toLowerCase()}?coins=${tem}&userid=${localStorage.getItem("userid")}`,
                   headers:{
                     "Accept": "application/json",
                   }
@@ -10370,7 +10371,7 @@ else{
                      alert(`Are you sure that you want to place a stop-limit buy order for ${parseFloat(stop_buy_amount).toFixed(5)} ${pair.substr(0,pair.indexOf("/"))}_Coins`)
                         axios({
                   method:"POST",
-                  url:"https://api.anteagle.tech/hit",
+                  url:`${process.env.REACT_APP_URL}/api/hit`,
                   headers:{
                     "Accept": "application/json, text/plain, */*", // It can be used to overcome cors errors
                     "Content-Type": "application/json",
@@ -10394,7 +10395,7 @@ else{
                
                 axios({
                   method:"post",
-                  url : `https://api.anteagle.tech/get${curr.toLowerCase()}?coins=${tem}&userid=${localStorage.getItem("userid")}`,
+                  url : `${process.env.REACT_APP_URL}/api/get${curr.toLowerCase()}?coins=${tem}&userid=${localStorage.getItem("userid")}`,
                   headers:{
                     "Accept": "application/json",
                   }
@@ -10507,7 +10508,7 @@ else{
                           alert(`Are you sure that you want to place a sell limit order for ${parseFloat(sell_limit_amount).toFixed(5)} ${pair.substr(0,pair.indexOf("/"))}_Coins`)       
                                 axios({
         method:"POST",
-        url:"https://api.anteagle.tech/neworder",
+        url:`${process.env.REACT_APP_URL}/api/neworder`,
         headers:{
           "Accept": "application/json, text/plain, */*", // It can be used to overcome cors errors
           "Content-Type": "application/json",
@@ -10531,7 +10532,7 @@ else{
       localStorage.setItem(`${curr}_Coins`,end)
       axios({
         method:"post",
-        url : `https://api.anteagle.tech/get${curr.toLowerCase()}?coins=${end}&userid=${localStorage.getItem("userid")}`,
+        url : `${process.env.REACT_APP_URL}/api/get${curr.toLowerCase()}?coins=${end}&userid=${localStorage.getItem("userid")}`,
         headers:{
           "Accept": "application/json",
         }
@@ -10600,7 +10601,7 @@ else{
                 alert(`Are you sure that you want to place a sell market order for ${parseFloat(sell_market_amount).toFixed(5)} ${pair.substr(0,pair.indexOf("/"))}_Coins`)
                 axios({
         method:"POST",
-        url:"https://api.anteagle.tech/neworder",
+        url:`${process.env.REACT_APP_URL}/api/neworder`,
         headers:{
           "Accept": "application/json, text/plain, */*",
           "Content-Type": "application/json",
@@ -10623,7 +10624,7 @@ else{
       var tem= parseFloat(localStorage.getItem(`${pair.substr(0,pair.indexOf('/'))}_Coins`))-parseFloat(sell_market_amount)
       axios({
         method:"post",
-        url : `https://api.anteagle.tech/get${pair.substr(0,pair.indexOf('/')).toLowerCase()}?coins=${tem}&userid=${localStorage.getItem("userid")}`,
+        url : `${process.env.REACT_APP_URL}/api/get${pair.substr(0,pair.indexOf('/')).toLowerCase()}?coins=${tem}&userid=${localStorage.getItem("userid")}`,
         headers:{
           "Accept": "application/json"
         }
@@ -10727,7 +10728,7 @@ else{
              alert(`Are you sure that you want to place a take-profit-market order for ${parseFloat(stopTake_sell_amount).toFixed(5)} ${pair.substr(0,pair.indexOf("/"))}_Coins`)      
              axios({
         method:"POST",
-        url:"https://api.anteagle.tech/hit",
+        url:`${process.env.REACT_APP_URL}/api/hit`,
         headers:{
           "Accept": "application/json, text/plain, */*", // It can be used to overcome cors errors
           "Content-Type": "application/json",
@@ -10754,7 +10755,7 @@ else{
       localStorage.setItem(`${curr}_Coins`,end)
       axios({
         method:"post",
-        url : `https://api.anteagle.tech/get${curr.toLowerCase()}?coins=${end}&userid=${localStorage.getItem("userid")}`,
+        url : `${process.env.REACT_APP_URL}/api/get${curr.toLowerCase()}?coins=${end}&userid=${localStorage.getItem("userid")}`,
         headers:{
           "Accept": "application/json",
         }
@@ -11075,7 +11076,7 @@ else{
     alert("Are you sure that you want to proceed with fulltrade")
  axios({
    method : "POST",
-   url : "https://api.anteagle.tech/full_trade",
+   url : `${process.env.REACT_APP_URL}/api/full_trade`,
    headers : {
      "Accept" : "application, text/plain, */*",
      "Content-Type" : "application/json"
@@ -11099,7 +11100,7 @@ else{
      
      axios({
        method:"post",
-       url : `https://api.anteagle.tech/get${c}?coins=${tem}&userid=${localStorage.getItem("userid")}`,
+       url : `${process.env.REACT_APP_URL}/api/get${c}?coins=${tem}&userid=${localStorage.getItem("userid")}`,
        headers:{
          "Accept": "application/json"
        }
@@ -11189,7 +11190,7 @@ else{
               alert(`Are you sure you want to place a stop-market order for ${fullStop_market_quantity} ${pair.substr(0,pair.indexOf("/"))}_Coins`)
        axios({
         method:"POST",
-        url:"https://api.anteagle.tech/hit",
+        url:`${process.env.REACT_APP_URL}/api/hit`,
         headers:{
           "Accept": "application/json, text/plain, */*", // It can be used to overcome cors errors
           "Content-Type": "application/json",
@@ -11217,7 +11218,7 @@ else{
       localStorage.setItem(`${curr}_Coins`,end)
       axios({
         method:"post",
-        url : `https://api.anteagle.tech/get${curr.toLowerCase()}?coins=${end}&userid=${localStorage.getItem("userid")}`,
+        url : `${process.env.REACT_APP_URL}/api/get${curr.toLowerCase()}?coins=${end}&userid=${localStorage.getItem("userid")}`,
         headers:{
           "Accept": "application/json",
         }
@@ -11302,7 +11303,7 @@ else{
             alert(`Are you sure that you want to place a stop-limit order for ${fullStop_limit_quantity} ${pair.substr(0,pair.indexOf("/"))}_Coins `)
                 axios({
         method:"POST",
-        url:"https://api.anteagle.tech/hit",
+        url:`${process.env.REACT_APP_URL}/api/hit`,
         headers:{
           "Accept": "application/json, text/plain, */*", // It can be used to overcome cors errors
           "Content-Type": "application/json",
@@ -11329,7 +11330,7 @@ else{
       localStorage.setItem(`${curr}_Coins`,end)
       axios({
         method:"post",
-        url : `https://api.anteagle.tech/get${curr.toLowerCase()}?coins=${end}&userid=${localStorage.getItem("userid")}`,
+        url : `${process.env.REACT_APP_URL}/api/get${curr.toLowerCase()}?coins=${end}&userid=${localStorage.getItem("userid")}`,
         headers:{
           "Accept": "application/json",
         }
@@ -11803,7 +11804,7 @@ else{
                   <td><Button title="Cancel" onClick={()=>{
                     axios({
                       method:'post',
-                      url : `https://api.anteagle.tech/cancel?userid=${localStorage.getItem("userid")}`,
+                      url : `${process.env.REACT_APP_URL}/api/cancel?userid=${localStorage.getItem("userid")}`,
                       headers:{
                         "Accept": "application/json, text/plain, */*",
                         'Content-type' : "application/json"
@@ -12338,7 +12339,7 @@ else{
                           // alert(tocurr)
                          
                           axios({
-                            url : `https://api.anteagle.tech/get${butnval.toLowerCase()}?coins=${temp}&userid=${localStorage.getItem("userid")}`,
+                            url : `${process.env.REACT_APP_URL}/api/get${butnval.toLowerCase()}?coins=${temp}&userid=${localStorage.getItem("userid")}`,
                             method : "POST",
                             headers:{
                               "Accept" : "Application/json",
@@ -12347,7 +12348,7 @@ else{
                           }).then(res=>{
                             axios({
                               method : 'post',                            
-                              url : `https://api.anteagle.tech/get${to.toLowerCase()}?coins=${temp1}&userid=${localStorage.getItem("userid")}`,
+                              url : `${process.env.REACT_APP_URL}/api/get${to.toLowerCase()}?coins=${temp1}&userid=${localStorage.getItem("userid")}`,
                               headers:{
                                 "Accept" : "Application/json",
                                 'Content-type' : "application/json"
@@ -12415,7 +12416,7 @@ else{
                    if(wallet.length > 0 && amount.length > 0 && currency.length > 0){
                   axios({
                     method:"post",
-                    url : `https://api.anteagle.tech/requestcrypto?walletaddress=${wallet}&coins=${amount}&type=withdraw&currency=${currency}`,
+                    url : `${process.env.REACT_APP_URL}/api/requestcrypto?walletaddress=${wallet}&coins=${amount}&type=withdraw&currency=${currency}`,
                     headers: {
                       'Accept' : 'Application/json',
                       'Content-type' : "application/json"

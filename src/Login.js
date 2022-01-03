@@ -65,27 +65,27 @@ function App() {
           tl.restart();
         }
   });
- useEffect(()=>{
-  axios({
-    url : 'https://api.anteagle.tech/api/allusers',
-    method :"get",
-    headers:{
-      'Accept' : "application/json"
-    },  
-  }).then(res=>{
-      console.log(res)
-      var temp1 = []
-      var temp2 = []
-     for(let i=0;i<res.data.data.length;i++){
-       temp1.push(res.data.data[i].username)
-       temp2.push(res.data.data[i].email)
-     }
-     setusername(...username,temp1)
-     setemails(...emails,temp2)
-  }
-  )
+//  useEffect(()=>{
+//   axios({
+//     url : `${process.env.REACT_APP_URL}/api/allusers`,
+//     method :"get",
+//     headers:{
+//       'Accept' : "application/json"
+//     },  
+//   }).then(res=>{
+//       console.log(res)
+//       var temp1 = []
+//       var temp2 = []
+//      for(let i=0;i<res.data.data.length;i++){
+//        temp1.push(res.data.data[i].username)
+//        temp2.push(res.data.data[i].email)
+//      }
+//      setusername(...username,temp1)
+//      setemails(...emails,temp2)
+//   }
+//   )
 
- },[]) 
+//  },[]) 
 
   return (
     <>
@@ -121,7 +121,7 @@ function App() {
         <button disabled={signup_password == signup_password_conf ? false : true} style={{marginBottom:"20px"}} className="btn btn-primary btn-block btn-large" type="submit" onClick={()=>{
         //    if((emails.find(ele => ele == signup_email) == null) && (username.find(ele => ele == signup_username) == null)){
         //     axios({
-        //         url : `https://api.anteagle.tech/api/register?username=${signup_username}&password=${signup_password}&email=${signup_email}`,
+        //         url : `${process.env.REACT_APP_URL}/api/register?username=${signup_username}&password=${signup_password}&email=${signup_email}`,
         //         headers:{
         //           'Accept' : "application/json"
         //         },
@@ -146,9 +146,9 @@ function App() {
         // else{
         //     swal("Already Registered","This Email Address or username is already registered, please choose another","warning")   
         // }
-            const url = "https://api.anteagle.tech/api/register"
+            const url = `${process.env.REACT_APP_URL}/api/register`
             const data = {
-              name:signup_username,
+              username:signup_username,
               email:signup_email,
               password:signup_password
             }
@@ -199,7 +199,7 @@ function App() {
         }}/>
         <button className="btn btn-primary btn-block btn-large" type="submit" style={{marginBottom:"2rem"}} onClick={()=>{
           // axios({
-          //   url : `https://api.anteagle.tech/api/login?username=${login_username}&password=${login_password}`,
+          //   url : `${process.env.REACT_APP_URL}/api/login?username=${login_username}&password=${login_password}`,
           //   headers:{
           //     'Accept' : "aaplication/json"
           //   },
@@ -245,7 +245,7 @@ function App() {
           //     swal("Error","Invalid username or Password please try agin","error")
           //   }
           // })
-         const url = "https://api.anteagle.tech/api/login"
+         const url = `${process.env.REACT_APP_URL}/api/login`
          const data = {
            email:login_username,
            password:login_password
@@ -317,7 +317,7 @@ function App() {
         
         axios({
                     method : "post",
-                    url : `https://api.anteagle.tech/forgot?email=${email}`,
+                    url : `${process.env.REACT_APP_URL}/forgot?email=${email}`,
                     headers : {
                         'Accept' : "Application/Json",
                         'Content-type' :"application/json"
@@ -369,7 +369,7 @@ function App() {
               else{
                 axios({
                     method : "post",
-                    url : `https://api.anteagle.tech/edit_pass?password=${password}&userid=${localStorage.getItem("userid")}`,
+                    url : `${process.env.REACT_APP_URL}/edit_pass?password=${password}&userid=${localStorage.getItem("userid")}`,
                     headers : {
                         "Accept" : "Application/json",
                         "Content-type" : "application/json"

@@ -216,7 +216,7 @@ function App() {
                   axios
                     .post(url, data)
                     .then((res) => {
-                      if (res.data.success) {
+                      if (res.data) {
                         swal(
                           "Registered Successfully",
                           "Sigin First",
@@ -311,7 +311,7 @@ function App() {
               <input
                 type="text"
                 name="u"
-                placeholder="Username"
+                placeholder="Email"
                 required="required"
                 onChange={(e) => {
                   set_login_username(e.target.value);

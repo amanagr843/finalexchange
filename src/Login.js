@@ -387,7 +387,7 @@ function App() {
                     .post(url, data)
                     .then((res) => {
                       console.log(res.data);
-                      if (res.data.success) {
+                      if (res.data) {
                         localStorage.setItem("jwt", res.data.token);
                         localStorage.setItem("username", res.data.user.name);
                         localStorage.setItem("BTC_Coins", res.data.BTC_Coins);
@@ -436,6 +436,8 @@ function App() {
                         localStorage.setItem("userid", res.data.user._id);
                         localStorage.setItem("chat", res.data.chat);
                         window.location = "/";
+
+                        swal("Login Successfull","Proceeding to Home Page","success")
                       } else {
                         swal(
                           "Error",
